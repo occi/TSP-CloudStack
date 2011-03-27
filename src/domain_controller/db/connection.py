@@ -1,4 +1,3 @@
-__author__ = 'jordan'
   # -*- Mode: python; py-indent-offset: 4; indent-tabs-mode: nil; coding: utf-8; -*-
 
 # Copyright 2011 Institut Telecom - Telecom SudParis.
