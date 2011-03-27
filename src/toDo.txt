@@ -1,0 +1,4 @@
+DB model -- Cassandra --pyCassa
+message exchange model -- AMQP
+REST Interfaces
+Vyatta
