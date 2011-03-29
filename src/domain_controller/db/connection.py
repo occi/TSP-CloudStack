@@ -1,4 +1,4 @@
-  # -*- Mode: python; py-indent-offset: 4; indent-tabs-mode: nil; coding: utf-8; -*-
+# -*- Mode: python; py-indent-offset: 4; indent-tabs-mode: nil; coding: utf-8; -*-
 
 # Copyright 2011 Institut Telecom - Telecom SudParis.
 # All Rights Reserved.
@@ -31,12 +31,12 @@ import pycassa
 from pycassa.system_manager import SystemManager
 
 
-""" Loading the logging configuration file """
+# Loading the logging configuration file
 logging.config.fileConfig("../../CloNeLogging.conf")
-""" getting the Logger """
+# getting the Logger
 logger = logging.getLogger("CloNeLogging")
 
-""" The IP Address of the Database. In CloNe's domain controller, it should be localhost/127.0.0.1"""
+# The IP Address of the Database. In CloNe's domain controller, it should be localhost/127.0.0.1
 config = ConfigObj("db.conf")
 DB_IP = config['DB_IP']
 DB_PORT = config['DB_PORT']
@@ -45,7 +45,7 @@ class CassandraDbSysManager:
     def __init__(self):
         try:
             logger.info("Connection to " + DB_IP + ":" + DB_PORT+ " ...")
-            self.sys = SystemManager(DB_IP + ":" + DB_PORT)
+            self.sysDB = SystemManager(DB_IP + ":" + DB_PORT)
             logger.info("Connection to the systemManager established.")
         except Exception as exep:
             logger.warning("Could not connect to the DB '" + DB_IP + ":" + DB_PORT + "'. | " + str(exep))
@@ -54,7 +54,7 @@ class CassandraDbSysManager:
     def create_keyspace(self, KeyspaceName, replica_factor):
         try:
             logger.info("Creating the Keyspace '" + KeyspaceName + "' with replica_factor '" + str(replica_factor) + "'")
-            self.sys.create_keyspace(KeyspaceName, replica_factor)
+            self.sysDB.create_keyspace(KeyspaceName, replica_factor)
             logger.info("Keyspace created.")
         except Exception as exep:
             logger.warning("Could not create the keyspace '" + KeyspaceName + "'. | " + str(exep))
@@ -62,7 +62,7 @@ class CassandraDbSysManager:
     def drop_keyspace(self, KeyspaceName):
         try:
             logger.info("Dropping the Keyspace '" + KeyspaceName + "'")
-            self.sys.drop_keyspace(KeyspaceName)
+            self.sysDB.drop_keyspace(KeyspaceName)
             logger.info("Keyspace dropped.")
         except Exception as exep:
             logger.warning("Could not drop the keyspace '" + KeyspaceName + "'. | " + str(exep))
@@ -70,7 +70,7 @@ class CassandraDbSysManager:
     def create_column_family(self, KeyspaceName, columnFamily):
         try:
             logger.info("Creating the Column family '" + columnFamily + "' into the keyspace '" + KeyspaceName + "'")
-            self.sys.create_column_family(KeyspaceName, columnFamily, super=False, comparator_type=pycassa.system_manager.ASCII_TYPE)
+            self.sysDB.create_column_family(KeyspaceName, columnFamily, super=False, comparator_type=pycassa.system_manager.ASCII_TYPE)
             logger.info("Column Family created.")
         except Exception as exep:
             logger.warning("Could not create the Column Family '" + columnFamily + "' into the keyspace '" + KeyspaceName + "'. | " + str(exep))
@@ -78,7 +78,7 @@ class CassandraDbSysManager:
     def drop_column_family(self, KeyspaceName, columnFamily):
         try:
             logger.info("Dropping the Column Family '" + columnFamily + "' from the Keyspace '" + KeyspaceName + "'")
-            self.sys.drop_column_family(KeyspaceName, columnFamily)
+            self.sysDB.drop_column_family(KeyspaceName, columnFamily)
             logger.info("Column Family dropped.")
         except Exception as exep:
             logger.warning("Could not drop the column family '" + columnFamily + "'. | " + str(exep))
