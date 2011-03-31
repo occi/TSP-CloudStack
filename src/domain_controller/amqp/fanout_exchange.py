@@ -24,67 +24,40 @@ Created on Feb 25, 2011
 @version: 0.1
 @license: Apache License, Version 2.0
 '''
-
 import logging.config
-from configobj import ConfigObj
-
-from kombu.connection import BrokerConnection
 from kombu.messaging import Exchange, Queue, Consumer, Producer
+import connection_amqp
 
 # Loading the logging configuration file
 logging.config.fileConfig("../../CloNeLogging.conf")
 # getting the Logger
 logger = logging.getLogger("CloNeLogging")
 
-config = ConfigObj("amqp.conf")
-AMQP_IP = config['AMQP_IP']
-AMQP_PORT = config['AMQP_PORT']
-AMQP_USER = config['AMQP_USER']
-AMQP_PASSWORD = config['AMQP_PASSWORD']
+class fanout_exchange:
 
-
-class RabbitMQConnection:
     def __init__(self):
-        try:
-            print "d"
-        except Exception as exep:
-            logger.warning("Could not connect to the AMQP broker. | '"  + str(exep))
+        rabbitCon = connection_amqp.RabbitMQConnection()
+        self.connection = rabbitCon.connection()
+        self.channel = self.connection.channel()
+
+        self.media_exchange = Exchange("ex1", type="fanout", durable=True)
 
     def producer(self):
-        self.media_exchange = Exchange("media", "direct", durable=True)
-        self.video_queue = Queue("video", exchange=self.media_exchange, key="video")
-
-        self.connection = BrokerConnection(hostname=AMQP_IP, port=5672,
-                                          userid=AMQP_USER, password=AMQP_PASSWORD,
-                                          virtual_host="/",
-                                          transport="amqplib")
-        self.channel = self.connection.channel()
-        # produce
         producer = Producer(self.channel, exchange=self.media_exchange, serializer="json")
-        producer.publish({"name": "/tmp/lolcat1.avi", "size": 1301013})
+        #producer.exchange.delete()
+        producer.publish({"name": "/tmp/lolcat1.avi", "size": 1301013}, routing_key='a')
+        pass
 
-        print self.connection.get_transport_cls()
-        
-    def consumer(self):
-        self.media_exchange = Exchange("media", "direct", durable=True)
-        self.video_queue = Queue("video", exchange=self.media_exchange, key="video")
+    def consumer(self, queue_name):
+        video_queue = Queue(queue_name, exchange=self.media_exchange, routing_key='a')
 
-        self.connection = BrokerConnection(hostname=AMQP_IP, port=5672,
-                                          userid=AMQP_USER, password=AMQP_PASSWORD,
-                                          virtual_host="/")
-        self.channel = self.connection.channel()
-
-
-
-        # consume
-        consumer = Consumer(self.channel, self.video_queue)
+        consumer = Consumer(self.channel, video_queue)
         consumer.register_callback(self.process_media)
         consumer.consume()
         # Process messages on all channels
         while True:
             self.connection.drain_events()
-
-
+        pass
 
     def process_media(self, message_data, message):
         feed_url = message_data["name"]
@@ -93,6 +66,7 @@ class RabbitMQConnection:
         # import_feed(feed_url)
         message.ack()
 
+    pass
 
 if __name__ == '__main__':
     pass

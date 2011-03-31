@@ -25,24 +25,5 @@ Created on Feb 25, 2011
 @license: Apache License, Version 2.0
 '''
 
-import logging.config
-from configobj import ConfigObj
-from carrot.connection import BrokerConnection
-from carrot.messaging import Publisher
-
-logging.config.fileConfig("../../CloNeLogging.conf")
-logger = logging.getLogger("CloNeLogging")
-
-config = ConfigObj("amqp.conf")
-AMQP_IP = config['AMQP_IP']
-AMQP_PORT = config['AMQP_PORT']
-AMQP_USER = config['AMQP_USER']
-AMQP_PASSWORD = config['AMQP_PASSWORD']
-
-conn = BrokerConnection(hostname=AMQP_IP, port=AMQP_PORT,
-                           userid=AMQP_USER, password=AMQP_PASSWORD,
-                           virtual_host="/")
-
-publisher = Publisher(connection=conn, exchange="feed", routing_key="importer")
-publisher.send({"import_feed": "http://cnn.com/rss/edition.rss"})
-publisher.close()
+if __name__ == '__main__':
+    pass
