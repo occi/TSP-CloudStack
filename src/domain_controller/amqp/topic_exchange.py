@@ -24,6 +24,47 @@ Created on Feb 25, 2011
 @version: 0.1
 @license: Apache License, Version 2.0
 '''
+import logging.config
+from kombu.messaging import Exchange, Queue, Consumer, Producer
+import connection_amqp
+
+# Loading the logging configuration file
+logging.config.fileConfig("../../CloNeLogging.conf")
+# getting the Logger
+logger = logging.getLogger("CloNeLogging")
+
+class fanout_exchange:
+
+    def __init__(self, exchange_name):
+        rabbitCon = connection_amqp.RabbitMQConnection()
+        self.connection = rabbitCon.connection()
+        self.channel = self.connection.channel()
+
+        self.media_exchange = Exchange(exchange_name, type="topic", durable=True)
+
+    def producer(self):
+        producer = Producer(self.channel, exchange=self.media_exchange, serializer="json")
+        #producer.exchange.delete()
+        producer.publish({"name": "/tmp/lolcat1.avi", "size": 1301013})
+        pass
+
+    def consumer(self, queue_name):
+        video_queue = Queue(queue_name, exchange=self.media_exchange)
+
+        consumer = Consumer(self.channel, video_queue)
+        consumer.register_callback(self.process_media)
+        consumer.consume()
+        # Process messages on all channels
+        while True:
+            self.connection.drain_events()
+        pass
+
+    def process_media(self, message_data, message):
+        feed_url = message_data["name"]
+        print ("Got feed import message for: %s" % feed_url)
+        # something importing this feed url
+        # import_feed(feed_url)
+        message.ack()
 
 if __name__ == '__main__':
     pass

@@ -35,21 +35,21 @@ logger = logging.getLogger("CloNeLogging")
 
 class fanout_exchange:
 
-    def __init__(self):
+    def __init__(self, exchange_name):
         rabbitCon = connection_amqp.RabbitMQConnection()
         self.connection = rabbitCon.connection()
         self.channel = self.connection.channel()
 
-        self.media_exchange = Exchange("ex1", type="fanout", durable=True)
+        self.media_exchange = Exchange(exchange_name, type="fanout", durable=True)
 
     def producer(self):
         producer = Producer(self.channel, exchange=self.media_exchange, serializer="json")
         #producer.exchange.delete()
-        producer.publish({"name": "/tmp/lolcat1.avi", "size": 1301013}, routing_key='a')
+        producer.publish({"name": "/tmp/lolcat1.avi", "size": 1301013})
         pass
 
     def consumer(self, queue_name):
-        video_queue = Queue(queue_name, exchange=self.media_exchange, routing_key='a')
+        video_queue = Queue(queue_name, exchange=self.media_exchange)
 
         consumer = Consumer(self.channel, video_queue)
         consumer.register_callback(self.process_media)
@@ -65,8 +65,6 @@ class fanout_exchange:
         # something importing this feed url
         # import_feed(feed_url)
         message.ack()
-
-    pass
 
 if __name__ == '__main__':
     pass
