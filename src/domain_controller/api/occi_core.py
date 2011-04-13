@@ -44,7 +44,7 @@ class category(object):
         self.attributes = []
 
     def __repr__(self):
-        return self.scheme + "#" + self.term
+        return "identifier: " + self.scheme + "#" + self.term
 
 class kind(category):
     """
@@ -87,21 +87,41 @@ class mixin(category):
         self.entities = []
 
 
+class action(object):
+    """
+
+    The Action type is an abstract type. Each sub-type of Action defines an invocable
+        operation applicable to an Entity sub-type instance or a collection thereof.
+
+    """
+    __category_instance = category()
+    __category_instance.term = 'action'
+    __category_instance.scheme = 'http://schemas.ogf/occi/core'
+    __category_instance.title = 'Action'
+    __category_instance.attributes = []
+
+    def __init__(self):
+        self.category = self.__category_instance
+
+    def __repr__(self):
+        return "identifier: " + self.category.scheme + '#' + self.category.term
+
+
 class entity(object):
     """
 
     The Entity type is an abstract type of the Resource type and the Link type.
 
     """
-    kind_instance = kind()
-    kind_instance.term = 'entity'
-    kind_instance.scheme = 'http://schemas.ogf/occi/core'
-    kind_instance.title = 'Entity type'
-    kind_instance.attributes = ['id', 'title']
-    kind_instance.actions = []
-    kind_instance.related = []
-    kind_instance.entity_type = ''
-    kind_instance.entities = []
+    _entity_kind = kind()
+    _entity_kind.term = 'entity'
+    _entity_kind.scheme = 'http://schemas.ogf/occi/core'
+    _entity_kind.title = 'Entity type'
+    _entity_kind.attributes = ['id', 'title']
+    _entity_kind.actions = []
+    _entity_kind.related = []
+    _entity_kind.entity_type = ''
+    _entity_kind.entities = []
 
     def __init__(self):
         # A unique identifier (within the service provider's name-space) of the Entity sub-type instance.
@@ -109,12 +129,14 @@ class entity(object):
         # The display name of the instance.
         self.title = ''
         # The Kind instance uniquely identifying the Entity sub-type of the resource instance.
-        self.kind = self.kind_instance
+        self.kind = self._entity_kind
         # The Mixin instances associated to this resource instance.
         # Consumers can expect the attributes and Actions of the associated Mixins to be exposed byt the instance.
         self.mixins = []
         
-
+    def __repr__(self):
+        return "identifier: " + self.id
+    
 class resource(entity):
     """
 
@@ -123,15 +145,16 @@ class resource(entity):
         through specialisation
 
     """
-    kind_instance = kind()
-    kind_instance.term = 'resource'
-    kind_instance.scheme = 'http://schemas.ogf/occi/core'
-    kind_instance.title = 'Resource'
-    kind_instance.attributes = ['summary']
-    kind_instance.actions = []
-    kind_instance.related = [entity.kind_instance]
-    kind_instance.entity_type = ''
-    kind_instance.entities = []
+    __resource_kind = kind()
+    __resource_kind.term = 'resource'
+    __resource_kind.scheme = 'http://schemas.ogf/occi/core'
+    __resource_kind.title = 'Resource'
+    __resource_kind.attributes = ['summary']
+    __resource_kind.actions = []
+    # Why here I can't put just entity.kind!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    __resource_kind.related = [entity._entity_kind]
+    __resource_kind.entity_type = ''
+    __resource_kind.entities = []
 
     def __init__(self):
         super(resource, self).__init__()
@@ -139,7 +162,7 @@ class resource(entity):
         self.summary = ''
         # a set of Link compositions.
         self.links = []
-        self.kind = self.kind_instance
+        self.kind = self.__resource_kind
 
 class link(entity):
     """
@@ -148,15 +171,16 @@ class link(entity):
     A Link instance indicates that one Resource instance is connected to another.
 
     """
-    kind_instance = kind()
-    kind_instance.term = 'link'
-    kind_instance.scheme = 'http://schemas.ogf/occi/core'
-    kind_instance.title = 'Link'
-    kind_instance.attributes = ['source', 'target']
-    kind_instance.actions = []
-    kind_instance.related = [entity.kind_instance]
-    kind_instance.entity_type = ''
-    kind_instance.entities = []
+    __link_kind = kind()
+    __link_kind.term = 'link'
+    __link_kind.scheme = 'http://schemas.ogf/occi/core'
+    __link_kind.title = 'Link'
+    __link_kind.attributes = ['source', 'target']
+    __link_kind.actions = []
+    # Why here I can't put just entity.kind!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    __link_kind.related = [entity._entity_kind]
+    __link_kind.entity_type = ''
+    __link_kind.entities = []
 
     def __init__(self):
         super(link, self).__init__()
@@ -164,23 +188,8 @@ class link(entity):
         self.source = ''
         # The Resource instances the Link instance points to.
         self.target = ''
-        self.kind = self.kind_instance
+        self.kind = self.__link_kind
 
-class action(object):
-    """
 
-    The Action type is an abstract type. Each sub-type of Action defines an invocable
-        operation applicable to an Entity sub-type instance or a collection thereof.
-
-    """
-    category_instance = category()
-    category_instance.term = 'action'
-    category_instance.scheme = 'http://schemas.ogf/occi/core'
-    category_instance.title = 'Action'
-    category_instance.attributes = []
-
-    def __init__(self):
-        self.category = self.category_instance
-        
 if __name__ == '__main__':
     pass
