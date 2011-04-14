@@ -33,7 +33,7 @@ logging.config.fileConfig("../../CloNeLogging.conf")
 # getting the Logger
 logger = logging.getLogger("CloNeLogging")
 
-class fanout_exchange:
+class topic_exchange:
 
     def __init__(self, exchange_name):
         rabbitCon = connection_amqp.RabbitMQConnection()
