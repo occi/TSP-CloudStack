@@ -1,30 +1,30 @@
 # -*- Mode: python; py-indent-offset: 4; indent-tabs-mode: nil; coding: utf-8; -*-
 
-# Copyright 2011 Institut Telecom - Telecom SudParis.
-# All Rights Reserved.
+# Copyright (C) 2011 Houssem Medhioub - Institut Telecom
 #
-#    Licensed under the Apache License, Version 2.0 (the "License"); you may
-#    not use this file except in compliance with the License. You may obtain
-#    a copy of the License at
+# This file is part of CloNeDCP.
 #
-#         http://www.apache.org/licenses/LICENSE-2.0
+# CloNeDCP is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Lesser General Public License as
+# published by the Free Software Foundation, either version 3 of
+# the License, or (at your option) any later version.
 #
-#    Unless required by applicable law or agreed to in writing, software
-#    distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
-#    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
-#    License for the specific language governing permissions and limitations
-#    under the License.
+# CloNeDCP is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Lesser General Public License for more details.
+#
+# You should have received a copy of the GNU Lesser General Public License
+# along with CloNeDCP.  If not, see <http://www.gnu.org/licenses/>.
 
 '''
-occi_core module implements the OCCI Core Model
-
 Created on Feb 25, 2011
 
 @author: Houssem Medhioub
 @contact: houssem.medhioub@it-sudparis.eu
 @organization: Institut Telecom - Telecom SudParis
 @version: 0.1
-@license: Apache License, Version 2.0
+@license: LGPL - Lesser General Public License
 '''
 
 class category(object):
@@ -33,18 +33,19 @@ class category(object):
     The category type is the basis of the type identification mechanism used by the OCCI classification system.
 
     """
-    def __init__(self):
+    def __init__(self, term, scheme, title = '', attributes = []):
         # Unique identifier of the category instance within the categorisation scheme
-        self.term = ''
+        self.term = term
         # The categorisation scheme 
-        self.scheme = ''
+        self.scheme = scheme
         # The display name of an instance
-        self.title = ''
+        self.title = title
         # The set of resource attribute names defined by the category instance
-        self.attributes = []
+        self.attributes = attributes
 
     def __repr__(self):
         return "identifier: " + self.scheme + "#" + self.term
+
 
 class kind(category):
     """
@@ -53,17 +54,17 @@ class kind(category):
     The Kind type represents the type identification mechanism for all Entity types present in the model.
 
     """
-    def __init__(self):
-        super(kind, self).__init__()
+    def __init__(self, term, scheme, entity_type, title = '', attributes = [], actions = [], related = [], entities = []):
+        super(kind, self).__init__(term = term, scheme = scheme, title = title, attributes = attributes)
         # set of actions defined by the Kind instance
-        self.actions = []
+        self.actions = actions
         # set of related Kind instances
-        self.related = []
+        self.related = related
         # Entity type uniquely identified by the Kind instance
-        self.entity_type = ''
+        self.entity_type = entity_type
         # set of resource instances, i.e. Entity sub-type instances.
         # Resources instantiated from the Entity sub-type which is uniquely identified by this Kind instance.
-        self.entities = []
+        self.entities = entities
 
 
 class mixin(category):
@@ -77,14 +78,14 @@ class mixin(category):
         be applied to a type.
 
     """
-    def __init__(self):
-        super(mixin, self).__init__()
+    def __init__(self, term, scheme, title = '', attributes = [], actions = [], related = [], entities = []):
+        super(mixin, self).__init__(term = term, scheme = scheme, title = title, attributes = attributes)
         # set of actions defined by the Mixin instance
-        self.actions = []
+        self.actions = actions
         # set of related Mixin instances
-        self.related = []
+        self.related = related
         # set of resource instances, i.e. Entity sub-type instances, associated with the Mixin instance.
-        self.entities = []
+        self.entities = entities
 
 
 class action(object):
@@ -94,14 +95,16 @@ class action(object):
         operation applicable to an Entity sub-type instance or a collection thereof.
 
     """
-    __category_instance = category()
-    __category_instance.term = 'action'
-    __category_instance.scheme = 'http://schemas.ogf/occi/core'
-    __category_instance.title = 'Action'
-    __category_instance.attributes = []
 
-    def __init__(self):
-        self.category = self.__category_instance
+    # The category instance assigned to the action type
+    __category_instance = category(term = 'action',
+                                   scheme = 'http://schemas.ogf/occi/core',
+                                   title = 'Action',
+                                   attributes = [])
+
+    def __init__(self, category):
+        self.category = category or self.__category_instance
+
 
     def __repr__(self):
         return "identifier: " + self.category.scheme + '#' + self.category.term
@@ -113,30 +116,31 @@ class entity(object):
     The Entity type is an abstract type of the Resource type and the Link type.
 
     """
-    _entity_kind = kind()
-    _entity_kind.term = 'entity'
-    _entity_kind.scheme = 'http://schemas.ogf/occi/core'
-    _entity_kind.title = 'Entity type'
-    _entity_kind.attributes = ['id', 'title']
-    _entity_kind.actions = []
-    _entity_kind.related = []
-    _entity_kind.entity_type = ''
-    _entity_kind.entities = []
 
-    def __init__(self):
+    # The kind instance assigned to the entity type
+    _entity_kind = kind(term = 'entity',
+                        scheme = 'http://schemas.ogf/occi/core',
+                        entity_type = '',
+                        title = 'Entity type',
+                        attributes = ['id', 'title'],
+                        actions = [],
+                        related = [],
+                        entities = [])
+
+    def __init__(self, id, kind, title = '', mixins = []):
         # A unique identifier (within the service provider's name-space) of the Entity sub-type instance.
-        self.id = ''
+        self.id = id
         # The display name of the instance.
-        self.title = ''
+        self.title = title
         # The Kind instance uniquely identifying the Entity sub-type of the resource instance.
-        self.kind = self._entity_kind
+        self.kind = kind or self._entity_kind
         # The Mixin instances associated to this resource instance.
         # Consumers can expect the attributes and Actions of the associated Mixins to be exposed byt the instance.
-        self.mixins = []
-        
+        self.mixins = mixins
+
     def __repr__(self):
         return "identifier: " + self.id
-    
+
 class resource(entity):
     """
 
@@ -145,24 +149,23 @@ class resource(entity):
         through specialisation
 
     """
-    __resource_kind = kind()
-    __resource_kind.term = 'resource'
-    __resource_kind.scheme = 'http://schemas.ogf/occi/core'
-    __resource_kind.title = 'Resource'
-    __resource_kind.attributes = ['summary']
-    __resource_kind.actions = []
-    # Why here I can't put just entity.kind!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    __resource_kind.related = [entity._entity_kind]
-    __resource_kind.entity_type = ''
-    __resource_kind.entities = []
 
-    def __init__(self):
-        super(resource, self).__init__()
+    # The kind instance assigned to the resource type
+    _resource_kind = kind(term = 'resource',
+                           scheme = 'http://schemas.ogf/occi/core',
+                           entity_type = '',
+                           title = 'Resource',
+                           attributes = ['summary'],
+                           actions = [],
+                           related = [entity._entity_kind],
+                           entities = [])
+
+    def __init__(self, id, kind, title = '', mixins = [], summary = '', links = []):
+        super(resource, self).__init__(id = id, kind = kind or self._resource_kind, title = title, mixins = mixins)
         # A summarising description of the Resource instance
-        self.summary = ''
+        self.summary = summary
         # a set of Link compositions.
-        self.links = []
-        self.kind = self.__resource_kind
+        self.links = links
 
 class link(entity):
     """
@@ -171,25 +174,23 @@ class link(entity):
     A Link instance indicates that one Resource instance is connected to another.
 
     """
-    __link_kind = kind()
-    __link_kind.term = 'link'
-    __link_kind.scheme = 'http://schemas.ogf/occi/core'
-    __link_kind.title = 'Link'
-    __link_kind.attributes = ['source', 'target']
-    __link_kind.actions = []
-    # Why here I can't put just entity.kind!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    __link_kind.related = [entity._entity_kind]
-    __link_kind.entity_type = ''
-    __link_kind.entities = []
 
-    def __init__(self):
-        super(link, self).__init__()
+    # The kind instance assigned to the link type
+    _link_kind = kind(term = 'link',
+                       scheme = 'http://schemas.ogf/occi/core',
+                       entity_type = '',
+                       title = 'Link',
+                       attributes = ['source', 'target'],
+                       actions = [],
+                       related = [entity._entity_kind],
+                       entities = [])
+
+    def __init__(self, id, kind, source, target, title = '', mixins = []):
+        super(link, self).__init__(id = id, kind = kind or self._link_kind, title = title, mixins = mixins)
         # The Resource instances the Link instance originates from.
-        self.source = ''
+        self.source = source
         # The Resource instances the Link instance points to.
-        self.target = ''
-        self.kind = self.__link_kind
-
+        self.target = target
 
 if __name__ == '__main__':
     pass

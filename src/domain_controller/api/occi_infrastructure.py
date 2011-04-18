@@ -1,33 +1,35 @@
 # -*- Mode: python; py-indent-offset: 4; indent-tabs-mode: nil; coding: utf-8; -*-
 
-# Copyright 2011 Institut Telecom - Telecom SudParis.
-# All Rights Reserved.
+# Copyright (C) 2011 Houssem Medhioub - Institut Telecom
 #
-#    Licensed under the Apache License, Version 2.0 (the "License"); you may
-#    not use this file except in compliance with the License. You may obtain
-#    a copy of the License at
+# This file is part of CloNeDCP.
 #
-#         http://www.apache.org/licenses/LICENSE-2.0
+# CloNeDCP is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Lesser General Public License as
+# published by the Free Software Foundation, either version 3 of
+# the License, or (at your option) any later version.
 #
-#    Unless required by applicable law or agreed to in writing, software
-#    distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
-#    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
-#    License for the specific language governing permissions and limitations
-#    under the License.
+# CloNeDCP is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Lesser General Public License for more details.
+#
+# You should have received a copy of the GNU Lesser General Public License
+# along with CloNeDCP.  If not, see <http://www.gnu.org/licenses/>.
 
 '''
-occi_infrastructure module contains the definition of the OCCI Infrastructure extension for the IaaS domain.
-
 Created on Feb 25, 2011
 
 @author: Houssem Medhioub
 @contact: houssem.medhioub@it-sudparis.eu
 @organization: Institut Telecom - Telecom SudParis
 @version: 0.1
-@license: Apache License, Version 2.0
+@license: LGPL - Lesser General Public License
 '''
 
-from occi_core import kind, resource, link
+from occi_core import category, kind, resource, link, action
+from enum import Enum
+
 
 class compute(resource):
     """
@@ -36,13 +38,31 @@ class compute(resource):
     Compute inherits the Resource base type defined in OCCI Core Model
 
     """
+    # Enumeration for CPU Architecture of the instance
+    __cpu_architecture = Enum('x86', 'x64')
+    # Enumeration for current state of the instance
+    __vm_state = Enum('active', 'inactive', 'suspended')
+
+    # The list of actions (start, stop, restart and suspend)
+    action_start = action()
+    __action_start_category = category()
+
     def __init__(self):
         super(compute, self).__init__()
-#        
-#    kind = kind()
-    pass
+        # CPU architecture of the instance
+        self.architecture = self.__cpu_architecture.x86
+        # Number of CPU cores assigned to the instance
+        self.cores = 0
+        # Fully Qualified DNS hostname for the instance
+        self.hostname = ''
+        # CPU Clock frequency (speed) in gigahertz
+        self.speed = 1,2
+        # Maximum RAM in gigabytes allocated to the instance
+        self.memory = 128
+        # Current state of the instance
+        self.state = self.__vm_state.inactive
 
 if __name__ == '__main__':
     c = compute()
-    print c._kind_instance
+    print c.action_start
     pass
