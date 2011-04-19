@@ -407,12 +407,12 @@ class resource_tpl(mixin):
 
     def __init__(self):
         super(resource_tpl, self).__init__(term='resource_tpl',
-                                     scheme='http://schemas.ogf.org/occi/infrastructure',
-                                     title='OCCI resource template',
-                                     attributes=(),
-                                     actions=(),
-                                     related=(),
-                                     entities=[])
+                                           scheme='http://schemas.ogf.org/occi/infrastructure',
+                                           title='OCCI resource template',
+                                           attributes=(),
+                                           actions=(),
+                                           related=(),
+                                           entities=[])
         pass
 
 if __name__ == '__main__':
