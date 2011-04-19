@@ -316,23 +316,29 @@ class ip_networking(mixin):
     """
 
     # Enumeration for the address allocation mechanism
-    _storage_link_state = Enum('dynamic', 'static')
+    _ip_networking_state = Enum('dynamic', 'static')
 
-    # The mixin instance assigned to the ip_network
-    _ip_networking_mixin = mixin(term='ipnetwork',
-                                 scheme='http://schemas.ogf.org/occi/infrastructure/network',
-                                 title='ip network mixin',
-                                 attributes=('occi.network.address',
-                                             'occi.network.gateway',
-                                             'occi.network.allocation'),
-                                 actions=(),
-                                 related=(),
-                                 entities=[])
+    def __init__(self, address='', gateway='', allocation=_ip_networking_state.static):
+        super(ip_networking, self).__init__(term='ipnetwork',
+                                            scheme='http://schemas.ogf.org/occi/infrastructure/network',
+                                            title='ip network mixin',
+                                            attributes=('occi.network.address',
+                                                        'occi.network.gateway',
+                                                        'occi.network.allocation'),
+                                            actions=(),
+                                            related=(),
+                                            entities=[])
 
-    pass
+        # Internet protocol (IP) network address (e.g. 192.168.0.1/24, fc@@::/7)
+        self.address = address
+        # Internet Protocol (IP) network address (e.g. 192.168.0.1, fc00::)
+        self.gateway = gateway
+        # Address allocation mechanism: dynamic e.g. uses the dynamic host configuration protocol,
+        #    static e.g. uses user supplied static network configurations
+        self.allocation = allocation
 
 
-class ip_network_interface():
+class ip_network_interface(mixin):
     """
 
     Mixin
@@ -340,15 +346,28 @@ class ip_network_interface():
         an OCCI mixin instance is herewith defined.
 
     """
-    pass
+
+    # Enumeration for the address allocation mechanism
+    _ip_network_interface_state = Enum('dynamic', 'static')
+
+    def __init__(self, address, allocation, gateway=''):
+        super(ip_network_interface, self).__init__(term='ipnetworkinterface',
+                                                   scheme='http://schemas.ogf.org/occi/infrastructure/networkinterface',
+                                                   title='ip network interface mixin',
+                                                   attributes=('occi.networkinterface.address',
+                                                               'occi.networkinterface.gateway',
+                                                               'occi.networkinterface.allocation'),
+                                                   actions=(),
+                                                   related=(),
+                                                   entities=[])
+        # Internet Protocol (IP network address (e.g. 192.168.0.1/24, fc00::/7) of the link
+        self.address = address
+        # Internet Protocol (IP network address (e.g. 192.168.0.1/24, fc00::/7)
+        self.gateway = gateway
+        # Address allocation mechanism: dynamic e.g. uses the dynamic host configuration protocol,
+        #    static e.g. uses user supplied static network configurations
+        self.allocation = allocation
 
 
 if __name__ == '__main__':
-#    c = compute()
-#    print c.action_start
-#    s = storage('a', None, None, None)
-#    print type(s.size)
-#    print s.size
-#    print type(s.state)
-#    print s.state
     pass
