@@ -369,5 +369,51 @@ class ip_network_interface(mixin):
         self.allocation = allocation
 
 
+class os_tpl(mixin):
+    """
+
+    Mixin
+    OCCI OS Template Mixin
+    OS (Operating System) Templates allow clients specific what operating system must be installed
+        on a requested Compute resource.
+    A implementation-defined OS Template Mixin MUST be related to the OCCI OS Template Mixin
+        in order to give absolute type information.
+
+
+    """
+
+    def __init__(self):
+        super(os_tpl, self).__init__(term='os_tpl',
+                                     scheme='http://schemas.ogf.org/occi/infrastructure',
+                                     title='OCCI OS template',
+                                     attributes=(),
+                                     actions=(),
+                                     related=(),
+                                     entities=[])
+        pass
+
+
+class resource_tpl(mixin):
+    """
+
+    Mixin
+    OCCI Resource template Mixin
+    A resource Template is a provider defined Mixin instance that refers to a preset Resource configuration.
+    The Mixin.attributes (inherits from Category) is empty for a Template Mixin.
+    An implementation-defined Resource Template Mixin MUST be related to the OCCI Resource Template Mixin
+        in order to give absolute type information.
+
+    """
+
+    def __init__(self):
+        super(resource_tpl, self).__init__(term='resource_tpl',
+                                     scheme='http://schemas.ogf.org/occi/infrastructure',
+                                     title='OCCI resource template',
+                                     attributes=(),
+                                     actions=(),
+                                     related=(),
+                                     entities=[])
+        pass
+
 if __name__ == '__main__':
     pass
