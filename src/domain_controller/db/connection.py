@@ -46,7 +46,7 @@ DB_PORT = config['DB_PORT']
 class CassandraDbSysManager:
     def __init__(self):
         try:
-            logger.info("Connection to " + DB_IP + ":" + DB_PORT+ " ...")
+            logger.info("Connection to " + DB_IP + ":" + DB_PORT + " ...")
             self.sysDB = SystemManager(DB_IP + ":" + DB_PORT)
             logger.info("Connection to the systemManager established.")
         except Exception as exep:
@@ -55,7 +55,8 @@ class CassandraDbSysManager:
 
     def create_keyspace(self, KeyspaceName, replica_factor):
         try:
-            logger.info("Creating the Keyspace '" + KeyspaceName + "' with replica_factor '" + str(replica_factor) + "'")
+            logger.info(
+                "Creating the Keyspace '" + KeyspaceName + "' with replica_factor '" + str(replica_factor) + "'")
             self.sysDB.create_keyspace(KeyspaceName, replica_factor)
             logger.info("Keyspace created.")
         except Exception as exep:
@@ -72,10 +73,13 @@ class CassandraDbSysManager:
     def create_column_family(self, KeyspaceName, columnFamily):
         try:
             logger.info("Creating the Column family '" + columnFamily + "' into the keyspace '" + KeyspaceName + "'")
-            self.sysDB.create_column_family(KeyspaceName, columnFamily, super=False, comparator_type=pycassa.system_manager.ASCII_TYPE)
+            self.sysDB.create_column_family(KeyspaceName, columnFamily, super=False,
+                                            comparator_type=pycassa.system_manager.ASCII_TYPE)
             logger.info("Column Family created.")
         except Exception as exep:
-            logger.warning("Could not create the Column Family '" + columnFamily + "' into the keyspace '" + KeyspaceName + "'. | " + str(exep))
+            logger.warning(
+                "Could not create the Column Family '" + columnFamily + "' into the keyspace '" + KeyspaceName + "'. | " + str(
+                    exep))
 
     def drop_column_family(self, KeyspaceName, columnFamily):
         try:
@@ -85,6 +89,7 @@ class CassandraDbSysManager:
         except Exception as exep:
             logger.warning("Could not drop the column family '" + columnFamily + "'. | " + str(exep))
 
+
 class CassandraDbPool:
     def __init__(self):
         self.pool_connection_one("Keyspace4")
@@ -93,19 +98,23 @@ class CassandraDbPool:
 
     def pool_connection_one(self, KeyspaceName):
         try:
-            logger.info("Connection to the keyspace '" + KeyspaceName + "' at '" + DB_IP + ":" + DB_PORT+ "' ...")
+            logger.info("Connection to the keyspace '" + KeyspaceName + "' at '" + DB_IP + ":" + DB_PORT + "' ...")
             self.pool = pycassa.connect(KeyspaceName, [DB_IP + ":" + DB_PORT])
             logger.info("Connection to the keyspace established.")
         except Exception as exep:
-            logger.warning("Could not connect to the keyspace '" + KeyspaceName + "' at: " + DB_IP + ":" + DB_PORT + ". | " + str(exep))
+            logger.warning(
+                "Could not connect to the keyspace '" + KeyspaceName + "' at: " + DB_IP + ":" + DB_PORT + ". | " + str(
+                    exep))
 
     def pool_connection_multiple(self, KeyspaceName):
         try:
-            logger.info("Connection to the keyspace '" + KeyspaceName + "' at '" + DB_IP + ":" + DB_PORT+ "' ...")
+            logger.info("Connection to the keyspace '" + KeyspaceName + "' at '" + DB_IP + ":" + DB_PORT + "' ...")
             self.pool = pycassa.ConnectionPool(KeyspaceName, [DB_IP + ":" + DB_PORT], pool_size=20)
             logger.info("Connection to the keyspace established.")
         except Exception as exep:
-            logger.warning("Could not connect to the keyspace '" + KeyspaceName + "' at '" + DB_IP + ":" + DB_PORT + "'. | " + str(exep))
+            logger.warning(
+                "Could not connect to the keyspace '" + KeyspaceName + "' at '" + DB_IP + ":" + DB_PORT + "'. | " + str(
+                    exep))
 
     def get_column_family(self, ColumnFamilyName):
         try:

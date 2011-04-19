@@ -32,7 +32,7 @@ import logging.config
 """ Loading the logging configuration file """
 logging.config.fileConfig("../../CloNeLogging.conf")
 
-if __name__ == '__main__' :
+if __name__ == '__main__':
     logger = logging.getLogger("CloNeLogging")
     logger.debug("debug")
     logger.info("info")

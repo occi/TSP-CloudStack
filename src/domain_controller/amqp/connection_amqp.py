@@ -47,7 +47,7 @@ AMQP_TRANSPORT = config['AMQP_TRANSPORT']
 class RabbitMQConnection:
     def connection(self):
         try:
-            logger.info("Connection to the AMQP broker '" + AMQP_IP + ":" + AMQP_PORT+ "' ...")
+            logger.info("Connection to the AMQP broker '" + AMQP_IP + ":" + AMQP_PORT + "' ...")
             connection = BrokerConnection(hostname=AMQP_IP,
                                           port=AMQP_PORT,
                                           userid=AMQP_USER,
@@ -61,8 +61,6 @@ class RabbitMQConnection:
             logger.warning("Could not connect to the AMQP broker '" + AMQP_IP + ":" + AMQP_PORT + "'. | " + str(exep))
 
     def producer(self):
-
-
         self.connection = BrokerConnection(hostname=AMQP_IP, port=AMQP_PORT,
                                            userid=AMQP_USER, password=AMQP_PASSWORD,
                                            virtual_host="/",

@@ -37,7 +37,6 @@ logging.config.fileConfig("../../CloNeLogging.conf")
 logger = logging.getLogger("CloNeLogging")
 
 class topic_exchange:
-
     def __init__(self, exchange_name):
         rabbitCon = connection_amqp.RabbitMQConnection()
         self.connection = rabbitCon.connection()
