@@ -98,31 +98,37 @@ class compute(resource):
         # occi.compute.architecture
         # @AttributeType Enum {x86, x64}
         # @AttributeMultiplicity 0..1
+        # @AttributeMutability mutable
         self.architecture = architecture
         # Number of CPU cores assigned to the instance
         # occi.compute.cores
         # @AttributeType integer
         # @AttributeMultiplicity 0..1
+        # @AttributeMutability mutable
         self.cores = cores
         # Fully Qualified DNS hostname for the instance
         # occi.compute.hostname
         # @AttributeType string
         # @AttributeMultiplicity 0..1
+        # @AttributeMutability mutable
         self.hostname = hostname
         # CPU Clock frequency (speed) in gigahertz
         # occi.compute.speed
         # @AttributeType Float, 10expo(9) (GHz)
         # @AttributeMultiplicity 0..1
+        # @AttributeMutability mutable
         self.speed = speed
         # Maximum RAM in gigabytes allocated to the instance
         # occi.compute.memory
         # @AttributeType Float, 10expo(9) (GiB)
         # @AttributeMultiplicity 0..1
+        # @AttributeMutability mutable
         self.memory = memory
         # Current state of the instance
         # occi.compute.state
         # @AttributeType Enum {active, inactive, suspended}
         # @AttributeMultiplicity 1
+        # @AttributeMutability immutable
         self.state = state or self._compute_state.inactive
 
 
@@ -173,16 +179,19 @@ class network(resource):
         # occi.network.vlan
         # @AttributeType integer: 0-4095
         # @AttributeMultiplicity 0..1
+        # @AttributeMutability mutable
         self.vlan = vlan
         # Tag based VLANs (e.g. external-dmz)
         # occi.network.label
         # @AttributeType Token
         # @AttributeMultiplicity 0..1
+        # @AttributeMutability mutable
         self.label = label
         # Current state of the instance
         # occi.network.state
         # @AttributeType Enum {active, inactive}
         # @AttributeMultiplicity 1
+        # @AttributeMutability immutable
         self.state = state or self._network_state.inactive
 
 
@@ -255,11 +264,13 @@ class storage(resource):
         # occi.storage.size
         # @AttributeType Float, 10expo(9) (GiB)
         # @AttributeMultiplicity 1
+        # @AttributeMutability mutable
         self.size = size or 0
         # Current state of the instance
         # occi.storage.state
         # @AttributeType Enum(online, offline, backup, snapshot, resize, degraded)
         # @AttributeMultiplicity 1
+        # @AttributeMutability immutable
         self.state = state or self._storage_state.offline
 
 
@@ -297,16 +308,19 @@ class network_interface(link):
         # occi.networkinterface.interface
         # @AttributeType string
         # @AttributeMultiplicity 1
+        # @AttributeMutability immutable
         self.interface = interface
         # MAC address associated with the link's device interface
         # occi.networkinterface.mac
         # @AttributeType string
         # @AttributeMultiplicity 1
+        # @AttributeMutability mutable
         self.mac = mac
         # Current state of the instance
         # occi.networkinterface.state
         # @AttributeType Enum(active, inactive)
         # @AttributeMultiplicity 1
+        # @AttributeMutability immutable
         self.state = state or self._network_interface_state.inactive
 
     pass
@@ -345,16 +359,19 @@ class storage_link(link):
         # occi.storagelink.deviceid
         # @AttributeType string
         # @AttributeMultiplicity 1
+        # @AttributeMutability mutable
         self.deviceid = deviceid
         # point to where the storage is mounted in the guest OS
         # occi.storagelink.mountpoint
         # @AttributeType string
         # @AttributeMultiplicity 0..1
+        # @AttributeMutability mutable
         self.mountpoint = mountpoint
         # Current state of the instance
         # occi.storagelink.state
         # @AttributeType Enum(active, inactive)
         # @AttributeMultiplicity 1
+        # @AttributeMutability immutable
         self.state = state or self._storage_link_state.inactive
 
 
@@ -384,17 +401,20 @@ class ip_networking(mixin):
         # occi.network.address
         # @AttributeType IPv4 or IPV6 Address range, CIDR notation
         # @AttributeMultiplicity 0..1
+        # @AttributeMutability mutable
         self.address = address
         # Internet Protocol (IP) network address (e.g. 192.168.0.1, fc00::)
         # occi.network.gateway
         # @AttributeType IPv4 or IPV6 Address
         # @AttributeMultiplicity 0..1
+        # @AttributeMutability mutable
         self.gateway = gateway
         # Address allocation mechanism: dynamic e.g. uses the dynamic host configuration protocol,
         #    static e.g. uses user supplied static network configurations
         # occi.network.allocation
         # @AttributeType Enum {dynamic, static}
         # @AttributeMultiplicity 0..1
+        # @AttributeMutability mutable
         self.allocation = allocation
 
 
@@ -424,17 +444,20 @@ class ip_network_interface(mixin):
         # occi.networkinterface.address
         # @AttributeType IPv4 or IPV6 Address
         # @AttributeMultiplicity 1
+        # @AttributeMutability mutable
         self.address = address
         # Internet Protocol (IP network address (e.g. 192.168.0.1/24, fc00::/7)
         # occi.networkinterface.gateway
         # @AttributeType IPv4 or IPV6 Address
         # @AttributeMultiplicity 0..1
+        # @AttributeMutability mutable
         self.gateway = gateway
         # Address allocation mechanism: dynamic e.g. uses the dynamic host configuration protocol,
         #    static e.g. uses user supplied static network configurations
         # occi.networkinterface.allocation
         # @AttributeType Enum {dynamic, static}
         # @AttributeMultiplicity 1
+        # @AttributeMutability mutable
         self.allocation = allocation
 
 
