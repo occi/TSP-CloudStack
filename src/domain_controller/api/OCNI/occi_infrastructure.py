@@ -95,16 +95,34 @@ class compute(resource):
         super(compute, self).__init__(id=id, kind=kind or self._compute_kind, title=title, mixins=mixins,
                                       summary=summary, links=links)
         # CPU architecture of the instance
+        # occi.compute.architecture
+        # @AttributeType Enum {x86, x64}
+        # @AttributeMultiplicity 0..1
         self.architecture = architecture
         # Number of CPU cores assigned to the instance
+        # occi.compute.cores
+        # @AttributeType integer
+        # @AttributeMultiplicity 0..1
         self.cores = cores
         # Fully Qualified DNS hostname for the instance
+        # occi.compute.hostname
+        # @AttributeType string
+        # @AttributeMultiplicity 0..1
         self.hostname = hostname
         # CPU Clock frequency (speed) in gigahertz
+        # occi.compute.speed
+        # @AttributeType Float, 10expo(9) (GHz)
+        # @AttributeMultiplicity 0..1
         self.speed = speed
         # Maximum RAM in gigabytes allocated to the instance
+        # occi.compute.memory
+        # @AttributeType Float, 10expo(9) (GiB)
+        # @AttributeMultiplicity 0..1
         self.memory = memory
         # Current state of the instance
+        # occi.compute.state
+        # @AttributeType Enum {active, inactive, suspended}
+        # @AttributeMultiplicity 1
         self.state = state or self._compute_state.inactive
 
 
@@ -152,10 +170,19 @@ class network(resource):
         super(network, self).__init__(id=id, kind=kind or self._network_kind, title=title, mixins=mixins,
                                       summary=summary, links=links)
         # 802.1q VLAN identifier (e.g. 343)
+        # occi.network.vlan
+        # @AttributeType integer: 0-4095
+        # @AttributeMultiplicity 0..1
         self.vlan = vlan
         # Tag based VLANs (e.g. external-dmz)
+        # occi.network.label
+        # @AttributeType Token
+        # @AttributeMultiplicity 0..1
         self.label = label
         # Current state of the instance
+        # occi.network.state
+        # @AttributeType Enum {active, inactive}
+        # @AttributeMultiplicity 1
         self.state = state or self._network_state.inactive
 
 
@@ -225,8 +252,14 @@ class storage(resource):
                                       summary=summary, links=links)
 
         # Storage size in gigabytes of the instance
+        # occi.storage.size
+        # @AttributeType Float, 10expo(9) (GiB)
+        # @AttributeMultiplicity 1
         self.size = size or 0
         # Current state of the instance
+        # occi.storage.state
+        # @AttributeType Enum(online, offline, backup, snapshot, resize, degraded)
+        # @AttributeMultiplicity 1
         self.state = state or self._storage_state.offline
 
 
@@ -261,10 +294,19 @@ class network_interface(link):
                                                 target=target, title=title, mixins=mixins)
 
         # identifier that relates the link to the link's device interface
+        # occi.networkinterface.interface
+        # @AttributeType string
+        # @AttributeMultiplicity 1
         self.interface = interface
         # MAC address associated with the link's device interface
+        # occi.networkinterface.mac
+        # @AttributeType string
+        # @AttributeMultiplicity 1
         self.mac = mac
         # Current state of the instance
+        # occi.networkinterface.state
+        # @AttributeType Enum(active, inactive)
+        # @AttributeMultiplicity 1
         self.state = state or self._network_interface_state.inactive
 
     pass
@@ -300,10 +342,19 @@ class storage_link(link):
                                            target=target, title=title, mixins=mixins)
 
         # Device identifier as defined by the OCCI service provider
+        # occi.storagelink.deviceid
+        # @AttributeType string
+        # @AttributeMultiplicity 1
         self.deviceid = deviceid
         # point to where the storage is mounted in the guest OS
+        # occi.storagelink.mountpoint
+        # @AttributeType string
+        # @AttributeMultiplicity 0..1
         self.mountpoint = mountpoint
         # Current state of the instance
+        # occi.storagelink.state
+        # @AttributeType Enum(active, inactive)
+        # @AttributeMultiplicity 1
         self.state = state or self._storage_link_state.inactive
 
 
@@ -330,11 +381,20 @@ class ip_networking(mixin):
                                             entities=[])
 
         # Internet protocol (IP) network address (e.g. 192.168.0.1/24, fc@@::/7)
+        # occi.network.address
+        # @AttributeType IPv4 or IPV6 Address range, CIDR notation
+        # @AttributeMultiplicity 0..1
         self.address = address
         # Internet Protocol (IP) network address (e.g. 192.168.0.1, fc00::)
+        # occi.network.gateway
+        # @AttributeType IPv4 or IPV6 Address
+        # @AttributeMultiplicity 0..1
         self.gateway = gateway
         # Address allocation mechanism: dynamic e.g. uses the dynamic host configuration protocol,
         #    static e.g. uses user supplied static network configurations
+        # occi.network.allocation
+        # @AttributeType Enum {dynamic, static}
+        # @AttributeMultiplicity 0..1
         self.allocation = allocation
 
 
@@ -361,11 +421,20 @@ class ip_network_interface(mixin):
                                                    related=(),
                                                    entities=[])
         # Internet Protocol (IP network address (e.g. 192.168.0.1/24, fc00::/7) of the link
+        # occi.networkinterface.address
+        # @AttributeType IPv4 or IPV6 Address
+        # @AttributeMultiplicity 1
         self.address = address
         # Internet Protocol (IP network address (e.g. 192.168.0.1/24, fc00::/7)
+        # occi.networkinterface.gateway
+        # @AttributeType IPv4 or IPV6 Address
+        # @AttributeMultiplicity 0..1
         self.gateway = gateway
         # Address allocation mechanism: dynamic e.g. uses the dynamic host configuration protocol,
         #    static e.g. uses user supplied static network configurations
+        # occi.networkinterface.allocation
+        # @AttributeType Enum {dynamic, static}
+        # @AttributeMultiplicity 1
         self.allocation = allocation
 
 

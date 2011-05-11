@@ -36,12 +36,20 @@ class category(object):
 
     def __init__(self, term, scheme, title='', attributes=()):
         # Unique identifier of the category instance within the categorisation scheme
+        # @AttributeType string
+        # @AttributeMultiplicity 1
         self.term = term
-        # The categorisation scheme 
+        # The categorisation scheme
+        # @AttributeType URI
+        # @AttributeMultiplicity 1
         self.scheme = scheme
         # The display name of an instance
+        # @AttributeType string
+        # @AttributeMultiplicity 0..1
         self.title = title
         # The set of resource attribute names defined by the category instance
+        # @AttributeType string
+        # @AttributeMultiplicity 0..*
         self.attributes = attributes
 
     def __repr__(self):
@@ -59,13 +67,21 @@ class kind(category):
     def __init__(self, term, scheme, entity_type, title='', attributes=(), actions=(), related=(), entities=()):
         super(kind, self).__init__(term=term, scheme=scheme, title=title, attributes=attributes)
         # set of actions defined by the Kind instance
+        # @AttributeType Action
+        # @AttributeMultiplicity 0..*
         self.actions = actions
         # set of related Kind instances
+        # @AttributeType Kind
+        # @AttributeMultiplicity 0..*
         self.related = related
         # Entity type uniquely identified by the Kind instance
+        # @AttributeType Entity
+        # @AttributeMultiplicity 1
         self.entity_type = entity_type
         # set of resource instances, i.e. Entity sub-type instances.
         # Resources instantiated from the Entity sub-type which is uniquely identified by this Kind instance.
+        # @AttributeType Entity
+        # @AttributeMultiplicity 0..*
         self.entities = entities
 
 
@@ -84,10 +100,16 @@ class mixin(category):
     def __init__(self, term, scheme, title='', attributes=(), actions=(), related=(), entities=[]):
         super(mixin, self).__init__(term=term, scheme=scheme, title=title, attributes=attributes)
         # set of actions defined by the Mixin instance
+        # @AttributeType Action
+        # @AttributeMultiplicity 0..*
         self.actions = actions
         # set of related Mixin instances
+        # @AttributeType Mixin
+        # @AttributeMultiplicity 0..*
         self.related = related
         # set of resource instances, i.e. Entity sub-type instances, associated with the Mixin instance.
+        # @AttributeType Entity
+        # @AttributeMultiplicity 0..*
         self.entities = entities
 
 
@@ -106,6 +128,9 @@ class action(object):
                                    attributes=())
 
     def __init__(self, category):
+        # The identifying Category of the Action
+        # @AttributeType Category
+        # @AttributeMultiplicity 1
         self.category = category or self.__category_instance
 
 
@@ -133,13 +158,23 @@ class entity(object):
 
     def __init__(self, id, kind, title='', mixins=[]):
         # A unique identifier (within the service provider's name-space) of the Entity sub-type instance.
+        # occi.core.id
+        # @AttributeType URI
+        # @AttributeMultiplicity 1
         self.id = id
         # The display name of the instance.
+        # occi.core.title
+        # @AttributeType string
+        # @AttributeMultiplicity 0..1
         self.title = title
         # The Kind instance uniquely identifying the Entity sub-type of the resource instance.
+        # @AttributeType Kind
+        # @AttributeMultiplicity 1
         self.kind = kind or self._entity_kind
         # The Mixin instances associated to this resource instance.
         # Consumers can expect the attributes and Actions of the associated Mixins to be exposed byt the instance.
+        # @AttributeType Kind
+        # @AttributeMultiplicity 0..*
         self.mixins = mixins
 
     def __repr__(self):
@@ -168,8 +203,13 @@ class resource(entity):
     def __init__(self, id, kind, title='', mixins=[], summary='', links=[]):
         super(resource, self).__init__(id=id, kind=kind or self._resource_kind, title=title, mixins=mixins)
         # A summarising description of the Resource instance
+        # occi.core.summary
+        # @AttributeType string
+        # @AttributeMultiplicity 0..1
         self.summary = summary
         # a set of Link compositions.
+        # @AttributeType Link
+        # @AttributeMultiplicity 0..*
         self.links = links
 
 
@@ -195,8 +235,14 @@ class link(entity):
     def __init__(self, id, kind, source, target, title='', mixins=[]):
         super(link, self).__init__(id=id, kind=kind or self._link_kind, title=title, mixins=mixins)
         # The Resource instances the Link instance originates from.
+        # occi.core.source
+        # @AttributeType Resource
+        # @AttributeMultiplicity 1
         self.source = source
         # The Resource instances the Link instance points to.
+        # occi.core.target
+        # @AttributeType Resource
+        # @AttributeMultiplicity 1
         self.target = target
 
 if __name__ == '__main__':
