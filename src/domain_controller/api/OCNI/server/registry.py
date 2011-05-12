@@ -26,8 +26,3 @@ Created on Feb 25, 2011
 @version: 0.1
 @license: LGPL - Lesser General Public License
 '''
-
-# ==================================
-# OCCI HTTP Rendering version 1.1
-# defines how the OCCI Core Model cab be communicated and thus serialised using the HTTP protocol
-# ==================================

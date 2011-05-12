@@ -27,7 +27,39 @@ Created on Feb 25, 2011
 @license: LGPL - Lesser General Public License
 '''
 
-# ==================================
-# OCCI HTTP Rendering version 1.1
-# defines how the OCCI Core Model cab be communicated and thus serialised using the HTTP protocol
-# ==================================
+# HTTP Return Codes
+return_code = {'OK': 200,
+               'Accepted': 202,
+               'Bad Request': 400,
+               'Unauthorized': 401,
+               'Forbidden': 403,
+               'Method Not Allowed': 405,
+               'Conflict': 409,
+               'Gone': 410,
+               'Unsupported Media Type': 415,
+               'Internal Server Error': 500,
+               'Not Implemented': 501,
+               'Service Unavailable': 503}
+
+
+header_category = "Category"
+header_link = "Link"
+header_attribute = "X-OCCI-Attribute"
+header_location = "X-OCCI-Location"
+
+
+# =======
+# OCCI Category rendering
+
+# =======
+# OCCI Link instance rendering
+
+# =======
+# OCCI action instance rendering
+
+# =======
+# OCCI Entity attributes rendering
+
+# =======
+# OCCI Location-URIs rendering
+
