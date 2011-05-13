@@ -27,11 +27,31 @@ Created on Feb 25, 2011
 @license: LGPL - Lesser General Public License
 '''
 
-# =======
+import logging.config
+
+# Loading the logging configuration file
+logging.config.fileConfig("../../CloNeLogging.conf")
+# getting the Logger
+logger = logging.getLogger("CloNeLogging")
+
+# ======================================================================================
 # Location registry
+# ======================================================================================
+class location_registry(object):
+    locations = {}
+
+    def register_location(self, location, object):
+        if  object.__repr__() in self.locations :
+            logger.warning('the location \'' + location + '\' is already registered')
+            raise ('the location \'' + location + '\' is already registered')
+        
 
 
-# =======
+# ======================================================================================
 # category registry
-
-
+# ======================================================================================
+class category_registry(object):
+    categories = {}
+    
+if __name__ == '__main__':
+    pass

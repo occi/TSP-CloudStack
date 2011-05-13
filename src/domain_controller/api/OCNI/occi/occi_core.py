@@ -150,6 +150,7 @@ class action(object):
         self.category = category or self.__category_instance
 
 
+    # __repr__ is also the unique id of Category
     def __repr__(self):
         return  self.category.scheme + '#' + self.category.term
 
@@ -197,8 +198,9 @@ class entity(object):
         # @AttributeMutability mutable
         self.mixins = mixins
 
+    # __repr__ is also the unique id of Entity
     def __repr__(self):
-        return "identifier: " + self.id
+        return self.id
 
 
 class resource(entity):
