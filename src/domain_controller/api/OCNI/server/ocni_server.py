@@ -45,8 +45,9 @@ def hello_world(env, start_response):
 wsgi.server(eventlet.listen(('', 8090)), hello_world)
 
 
-# =======
+# ======================================================================================
 # Handling the Query Interface
+# ======================================================================================
 #
 #   Retrieval of all registered Kinds and Mixins
 #
@@ -57,15 +58,18 @@ wsgi.server(eventlet.listen(('', 8090)), hello_world)
 #   Removing a Mixin definition
 
 
-# =======
+# ======================================================================================
 # Operation on Paths in the Name-space
+# ======================================================================================
 #
 #   Retrieving All resource instances Below a Path
 #
 #   Deletion of all resource instances below a path
 
-# =======
+
+# ======================================================================================
 # Operations on Mixins or Kinds
+# ======================================================================================
 #
 #   Retrieving all Resource Instances belonging to Mixin or Kind
 #
@@ -75,8 +79,9 @@ wsgi.server(eventlet.listen(('', 8090)), hello_world)
 #
 #   Unassociated resource instance(s) from a Mixin
 
-# =======
+# ======================================================================================
 # Operations on Resource Instances
+# ======================================================================================
 #
 #   Creating a resource instance
 #
@@ -88,8 +93,9 @@ wsgi.server(eventlet.listen(('', 8090)), hello_world)
 #
 #   Triggering an Action on a resource instance
 
-# =======
+# ======================================================================================
 # Handling Links resource instances
+# ======================================================================================
 #
 #   Creation of a Link during creation of a Resource instance
 #
