@@ -177,5 +177,4 @@ class location_renderer(object):
 # main
 # ======================================================================================
 if __name__ == '__main__':
-    dfgdfgdf
     pass
