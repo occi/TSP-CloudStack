@@ -90,7 +90,7 @@ class compute(resource):
                                   _action_stop,
                                   _action_restart,
                                   _action_suspend),
-                         related=(resource._resource_kind,),
+                         related=(resource._resource_kind, ),
                          entities=())
 
 
@@ -172,7 +172,7 @@ class network(resource):
                                      'occi.network.state'),
                          actions=(_action_up,
                                   _action_down),
-                         related=(resource._resource_kind,),
+                         related=(resource._resource_kind, ),
                          entities=())
 
 
@@ -300,7 +300,7 @@ class network_interface(link):
                                                'occi.networkinterface.mac',
                                                'occi.networkinterface.state'),
                                    actions=(),
-                                   related=(link._link_kind,),
+                                   related=(link._link_kind, ),
                                    entities=())
 
 

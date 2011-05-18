@@ -182,10 +182,7 @@ location_registry.register_location("/ipnetworkinterface/", ip_network_interface
 if __name__ == '__main__':
     c = category_renderer()
     print '###########################'
-    print c.renderer(storage._storage_kind)
-    print '###########################'
-    print c.renderer(compute._compute_kind)
-    print '###########################'
-    print c.renderer(storage._storage_kind)
+    print c.renderer(link._storage_kind)
+
 
     pass
