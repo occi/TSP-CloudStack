@@ -75,7 +75,6 @@ header_location = "X-OCCI-Location"
 # Rendering of the OCCI Category, Kind and Mixin types
 # ======================================================================================
 class category_renderer(object):
-
     def renderer(self, obj):
         header = {}
         category_value = ''
@@ -94,7 +93,7 @@ class category_renderer(object):
             logger.warning("Object bad type: Only a kind, mixin or an action can be rendered as a category")
             raise ("Object bad type: Only a kind, mixin or an action can be rendered as a category")
 
-        self.category_value = _category.term + ';\nscheme="' + _category.scheme + '";\nclass="' + _classe + '";\n'
+        category_value += _category.term + ';\nscheme="' + _category.scheme + '";\nclass="' + _classe + '";\n'
 
         if _category.title != '':
             category_param += 'title="' + _category.title + '";\n'
@@ -104,7 +103,6 @@ class category_renderer(object):
             for rel in _category.related:
                 __related_objects += rel.__repr__() + " "
             category_param += 'rel="' + __related_objects + '";\n'
-
 
         _location_registry = location_registry()
         _location = _location_registry.get_location(_category)
@@ -132,22 +130,36 @@ class category_renderer(object):
 # Rendering of OCCI Link instance references
 # ======================================================================================
 class link_renderer(object):
-
     def renderer(self, obj):
         header = {}
         link_value = ''
         link_param = ''
-        
-        _location_of_obj = location_registry.get_location(obj)
 
-        pass
+        if isinstance(obj, link):
+            _location_registry = location_registry()
+            _location_of_obj = _location_registry.get_location(obj)
+            _source = obj.source
+            _target_location = obj.target
+            _target_object = _location_registry.get_object(_target_location)
+
+            link_value += _target_location + ';\nrel="' + _target_object.kind.__repr__() + '";\nself="' + _location_of_obj + '";\n'
+
+            link_param += 'category="' + obj.kind.__repr__() + '";\n'
+            
+
+        else:
+            logger.warning("Object bad type: Only a Link can be rendered")
+            raise ("Object bad type: Only a Link can be rendered")
+
+        header[header_link] = link_value + link_param
+
+        return header[header_link]
 
 # ======================================================================================
 # OCCI action instance rendering
 # Rendering of references to OCCI Action instances
 # ======================================================================================
 class action_renderer(object):
-
     def renderer(self, obj):
         header = {}
         pass
@@ -157,7 +169,6 @@ class action_renderer(object):
 # Rendering of OCCI Entity attributes
 # ======================================================================================
 class attributes_renderer(object):
-
     def renderer(self, obj):
         header = {}
         pass
@@ -167,7 +178,6 @@ class attributes_renderer(object):
 # Rendering of Location-URIs
 # ======================================================================================
 class location_renderer(object):
-
     def renderer(self, obj):
         header = {}
         pass

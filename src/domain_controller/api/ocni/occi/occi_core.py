@@ -220,7 +220,7 @@ class resource(entity):
                           title='Resource',
                           attributes=('occi.core.summary'),
                           actions=(),
-                          related=(entity._entity_kind),
+                          related=(entity._entity_kind, ),
                           entities=())
 
     def __init__(self, id, kind, title='', mixins=[], summary='', links=[]):
@@ -254,7 +254,7 @@ class link(entity):
                       attributes=('occi.core.source',
                                   'occi.core.target'),
                       actions=(),
-                      related=(entity._entity_kind),
+                      related=(entity._entity_kind, ),
                       entities=())
 
     def __init__(self, id, kind, source, target, title='', mixins=[]):
