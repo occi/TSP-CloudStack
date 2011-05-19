@@ -139,7 +139,7 @@ class link_renderer(object):
             link_value += _target_location + ';\nrel="' + _target_object.kind.__repr__() + '";\nself="' + _location_of_obj + '";\n'
 
             link_param += 'category="' + obj.kind.__repr__() + '";\n'
-            
+
 
         else:
             logger.warning("Object bad type: Only a Link can be rendered")

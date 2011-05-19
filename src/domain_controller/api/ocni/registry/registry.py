@@ -91,8 +91,8 @@ class location_registry(object):
             if _location.startswith(location_path):
                 _objects.append(location_registry.objects[_location])
         return _objects
-    
-    
+
+
 # ======================================================================================
 # category registry
 # ======================================================================================
@@ -111,18 +111,18 @@ class category_registry(object):
     actions = {}
 
     def __init__(self):
-#        self.register_kind(entity._entity_kind)
-#        self.register_kind(resource._resource_kind)
-#        self.register_kind(link._link_kind)
-#
-#        self.register_kind(compute._compute_kind)
-#        self.register_kind(network._network_kind)
-#        self.register_kind(storage._storage_kind)
-#        self.register_kind(network_interface._network_interface_kind)
-#        self.register_kind(storage_link._storage_link_kind)
-#
-#        self.register_mixin(ip_networking())
-#        self.register_mixin(ip_network_interface())
+    #        self.register_kind(entity._entity_kind)
+    #        self.register_kind(resource._resource_kind)
+    #        self.register_kind(link._link_kind)
+    #
+    #        self.register_kind(compute._compute_kind)
+    #        self.register_kind(network._network_kind)
+    #        self.register_kind(storage._storage_kind)
+    #        self.register_kind(network_interface._network_interface_kind)
+    #        self.register_kind(storage_link._storage_link_kind)
+    #
+    #        self.register_mixin(ip_networking())
+    #        self.register_mixin(ip_network_interface())
         pass
 
     def register_kind(self, _kind):

@@ -165,12 +165,12 @@ class Action(object):
                                    title='Action',
                                    attributes=())
 
-    def __init__(self, category):
+    def __init__(self, category=__category_instance):
         # The identifying Category of the Action
         # @AttributeType Category
         # @AttributeMultiplicity 1
         # @AttributeMutability immutable
-        self.category = category or self.__category_instance
+        self.category = category
 
 
     # __repr__ is also the unique id of Category
@@ -186,17 +186,17 @@ class Entity(object):
     """
 
     # The kind instance assigned to the entity type
-    _entity_kind = Kind(term='entity',
-                        scheme='http://schemas.ogf.org/occi/core',
-                        entity_type='', # entity
-                        title='Entity type',
-                        attributes=(Attribute(name='occi.core.id', required=True),
-                                    Attribute(name='occi.core.title', mutable=True)),
-                        actions=(),
-                        related=(),
-                        entities=())
+    _kind = Kind(term='entity',
+                 scheme='http://schemas.ogf.org/occi/core',
+                 entity_type='', # entity
+                 title='Entity type',
+                 attributes=(Attribute(name='occi.core.id', required=True),
+                             Attribute(name='occi.core.title', mutable=True)),
+                 actions=(),
+                 related=(),
+                 entities=())
 
-    def __init__(self, occi_core_id, kind, occi_core_title='', mixins=[]):
+    def __init__(self, occi_core_id, kind=_kind, occi_core_title='', mixins=[]):
         # A unique identifier (within the service provider's name-space) of the Entity sub-type instance.
         # occi.core.id
         # @AttributeType URI
@@ -213,7 +213,7 @@ class Entity(object):
         # @AttributeType Kind
         # @AttributeMultiplicity 1
         # @AttributeMutability immutable
-        self.kind = kind or self._entity_kind
+        self.kind = kind
         # The Mixin instances associated to this resource instance.
         # Consumers can expect the attributes and Actions of the associated Mixins to be exposed byt the instance.
         # @AttributeType Kind
@@ -236,18 +236,18 @@ class Resource(Entity):
     """
 
     # The kind instance assigned to the resource type
-    _resource_kind = Kind(term='resource',
-                          scheme='http://schemas.ogf.org/occi/core',
-                          entity_type='', #resource
-                          title='Resource',
-                          attributes=(Attribute(name='occi.core.summary', mutable=True)),
-                          actions=(),
-                          related=(Entity._entity_kind, ),
-                          entities=())
+    _kind = Kind(term='resource',
+                 scheme='http://schemas.ogf.org/occi/core',
+                 entity_type='', #resource
+                 title='Resource',
+                 attributes=(Attribute(name='occi.core.summary', mutable=True)),
+                 actions=(),
+                 related=(Entity._kind, ),
+                 entities=())
 
-    def __init__(self, occi_core_id, kind, occi_core_title='', mixins=[], occi_core_summary='', links=[]):
+    def __init__(self, occi_core_id, kind=_kind, occi_core_title='', mixins=[], occi_core_summary='', links=[]):
         super(Resource, self).__init__(occi_core_id=occi_core_id,
-                                       kind=kind or self._resource_kind,
+                                       kind=kind,
                                        occi_core_title=occi_core_title,
                                        mixins=mixins)
         # A summarising description of the Resource instance
@@ -272,19 +272,19 @@ class Link(Entity):
     """
 
     # The kind instance assigned to the link type
-    _link_kind = Kind(term='link',
-                      scheme='http://schemas.ogf.org/occi/core',
-                      entity_type='', # link
-                      title='Link',
-                      attributes=(Attribute(name='occi.core.source', required=True, mutable=True),
-                                  Attribute(name='occi.core.target', required=True, mutable=True)),
-                      actions=(),
-                      related=(Entity._entity_kind, ),
-                      entities=())
+    _kind = Kind(term='link',
+                 scheme='http://schemas.ogf.org/occi/core',
+                 entity_type='', # link
+                 title='Link',
+                 attributes=(Attribute(name='occi.core.source', required=True, mutable=True),
+                             Attribute(name='occi.core.target', required=True, mutable=True)),
+                 actions=(),
+                 related=(Entity._kind, ),
+                 entities=())
 
-    def __init__(self, occi_core_id, kind, occi_core_source, occi_core_target, occi_core_title='', mixins=[]):
+    def __init__(self, occi_core_id, occi_core_source, occi_core_target, kind=_kind, occi_core_title='', mixins=[]):
         super(Link, self).__init__(occi_core_id=occi_core_id,
-                                   kind=kind or self._link_kind,
+                                   kind=kind,
                                    occi_core_title=occi_core_title,
                                    mixins=mixins)
         # The Resource instances the Link instance originates from.
@@ -303,4 +303,8 @@ class Link(Entity):
 if __name__ == '__main__':
 #    e = entity('&', None)
 #    print e.kind.scheme
+    r = Resource('r')
+    print r._kind.term
+    c = r._kind.related[0]
+    print c.term
     pass

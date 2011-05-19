@@ -55,16 +55,16 @@ logger = logging.getLogger("CloNeLogging")
 category_registry = category_registry()
 
 # register OCCI Core kinds
-category_registry.register_kind(Entity._entity_kind)
-category_registry.register_kind(Resource._resource_kind)
-category_registry.register_kind(Link._link_kind)
+category_registry.register_kind(Entity._kind)
+category_registry.register_kind(Resource._kind)
+category_registry.register_kind(Link._kind)
 
 # register OCCI Infrastructure kinds
-category_registry.register_kind(Compute._compute_kind)
-category_registry.register_kind(Network._network_kind)
-category_registry.register_kind(Storage._storage_kind)
-category_registry.register_kind(NetworkInterface._network_interface_kind)
-category_registry.register_kind(StorageLink._storage_link_kind)
+category_registry.register_kind(Compute._kind)
+category_registry.register_kind(Network._kind)
+category_registry.register_kind(Storage._kind)
+category_registry.register_kind(NetworkInterface._kind)
+category_registry.register_kind(StorageLink._kind)
 
 # register OCCI Infrastructure mixins
 category_registry.register_mixin(IPNetworking())
@@ -77,15 +77,15 @@ category_registry.register_mixin(IPNetworkInterface())
 location_registry = location_registry()
 
 # register OCCI Core kind locations
-location_registry.register_location("/resource/", Resource._resource_kind)
-location_registry.register_location("/link/", Link._link_kind)
+location_registry.register_location("/resource/", Resource._kind)
+location_registry.register_location("/link/", Link._kind)
 
 # register OCCI Infrastructure kind locations
-location_registry.register_location("/compute/", Compute._compute_kind)
-location_registry.register_location("/network/", Network._network_kind)
-location_registry.register_location("/storage/", Storage._storage_kind)
-location_registry.register_location("/networkinterface/", NetworkInterface._network_interface_kind)
-location_registry.register_location("/storagelink/", StorageLink._storage_link_kind)
+location_registry.register_location("/compute/", Compute._kind)
+location_registry.register_location("/network/", Network._kind)
+location_registry.register_location("/storage/", Storage._kind)
+location_registry.register_location("/networkinterface/", NetworkInterface._kind)
+location_registry.register_location("/storagelink/", StorageLink._kind)
 
 # register OCCI Infrastructure mixin locations
 location_registry.register_location("/ipnetworking/", IPNetworking())
