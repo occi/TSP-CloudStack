@@ -31,11 +31,11 @@ OCCI Infrastructure version 1.1
 ==================================
 '''
 
-from occi_core import attribute, category, kind, mixin, resource, link, action
+from occi_core import Attribute, Category, Kind, Mixin, Resource, Link, Action
 from enum import Enum
 
 
-class compute(resource):
+class Compute(Resource):
     """
 
     The Compute type represents a generic information processing resource, e.g. a virtual machine.
@@ -48,56 +48,56 @@ class compute(resource):
     _compute_state = Enum('active', 'inactive', 'suspended')
 
     # Start action
-    _action_start_category = category(term='start',
+    _action_start_category = Category(term='start',
                                       scheme='http://schemas.ogf/occi/infrastructure/compute/action',
                                       title='Start a compute resource',
                                       attributes=())
-    _action_start = action(_action_start_category)
+    _action_start = Action(_action_start_category)
 
     # Stop action
-    _action_stop_category = category(term='stop',
+    _action_stop_category = Category(term='stop',
                                      scheme='http://schemas.ogf/occi/infrastructure/compute/action',
                                      title='Stop a compute resource',
-                                     attributes=(attribute(name='method', mutable=True)))
-    _action_stop = action(_action_stop_category)
+                                     attributes=(Attribute(name='method', mutable=True)))
+    _action_stop = Action(_action_stop_category)
 
     # Restart action
-    _action_restart_category = category(term='restart',
+    _action_restart_category = Category(term='restart',
                                         scheme='http://schemas.ogf/occi/infrastructure/compute/action',
                                         title='Restart a compute resource',
-                                        attributes=(attribute(name='method', mutable=True)))
-    _action_restart = action(_action_restart_category)
+                                        attributes=(Attribute(name='method', mutable=True)))
+    _action_restart = Action(_action_restart_category)
 
     # Suspend action
-    _action_suspend_category = category(term='suspend',
+    _action_suspend_category = Category(term='suspend',
                                         scheme='http://schemas.ogf/occi/infrastructure/compute/action',
                                         title='Suspend a compute resource',
-                                        attributes=(attribute(name='method', mutable=True)))
-    _action_suspend = action(_action_suspend_category)
+                                        attributes=(Attribute(name='method', mutable=True)))
+    _action_suspend = Action(_action_suspend_category)
 
     # The kind instance assigned to the compute type
-    _compute_kind = kind(term='compute',
+    _compute_kind = Kind(term='compute',
                          scheme='http://schemas.ogf.org/occi/infrastructure',
-                         entity_type=resource,
+                         entity_type=Resource,
                          title='compute resource',
-                         attributes=(attribute(name='occi.compute.architecture', mutable=True),
-                                     attribute(name='occi.compute.cores', mutable=True),
-                                     attribute(name='occi.compute.hostname', mutable=True),
-                                     attribute(name='occi.compute.speed', mutable=True),
-                                     attribute(name='occi.compute.memory', mutable=True),
-                                     attribute(name='occi.compute.state', required=True)),
+                         attributes=(Attribute(name='occi.compute.architecture', mutable=True),
+                                     Attribute(name='occi.compute.cores', mutable=True),
+                                     Attribute(name='occi.compute.hostname', mutable=True),
+                                     Attribute(name='occi.compute.speed', mutable=True),
+                                     Attribute(name='occi.compute.memory', mutable=True),
+                                     Attribute(name='occi.compute.state', required=True)),
                          actions=(_action_start,
                                   _action_stop,
                                   _action_restart,
                                   _action_suspend),
-                         related=(resource._resource_kind, ),
+                         related=(Resource._resource_kind, ),
                          entities=())
 
 
     def __init__(self, occi_core_id, kind, occi_compute_state, occi_core_title='', mixins=[], occi_core_summary='',
                  links=[], occi_compute_architecture='', occi_compute_cores=0, occi_compute_hostname='',
                  occi_compute_speed=0.0, occi_compute_memory=0):
-        super(compute, self).__init__(occi_core_id=occi_core_id,
+        super(Compute, self).__init__(occi_core_id=occi_core_id,
                                       kind=kind or self._compute_kind,
                                       occi_core_title=occi_core_title,
                                       mixins=mixins,
@@ -141,7 +141,7 @@ class compute(resource):
         self.occi_compute_state = occi_compute_state or self._compute_state.inactive
 
 
-class network(resource):
+class Network(Resource):
     """
 
     The network type represents a L2 networking entity (e.g. virtual switch).
@@ -153,37 +153,37 @@ class network(resource):
     _network_state = Enum('active', 'inactive')
 
     # UP action
-    _action_up_category = category(term='up',
+    _action_up_category = Category(term='up',
                                    scheme='http://schemas.ogf/occi/infrastructure/network/action',
                                    title='turn UP a network',
                                    attributes=())
-    _action_up = action(_action_up_category)
+    _action_up = Action(_action_up_category)
 
     # DOWN action
-    _action_down_category = category(term='down',
+    _action_down_category = Category(term='down',
                                      scheme='http://schemas.ogf/occi/infrastructure/network/action',
                                      title='turn DOWN a network',
                                      attributes=())
-    _action_down = action(_action_down_category)
+    _action_down = Action(_action_down_category)
 
 
     # The kind instance assigned to the network type
-    _network_kind = kind(term='network',
+    _network_kind = Kind(term='network',
                          scheme='http://schemas.ogf.org/occi/infrastructure',
-                         entity_type=resource,
+                         entity_type=Resource,
                          title='network resource',
-                         attributes=(attribute(name='occi.network.vlan', mutable=True),
-                                     attribute(name='occi.network.label', mutable=True),
-                                     attribute(name='occi.network.state', required=True)),
+                         attributes=(Attribute(name='occi.network.vlan', mutable=True),
+                                     Attribute(name='occi.network.label', mutable=True),
+                                     Attribute(name='occi.network.state', required=True)),
                          actions=(_action_up,
                                   _action_down),
-                         related=(resource._resource_kind, ),
+                         related=(Resource._resource_kind, ),
                          entities=())
 
 
     def __init__(self, occi_core_id, kind, occi_network_state, occi_core_title='', mixins=[], occi_core_summary='',
                  links=[], occi_network_vlan=0, occi_network_label=''):
-        super(network, self).__init__(occi_core_id=occi_core_id,
+        super(Network, self).__init__(occi_core_id=occi_core_id,
                                       kind=kind or self._network_kind,
                                       occi_core_title=occi_core_title,
                                       mixins=mixins,
@@ -209,7 +209,7 @@ class network(resource):
         self.occi_network_state = occi_network_state or self._network_state.inactive
 
 
-class storage(resource):
+class Storage(Resource):
     """
 
     The storage type represent resources that record information to a data storage device.
@@ -220,59 +220,59 @@ class storage(resource):
     _storage_state = Enum('online', 'offline', 'backup', 'snapshot', 'resize', 'degraded')
 
     # online action
-    _action_online_category = category(term='online',
+    _action_online_category = Category(term='online',
                                        scheme='http://schemas.ogf/occi/infrastructure/storage/action',
                                        title='turn Online a storage',
                                        attributes=())
-    _action_online = action(_action_online_category)
+    _action_online = Action(_action_online_category)
 
     # offline action
-    _action_offline_category = category(term='offline',
+    _action_offline_category = Category(term='offline',
                                         scheme='http://schemas.ogf/occi/infrastructure/storage/action',
                                         title='turn Offline a storage',
                                         attributes=())
-    _action_offline = action(_action_offline_category)
+    _action_offline = Action(_action_offline_category)
 
 
     # backup action
-    _action_backup_category = category(term='backup',
+    _action_backup_category = Category(term='backup',
                                        scheme='http://schemas.ogf/occi/infrastructure/storage/action',
                                        title='backup a storage',
                                        attributes=())
-    _action_backup = action(_action_backup_category)
+    _action_backup = Action(_action_backup_category)
 
     # snapshot action
-    _action_snapshot_category = category(term='snapshot',
+    _action_snapshot_category = Category(term='snapshot',
                                          scheme='http://schemas.ogf/occi/infrastructure/storage/action',
                                          title='snapshot a storage',
                                          attributes=())
-    _action_snapshot = action(_action_snapshot_category)
+    _action_snapshot = Action(_action_snapshot_category)
 
     # resize action
-    _action_resize_category = category(term='resize',
+    _action_resize_category = Category(term='resize',
                                        scheme='http://schemas.ogf/occi/infrastructure/storage/action',
                                        title='resize a storage',
-                                       attributes=(attribute(name='size', required=True, mutable=True)))
-    _action_resize = action(_action_resize_category)
+                                       attributes=(Attribute(name='size', required=True, mutable=True)))
+    _action_resize = Action(_action_resize_category)
 
     # The kind instance assigned to the storage type
-    _storage_kind = kind(term='storage',
+    _storage_kind = Kind(term='storage',
                          scheme='http://schemas.ogf.org/occi/infrastructure',
-                         entity_type=resource,
+                         entity_type=Resource,
                          title='storage resource',
-                         attributes=(attribute(name='occi.storage.size', required=True, mutable=True),
-                                     attribute(name='occi.storage.state', required=True)),
+                         attributes=(Attribute(name='occi.storage.size', required=True, mutable=True),
+                                     Attribute(name='occi.storage.state', required=True)),
                          actions=(_action_online,
                                   _action_offline,
                                   _action_backup,
                                   _action_snapshot,
                                   _action_resize),
-                         related=(resource._resource_kind, ),
+                         related=(Resource._resource_kind, ),
                          entities=())
 
     def __init__(self, occi_core_id, kind, occi_storage_size, occi_storage_state, occi_core_title='', mixins=[],
                  occi_core_summary='', links=[]):
-        super(storage, self).__init__(occi_core_id=occi_core_id,
+        super(Storage, self).__init__(occi_core_id=occi_core_id,
                                       kind=kind or self._storage_kind,
                                       occi_core_title=occi_core_title,
                                       mixins=mixins,
@@ -293,7 +293,7 @@ class storage(resource):
         self.occi_storage_state = occi_storage_state or self._storage_state.offline
 
 
-class network_interface(link):
+class NetworkInterface(Link):
     """
 
     The network_interface type represents an L2 client device (e.g. network adapter).
@@ -307,26 +307,26 @@ class network_interface(link):
 
 
     # The kind instance assigned to the network_interface type
-    _network_interface_kind = kind(term='networkinterface',
+    _network_interface_kind = Kind(term='networkinterface',
                                    scheme='http://schemas.ogf.org/occi/infrastructure',
-                                   entity_type=link,
+                                   entity_type=Link,
                                    title='network interface link',
-                                   attributes=(attribute(name='occi.networkinterface.interface', required=True),
-                                               attribute(name='occi.networkinterface.mac', required=True, mutable=True),
-                                               attribute(name='occi.networkinterface.state', required=True)),
+                                   attributes=(Attribute(name='occi.networkinterface.interface', required=True),
+                                               Attribute(name='occi.networkinterface.mac', required=True, mutable=True),
+                                               Attribute(name='occi.networkinterface.state', required=True)),
                                    actions=(),
-                                   related=(link._link_kind, ),
+                                   related=(Link._link_kind, ),
                                    entities=())
 
 
     def __init__(self, occi_core_id, kind, occi_core_source, occi_core_target, occi_networkinterface_interface,
                  occi_networkinterface_mac, occi_networkinterface_state, occi_core_title='', mixins=[]):
-        super(network_interface, self).__init__(occi_core_id=occi_core_id,
-                                                kind=kind or self._network_interface_kind,
-                                                occi_core_source=occi_core_source,
-                                                occi_core_target=occi_core_target,
-                                                occi_core_title=occi_core_title,
-                                                mixins=mixins)
+        super(NetworkInterface, self).__init__(occi_core_id=occi_core_id,
+                                               kind=kind or self._network_interface_kind,
+                                               occi_core_source=occi_core_source,
+                                               occi_core_target=occi_core_target,
+                                               occi_core_title=occi_core_title,
+                                               mixins=mixins)
 
         # identifier that relates the link to the link's device interface
         # occi.networkinterface.interface
@@ -350,7 +350,7 @@ class network_interface(link):
     pass
 
 
-class storage_link(link):
+class StorageLink(Link):
     """
 
     The storage_link type represents a link from a resource to a target storage instance.
@@ -364,25 +364,25 @@ class storage_link(link):
     _storage_link_state = Enum('active', 'inactive')
 
     # The kind instance assigned to the storage_link type
-    _storage_link_kind = kind(term='storagelink',
+    _storage_link_kind = Kind(term='storagelink',
                               scheme='http://schemas.ogf.org/occi/infrastructure',
-                              entity_type=link,
+                              entity_type=Link,
                               title='storage link',
-                              attributes=(attribute(name='occi.storagelink.deviceid', required=True, mutable=True),
-                                          attribute(name='occi.storagelink.mountpoint', mutable=True),
-                                          attribute(name='occi.storagelink.state', required=True)),
+                              attributes=(Attribute(name='occi.storagelink.deviceid', required=True, mutable=True),
+                                          Attribute(name='occi.storagelink.mountpoint', mutable=True),
+                                          Attribute(name='occi.storagelink.state', required=True)),
                               actions=(),
-                              related=(link._link_kind, ),
+                              related=(Link._link_kind, ),
                               entities=())
 
     def __init__(self, occi_core_id, kind, occi_core_source, occi_core_target, occi_storagelink_deviceid,
                  occi_storagelink_state, occi_storagelink_mountpoint='', occi_core_title='', mixins=[]):
-        super(storage_link, self).__init__(occi_core_id=occi_core_id,
-                                           kind=kind or self._storage_link_kind,
-                                           occi_core_source=occi_core_source,
-                                           occi_core_target=occi_core_target,
-                                           occi_core_title=occi_core_title,
-                                           mixins=mixins)
+        super(StorageLink, self).__init__(occi_core_id=occi_core_id,
+                                          kind=kind or self._storage_link_kind,
+                                          occi_core_source=occi_core_source,
+                                          occi_core_target=occi_core_target,
+                                          occi_core_title=occi_core_title,
+                                          mixins=mixins)
 
         # Device identifier as defined by the OCCI service provider
         # occi.storagelink.deviceid
@@ -404,7 +404,7 @@ class storage_link(link):
         self.occi_storagelink_state = occi_storagelink_state or self._storage_link_state.inactive
 
 
-class ip_networking(mixin):
+class IPNetworking(Mixin):
     """
 
     Mixin
@@ -417,15 +417,15 @@ class ip_networking(mixin):
 
     def __init__(self, occi_network_address='', occi_network_gateway='',
                  occi_network_allocation=_ip_networking_state.static):
-        super(ip_networking, self).__init__(term='ipnetwork',
-                                            scheme='http://schemas.ogf.org/occi/infrastructure/network',
-                                            title='ip network mixin',
-                                            attributes=(attribute(name='occi.network.address', mutable=True),
-                                                        attribute(name='occi.network.gateway', mutable=True),
-                                                        attribute(name='occi.network.allocation', mutable=True)),
-                                            actions=(),
-                                            related=(),
-                                            entities=[])
+        super(IPNetworking, self).__init__(term='ipnetwork',
+                                           scheme='http://schemas.ogf.org/occi/infrastructure/network',
+                                           title='ip network mixin',
+                                           attributes=(Attribute(name='occi.network.address', mutable=True),
+                                                       Attribute(name='occi.network.gateway', mutable=True),
+                                                       Attribute(name='occi.network.allocation', mutable=True)),
+                                           actions=(),
+                                           related=(),
+                                           entities=[])
 
         # Internet protocol (IP) network address (e.g. 192.168.0.1/24, fc@@::/7)
         # occi.network.address
@@ -448,7 +448,7 @@ class ip_networking(mixin):
         self.occi_network_allocation = occi_network_allocation
 
 
-class ip_network_interface(mixin):
+class IPNetworkInterface(Mixin):
     """
 
     Mixin
@@ -462,18 +462,18 @@ class ip_network_interface(mixin):
 
     def __init__(self, occi_networkinterface_address='', occi_networkinterface_gateway='',
                  occi_networkinterface_allocation=_ip_network_interface_state.static):
-        super(ip_network_interface, self).__init__(term='ipnetworkinterface',
-                                                   scheme='http://schemas.ogf.org/occi/infrastructure/networkinterface',
-                                                   title='ip network interface mixin',
-                                                   attributes=(
-                                                   attribute(name='occi.networkinterface.address', required=True,
-                                                             mutable=True),
-                                                   attribute(name='occi.networkinterface.gateway', mutable=True),
-                                                   attribute(name='occi.networkinterface.allocation', required=True,
-                                                             mutable=True)),
-                                                   actions=(),
-                                                   related=(),
-                                                   entities=[])
+        super(IPNetworkInterface, self).__init__(term='ipnetworkinterface',
+                                                 scheme='http://schemas.ogf.org/occi/infrastructure/networkinterface',
+                                                 title='ip network interface mixin',
+                                                 attributes=(
+                                                 Attribute(name='occi.networkinterface.address', required=True,
+                                                           mutable=True),
+                                                 Attribute(name='occi.networkinterface.gateway', mutable=True),
+                                                 Attribute(name='occi.networkinterface.allocation', required=True,
+                                                           mutable=True)),
+                                                 actions=(),
+                                                 related=(),
+                                                 entities=[])
         # Internet Protocol (IP network address (e.g. 192.168.0.1/24, fc00::/7) of the link
         # occi.networkinterface.address
         # @AttributeType IPv4 or IPV6 Address
@@ -495,7 +495,7 @@ class ip_network_interface(mixin):
         self.occi_networkinterface_allocation = occi_networkinterface_allocation
 
 
-class os_tpl(mixin):
+class os_tpl(Mixin):
     """
 
     Mixin
@@ -519,7 +519,7 @@ class os_tpl(mixin):
         pass
 
 
-class resource_tpl(mixin):
+class resource_tpl(Mixin):
     """
 
     Mixin

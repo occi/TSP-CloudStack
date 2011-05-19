@@ -29,10 +29,10 @@ Created on Feb 25, 2011
 
 import logging.config
 
-from domain_controller.api.ocni.occi.occi_core import category, kind, mixin, action, entity, resource, link
+from domain_controller.api.ocni.occi.occi_core import Category, Kind, Mixin, Action, Entity, Resource, Link
 
-from domain_controller.api.ocni.occi.occi_infrastructure import compute, network, storage,\
-    network_interface, storage_link, ip_networking, ip_network_interface
+from domain_controller.api.ocni.occi.occi_infrastructure import Compute, Network, Storage,\
+    NetworkInterface, StorageLink, IPNetworking, IPNetworkInterface
 
 
 # Loading the logging configuration file
@@ -127,7 +127,7 @@ class category_registry(object):
 
     def register_kind(self, _kind):
         logger.debug("Registering the kind: " + _kind.__repr__())
-        if isinstance(_kind, kind):
+        if isinstance(_kind, Kind):
             category_registry.kinds[_kind.__repr__()] = _kind
             for _action in _kind.actions:
                 self.register_action(_action)
@@ -136,7 +136,7 @@ class category_registry(object):
 
     def register_mixin(self, _mixin):
         logger.debug("Registering the mixin: " + _mixin.__repr__())
-        if isinstance(_mixin, mixin):
+        if isinstance(_mixin, Mixin):
             category_registry.mixins[_mixin.__repr__()] = _mixin
             for _action in _mixin.actions:
                 self.register_action(_action)

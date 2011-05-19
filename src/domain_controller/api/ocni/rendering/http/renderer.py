@@ -27,7 +27,7 @@ Created on Feb 25, 2011
 @license: LGPL - Lesser General Public License
 '''
 
-from domain_controller.api.ocni.occi.occi_core import category, kind, mixin, action, entity, resource, link
+from domain_controller.api.ocni.occi.occi_core import Category, Kind, Mixin, Action, Entity, Resource, Link
 
 from domain_controller.api.ocni.registry.registry import location_registry
 
@@ -74,13 +74,13 @@ class category_renderer(object):
         category_value = ''
         category_param = ''
 
-        if isinstance(obj, kind):
+        if isinstance(obj, Kind):
             _category = obj
             _classe = 'kind'
-        elif isinstance(obj, mixin):
+        elif isinstance(obj, Mixin):
             _category = obj
             _classe = 'mixin'
-        elif isinstance(obj, action):
+        elif isinstance(obj, Action):
             _category = obj.category
             _classe = 'action'
         else:
@@ -129,7 +129,7 @@ class link_renderer(object):
         link_value = ''
         link_param = ''
 
-        if isinstance(obj, link):
+        if isinstance(obj, Link):
             _location_registry = location_registry()
             _location_of_obj = _location_registry.get_location(obj)
             _source = obj.source

@@ -31,7 +31,7 @@ OCCI Core version 1.1
 ==================================
 '''
 
-class attribute(object):
+class Attribute(object):
     """
 
     The attribute type used for the attributes list of category
@@ -48,7 +48,7 @@ class attribute(object):
         pass
 
 
-class category(object):
+class Category(object):
     """
 
     The Category type is the basis of the type identification mechanism used by the OCCI classification system.
@@ -81,7 +81,7 @@ class category(object):
         return  self.scheme + "#" + self.term
 
 
-class kind(category):
+class Kind(Category):
     """
 
     The kind type, together with the Mixin type, defines the classification system of the OCCI Core Model.
@@ -90,7 +90,7 @@ class kind(category):
     """
 
     def __init__(self, term, scheme, entity_type, title='', attributes=(), actions=(), related=(), entities=()):
-        super(kind, self).__init__(term=term,
+        super(Kind, self).__init__(term=term,
                                    scheme=scheme,
                                    title=title,
                                    attributes=attributes)
@@ -117,7 +117,7 @@ class kind(category):
         self.entities = entities
 
 
-class mixin(category):
+class Mixin(Category):
     """
 
     The Mixin type complements the Kind type in defining the OCCI Core Model type classification system.
@@ -130,7 +130,7 @@ class mixin(category):
     """
 
     def __init__(self, term, scheme, title='', attributes=(), actions=(), related=(), entities=[]):
-        super(mixin, self).__init__(term=term,
+        super(Mixin, self).__init__(term=term,
                                     scheme=scheme,
                                     title=title,
                                     attributes=attributes)
@@ -151,7 +151,7 @@ class mixin(category):
         self.entities = entities
 
 
-class action(object):
+class Action(object):
     """
 
     The Action type is an abstract type. Each sub-type of Action defines an invocable
@@ -160,7 +160,7 @@ class action(object):
     """
 
     # The category instance assigned to the action type
-    __category_instance = category(term='action',
+    __category_instance = Category(term='action',
                                    scheme='http://schemas.ogf.org/occi/core',
                                    title='Action',
                                    attributes=())
@@ -178,7 +178,7 @@ class action(object):
         return  self.category.scheme + '#' + self.category.term
 
 
-class entity(object):
+class Entity(object):
     """
 
     The Entity type is an abstract type of the Resource type and the Link type.
@@ -186,12 +186,12 @@ class entity(object):
     """
 
     # The kind instance assigned to the entity type
-    _entity_kind = kind(term='entity',
+    _entity_kind = Kind(term='entity',
                         scheme='http://schemas.ogf.org/occi/core',
                         entity_type='', # entity
                         title='Entity type',
-                        attributes=(attribute(name='occi.core.id', required=True),
-                                    attribute(name='occi.core.title', mutable=True)),
+                        attributes=(Attribute(name='occi.core.id', required=True),
+                                    Attribute(name='occi.core.title', mutable=True)),
                         actions=(),
                         related=(),
                         entities=())
@@ -226,7 +226,7 @@ class entity(object):
         return self.occi_core_id
 
 
-class resource(entity):
+class Resource(Entity):
     """
 
     The resource type inherits Entity and describes a concrete resource that can be inspired and manipulated.
@@ -236,17 +236,17 @@ class resource(entity):
     """
 
     # The kind instance assigned to the resource type
-    _resource_kind = kind(term='resource',
+    _resource_kind = Kind(term='resource',
                           scheme='http://schemas.ogf.org/occi/core',
                           entity_type='', #resource
                           title='Resource',
-                          attributes=(attribute(name='occi.core.summary', mutable=True)),
+                          attributes=(Attribute(name='occi.core.summary', mutable=True)),
                           actions=(),
-                          related=(entity._entity_kind, ),
+                          related=(Entity._entity_kind, ),
                           entities=())
 
     def __init__(self, occi_core_id, kind, occi_core_title='', mixins=[], occi_core_summary='', links=[]):
-        super(resource, self).__init__(occi_core_id=occi_core_id,
+        super(Resource, self).__init__(occi_core_id=occi_core_id,
                                        kind=kind or self._resource_kind,
                                        occi_core_title=occi_core_title,
                                        mixins=mixins)
@@ -263,7 +263,7 @@ class resource(entity):
         self.links = links
 
 
-class link(entity):
+class Link(Entity):
     """
 
     An instance of the Link type defines a base association between two Resource instances.
@@ -272,18 +272,18 @@ class link(entity):
     """
 
     # The kind instance assigned to the link type
-    _link_kind = kind(term='link',
+    _link_kind = Kind(term='link',
                       scheme='http://schemas.ogf.org/occi/core',
                       entity_type='', # link
                       title='Link',
-                      attributes=(attribute(name='occi.core.source', required=True, mutable=True),
-                                  attribute(name='occi.core.target', required=True, mutable=True)),
+                      attributes=(Attribute(name='occi.core.source', required=True, mutable=True),
+                                  Attribute(name='occi.core.target', required=True, mutable=True)),
                       actions=(),
-                      related=(entity._entity_kind, ),
+                      related=(Entity._entity_kind, ),
                       entities=())
 
     def __init__(self, occi_core_id, kind, occi_core_source, occi_core_target, occi_core_title='', mixins=[]):
-        super(link, self).__init__(occi_core_id=occi_core_id,
+        super(Link, self).__init__(occi_core_id=occi_core_id,
                                    kind=kind or self._link_kind,
                                    occi_core_title=occi_core_title,
                                    mixins=mixins)

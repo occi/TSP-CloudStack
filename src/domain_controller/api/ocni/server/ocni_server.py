@@ -33,10 +33,10 @@ from eventlet import wsgi
 import uuid
 import re
 
-from domain_controller.api.ocni.occi.occi_core import category, kind, mixin, action, entity, resource, link
+from domain_controller.api.ocni.occi.occi_core import Category, Kind, Mixin, Action, Entity, Resource, Link
 
-from domain_controller.api.ocni.occi.occi_infrastructure import compute, network, storage,\
-    network_interface, storage_link, ip_networking, ip_network_interface
+from domain_controller.api.ocni.occi.occi_infrastructure import Compute, Network, Storage,\
+    NetworkInterface, StorageLink, IPNetworking, IPNetworkInterface
 
 from domain_controller.api.ocni.registry.registry import category_registry, location_registry
 
@@ -55,20 +55,20 @@ logger = logging.getLogger("CloNeLogging")
 category_registry = category_registry()
 
 # register OCCI Core kinds
-category_registry.register_kind(entity._entity_kind)
-category_registry.register_kind(resource._resource_kind)
-category_registry.register_kind(link._link_kind)
+category_registry.register_kind(Entity._entity_kind)
+category_registry.register_kind(Resource._resource_kind)
+category_registry.register_kind(Link._link_kind)
 
 # register OCCI Infrastructure kinds
-category_registry.register_kind(compute._compute_kind)
-category_registry.register_kind(network._network_kind)
-category_registry.register_kind(storage._storage_kind)
-category_registry.register_kind(network_interface._network_interface_kind)
-category_registry.register_kind(storage_link._storage_link_kind)
+category_registry.register_kind(Compute._compute_kind)
+category_registry.register_kind(Network._network_kind)
+category_registry.register_kind(Storage._storage_kind)
+category_registry.register_kind(NetworkInterface._network_interface_kind)
+category_registry.register_kind(StorageLink._storage_link_kind)
 
 # register OCCI Infrastructure mixins
-category_registry.register_mixin(ip_networking())
-category_registry.register_mixin(ip_network_interface())
+category_registry.register_mixin(IPNetworking())
+category_registry.register_mixin(IPNetworkInterface())
 
 # ======================================================================================
 # the location registry
@@ -77,19 +77,19 @@ category_registry.register_mixin(ip_network_interface())
 location_registry = location_registry()
 
 # register OCCI Core kind locations
-location_registry.register_location("/resource/", resource._resource_kind)
-location_registry.register_location("/link/", link._link_kind)
+location_registry.register_location("/resource/", Resource._resource_kind)
+location_registry.register_location("/link/", Link._link_kind)
 
 # register OCCI Infrastructure kind locations
-location_registry.register_location("/compute/", compute._compute_kind)
-location_registry.register_location("/network/", network._network_kind)
-location_registry.register_location("/storage/", storage._storage_kind)
-location_registry.register_location("/networkinterface/", network_interface._network_interface_kind)
-location_registry.register_location("/storagelink/", storage_link._storage_link_kind)
+location_registry.register_location("/compute/", Compute._compute_kind)
+location_registry.register_location("/network/", Network._network_kind)
+location_registry.register_location("/storage/", Storage._storage_kind)
+location_registry.register_location("/networkinterface/", NetworkInterface._network_interface_kind)
+location_registry.register_location("/storagelink/", StorageLink._storage_link_kind)
 
 # register OCCI Infrastructure mixin locations
-location_registry.register_location("/ipnetworking/", ip_networking())
-location_registry.register_location("/ipnetworkinterface/", ip_network_interface())
+location_registry.register_location("/ipnetworking/", IPNetworking())
+location_registry.register_location("/ipnetworkinterface/", IPNetworkInterface())
 
 
 
@@ -168,6 +168,6 @@ location_registry.register_location("/ipnetworkinterface/", ip_network_interface
 if __name__ == '__main__':
     c = category_renderer()
     print '###########################'
-    print c.renderer(link._storage_kind)
+    print c.renderer(Link._storage_kind)
 
     pass
