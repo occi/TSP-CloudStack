@@ -31,6 +31,22 @@ OCCI Core version 1.1
 ==================================
 '''
 
+class attribute(object):
+    """
+
+    The attribute type used for the attributes list of category
+
+    """
+    def __init__(self, name, required=False, mutable=False):
+        # the attribute name
+        self.name = name
+        # True if the attribute is required
+        self.required = required
+        # True if the attribute is mutable
+        self.mutable = mutable
+        pass
+
+
 class category(object):
     """
 
@@ -108,7 +124,7 @@ class mixin(category):
         be applied to a type.
 
     """
-    
+
     def __init__(self, term, scheme, title='', attributes=(), actions=(), related=(), entities=[]):
         super(mixin, self).__init__(term=term, scheme=scheme, title=title, attributes=attributes)
         # set of actions defined by the Mixin instance
@@ -126,7 +142,6 @@ class mixin(category):
         # @AttributeMultiplicity 0..*
         # @AttributeMutability mutable
         self.entities = entities
-
 
 
 class action(object):
@@ -168,8 +183,8 @@ class entity(object):
                         scheme='http://schemas.ogf.org/occi/core',
                         entity_type='', # entity
                         title='Entity type',
-                        attributes=('occi.core.id',
-                                    'occi.core.title'),
+                        attributes=(attribute(name='occi.core.id',required=True),
+                                    attribute(name='occi.core.title', mutable=True)),
                         actions=(),
                         related=(),
                         entities=())
@@ -218,7 +233,7 @@ class resource(entity):
                           scheme='http://schemas.ogf.org/occi/core',
                           entity_type='', #resource
                           title='Resource',
-                          attributes=('occi.core.summary'),
+                          attributes=(attribute(name='occi.core.summary', mutable=True)),
                           actions=(),
                           related=(entity._entity_kind, ),
                           entities=())
@@ -251,8 +266,8 @@ class link(entity):
                       scheme='http://schemas.ogf.org/occi/core',
                       entity_type='', # link
                       title='Link',
-                      attributes=('occi.core.source',
-                                  'occi.core.target'),
+                      attributes=(attribute(name='occi.core.source', required=True, mutable=True),
+                                  attribute(name='occi.core.target', required=True, mutable=True)),
                       actions=(),
                       related=(entity._entity_kind, ),
                       entities=())
