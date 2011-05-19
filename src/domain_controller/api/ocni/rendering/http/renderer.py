@@ -105,7 +105,7 @@ class category_renderer(object):
         if _classe == 'kind' or _classe == 'mixin':
             __attributes = ''
             for __attribute in _category.attributes:
-                __attributes += __attribute + ' '
+                __attributes += __attribute.name + ' '
             category_param += 'attributes="' + __attributes + '";\n'
 
         if _classe == 'kind' or _classe == 'mixin':

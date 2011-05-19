@@ -168,6 +168,6 @@ location_registry.register_location("/ipnetworkinterface/", IPNetworkInterface()
 if __name__ == '__main__':
     c = category_renderer()
     print '###########################'
-    print c.renderer(Link._storage_kind)
+    print c.renderer(Compute._kind)
 
     pass
