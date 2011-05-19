@@ -45,7 +45,7 @@ class Attribute(object):
         self.required = required
         # True if the attribute is mutable
         self.mutable = mutable
-        pass
+
 
 
 class Category(object):
@@ -299,6 +299,8 @@ class Link(Entity):
         # @AttributeMultiplicity 1
         # @AttributeMutability mutable
         self.occi_core_target = occi_core_target
+
+
 
 if __name__ == '__main__':
 #    e = entity('&', None)
