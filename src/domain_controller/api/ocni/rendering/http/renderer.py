@@ -27,13 +27,7 @@ Created on Feb 25, 2011
 @license: LGPL - Lesser General Public License
 '''
 
-from domain_controller.api.ocni.occi.occi_core import category
-from domain_controller.api.ocni.occi.occi_core import kind
-from domain_controller.api.ocni.occi.occi_core import mixin
-from domain_controller.api.ocni.occi.occi_core import action
-from domain_controller.api.ocni.occi.occi_core import entity
-from domain_controller.api.ocni.occi.occi_core import resource
-from domain_controller.api.ocni.occi.occi_core import link
+from domain_controller.api.ocni.occi.occi_core import category, kind, mixin, action, entity, resource, link
 
 from domain_controller.api.ocni.registry.registry import location_registry
 

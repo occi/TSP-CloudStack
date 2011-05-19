@@ -29,21 +29,10 @@ Created on Feb 25, 2011
 
 import logging.config
 
-from domain_controller.api.ocni.occi.occi_core import category
-from domain_controller.api.ocni.occi.occi_core import kind
-from domain_controller.api.ocni.occi.occi_core import mixin
-from domain_controller.api.ocni.occi.occi_core import action
-from domain_controller.api.ocni.occi.occi_core import entity
-from domain_controller.api.ocni.occi.occi_core import resource
-from domain_controller.api.ocni.occi.occi_core import link
+from domain_controller.api.ocni.occi.occi_core import category, kind, mixin, action, entity, resource, link
 
-from domain_controller.api.ocni.occi.occi_infrastructure import compute
-from domain_controller.api.ocni.occi.occi_infrastructure import network
-from domain_controller.api.ocni.occi.occi_infrastructure import storage
-from domain_controller.api.ocni.occi.occi_infrastructure import network_interface
-from domain_controller.api.ocni.occi.occi_infrastructure import storage_link
-from domain_controller.api.ocni.occi.occi_infrastructure import ip_networking
-from domain_controller.api.ocni.occi.occi_infrastructure import ip_network_interface
+from domain_controller.api.ocni.occi.occi_infrastructure import compute, network, storage,\
+    network_interface, storage_link, ip_networking, ip_network_interface
 
 
 # Loading the logging configuration file

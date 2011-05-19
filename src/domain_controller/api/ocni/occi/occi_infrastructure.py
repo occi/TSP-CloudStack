@@ -23,7 +23,7 @@ Created on Feb 25, 2011
 @author: Houssem Medhioub
 @contact: houssem.medhioub@it-sudparis.eu
 @organization: Institut Telecom - Telecom SudParis
-@version: 0.1
+@version: 0.1.1
 @license: LGPL - Lesser General Public License
 
 ==================================
@@ -94,46 +94,51 @@ class compute(resource):
                          entities=())
 
 
-    def __init__(self, id, kind, state, title='', mixins=[], summary='', links=[], architecture='', cores=0, hostname=''
-                 , speed=0.0, memory=0):
-        super(compute, self).__init__(id=id, kind=kind or self._compute_kind, title=title, mixins=mixins,
-                                      summary=summary, links=links)
+    def __init__(self, occi_core_id, kind, occi_compute_state, occi_core_title='', mixins=[], occi_core_summary='',
+                 links=[], occi_compute_architecture='', occi_compute_cores=0, occi_compute_hostname='',
+                 occi_compute_speed=0.0, occi_compute_memory=0):
+        super(compute, self).__init__(occi_core_id=occi_core_id,
+                                      kind=kind or self._compute_kind,
+                                      occi_core_title=occi_core_title,
+                                      mixins=mixins,
+                                      occi_core_summary=occi_core_summary,
+                                      links=links)
         # CPU architecture of the instance
         # occi.compute.architecture
         # @AttributeType Enum {x86, x64}
         # @AttributeMultiplicity 0..1
         # @AttributeMutability mutable
-        self.architecture = architecture
+        self.occi_compute_architecture = occi_compute_architecture
         # Number of CPU cores assigned to the instance
         # occi.compute.cores
         # @AttributeType integer
         # @AttributeMultiplicity 0..1
         # @AttributeMutability mutable
-        self.cores = cores
+        self.occi_compute_cores = occi_compute_cores
         # Fully Qualified DNS hostname for the instance
         # occi.compute.hostname
         # @AttributeType string
         # @AttributeMultiplicity 0..1
         # @AttributeMutability mutable
-        self.hostname = hostname
+        self.occi_compute_hostname = occi_compute_hostname
         # CPU Clock frequency (speed) in gigahertz
         # occi.compute.speed
         # @AttributeType Float, 10expo(9) (GHz)
         # @AttributeMultiplicity 0..1
         # @AttributeMutability mutable
-        self.speed = speed
+        self.occi_compute_speed = occi_compute_speed
         # Maximum RAM in gigabytes allocated to the instance
         # occi.compute.memory
         # @AttributeType Float, 10expo(9) (GiB)
         # @AttributeMultiplicity 0..1
         # @AttributeMutability mutable
-        self.memory = memory
+        self.occi_compute_memory = occi_compute_memory
         # Current state of the instance
         # occi.compute.state
         # @AttributeType Enum {active, inactive, suspended}
         # @AttributeMultiplicity 1
         # @AttributeMutability immutable
-        self.state = state or self._compute_state.inactive
+        self.occi_compute_state = occi_compute_state or self._compute_state.inactive
 
 
 class network(resource):
@@ -176,27 +181,32 @@ class network(resource):
                          entities=())
 
 
-    def __init__(self, id, kind, state, title='', mixins=[], summary='', links=[], vlan=0, label=''):
-        super(network, self).__init__(id=id, kind=kind or self._network_kind, title=title, mixins=mixins,
-                                      summary=summary, links=links)
+    def __init__(self, occi_core_id, kind, occi_network_state, occi_core_title='', mixins=[], occi_core_summary='',
+                 links=[], occi_network_vlan=0, occi_network_label=''):
+        super(network, self).__init__(occi_core_id=occi_core_id,
+                                      kind=kind or self._network_kind,
+                                      occi_core_title=occi_core_title,
+                                      mixins=mixins,
+                                      occi_core_summary=occi_core_summary,
+                                      links=links)
         # 802.1q VLAN identifier (e.g. 343)
         # occi.network.vlan
         # @AttributeType integer: 0-4095
         # @AttributeMultiplicity 0..1
         # @AttributeMutability mutable
-        self.vlan = vlan
+        self.occi_network_vlan = occi_network_vlan
         # Tag based VLANs (e.g. external-dmz)
         # occi.network.label
         # @AttributeType Token
         # @AttributeMultiplicity 0..1
         # @AttributeMutability mutable
-        self.label = label
+        self.occi_network_label = occi_network_label
         # Current state of the instance
         # occi.network.state
         # @AttributeType Enum {active, inactive}
         # @AttributeMultiplicity 1
         # @AttributeMutability immutable
-        self.state = state or self._network_state.inactive
+        self.occi_network_state = occi_network_state or self._network_state.inactive
 
 
 class storage(resource):
@@ -260,22 +270,27 @@ class storage(resource):
                          related=(resource._resource_kind, ),
                          entities=())
 
-    def __init__(self, id, kind, size, state, title='', mixins=[], summary='', links=[]):
-        super(storage, self).__init__(id=id, kind=kind or self._storage_kind, title=title, mixins=mixins,
-                                      summary=summary, links=links)
+    def __init__(self, occi_core_id, kind, occi_storage_size, occi_storage_state, occi_core_title='', mixins=[],
+                 occi_core_summary='', links=[]):
+        super(storage, self).__init__(occi_core_id=occi_core_id,
+                                      kind=kind or self._storage_kind,
+                                      occi_core_title=occi_core_title,
+                                      mixins=mixins,
+                                      occi_core_summary=occi_core_summary,
+                                      links=links)
 
         # Storage size in gigabytes of the instance
         # occi.storage.size
         # @AttributeType Float, 10expo(9) (GiB)
         # @AttributeMultiplicity 1
         # @AttributeMutability mutable
-        self.size = size or 0
+        self.occi_storage_size = occi_storage_size or 0
         # Current state of the instance
         # occi.storage.state
         # @AttributeType Enum(online, offline, backup, snapshot, resize, degraded)
         # @AttributeMultiplicity 1
         # @AttributeMutability immutable
-        self.state = state or self._storage_state.offline
+        self.occi_storage_state = occi_storage_state or self._storage_state.offline
 
 
 class network_interface(link):
@@ -304,28 +319,33 @@ class network_interface(link):
                                    entities=())
 
 
-    def __init__(self, id, kind, source, target, interface, mac, state, title='', mixins=[]):
-        super(network_interface, self).__init__(id=id, kind=kind or self._network_interface_kind, source=source,
-                                                target=target, title=title, mixins=mixins)
+    def __init__(self, occi_core_id, kind, occi_core_source, occi_core_target, occi_networkinterface_interface,
+                 occi_networkinterface_mac, occi_networkinterface_state, occi_core_title='', mixins=[]):
+        super(network_interface, self).__init__(occi_core_id=occi_core_id,
+                                                kind=kind or self._network_interface_kind,
+                                                occi_core_source=occi_core_source,
+                                                occi_core_target=occi_core_target,
+                                                occi_core_title=occi_core_title,
+                                                mixins=mixins)
 
         # identifier that relates the link to the link's device interface
         # occi.networkinterface.interface
         # @AttributeType string
         # @AttributeMultiplicity 1
         # @AttributeMutability immutable
-        self.interface = interface
+        self.occi_networkinterface_interface = occi_networkinterface_interface
         # MAC address associated with the link's device interface
         # occi.networkinterface.mac
         # @AttributeType string
         # @AttributeMultiplicity 1
         # @AttributeMutability mutable
-        self.mac = mac
+        self.occi_networkinterface_mac = occi_networkinterface_mac
         # Current state of the instance
         # occi.networkinterface.state
         # @AttributeType Enum(active, inactive)
         # @AttributeMultiplicity 1
         # @AttributeMutability immutable
-        self.state = state or self._network_interface_state.inactive
+        self.occi_networkinterface_state = occi_networkinterface_state or self._network_interface_state.inactive
 
     pass
 
@@ -355,28 +375,33 @@ class storage_link(link):
                               related=(link._link_kind, ),
                               entities=())
 
-    def __init__(self, id, kind, source, target, deviceid, state, mountpoint='', title='', mixins=[]):
-        super(storage_link, self).__init__(id=id, kind=kind or self._storage_link_kind, source=source,
-                                           target=target, title=title, mixins=mixins)
+    def __init__(self, occi_core_id, kind, occi_core_source, occi_core_target, occi_storagelink_deviceid,
+                 occi_storagelink_state, occi_storagelink_mountpoint='', occi_core_title='', mixins=[]):
+        super(storage_link, self).__init__(occi_core_id=occi_core_id,
+                                           kind=kind or self._storage_link_kind,
+                                           occi_core_source=occi_core_source,
+                                           occi_core_target=occi_core_target,
+                                           occi_core_title=occi_core_title,
+                                           mixins=mixins)
 
         # Device identifier as defined by the OCCI service provider
         # occi.storagelink.deviceid
         # @AttributeType string
         # @AttributeMultiplicity 1
         # @AttributeMutability mutable
-        self.deviceid = deviceid
+        self.occi_storagelink_deviceid = occi_storagelink_deviceid
         # point to where the storage is mounted in the guest OS
         # occi.storagelink.mountpoint
         # @AttributeType string
         # @AttributeMultiplicity 0..1
         # @AttributeMutability mutable
-        self.mountpoint = mountpoint
+        self.occi_storagelink_mountpoint = occi_storagelink_mountpoint
         # Current state of the instance
         # occi.storagelink.state
         # @AttributeType Enum(active, inactive)
         # @AttributeMultiplicity 1
         # @AttributeMutability immutable
-        self.state = state or self._storage_link_state.inactive
+        self.occi_storagelink_state = occi_storagelink_state or self._storage_link_state.inactive
 
 
 class ip_networking(mixin):
@@ -390,7 +415,8 @@ class ip_networking(mixin):
     # Enumeration for the address allocation mechanism
     _ip_networking_state = Enum('dynamic', 'static')
 
-    def __init__(self, address='', gateway='', allocation=_ip_networking_state.static):
+    def __init__(self, occi_network_address='', occi_network_gateway='',
+                 occi_network_allocation=_ip_networking_state.static):
         super(ip_networking, self).__init__(term='ipnetwork',
                                             scheme='http://schemas.ogf.org/occi/infrastructure/network',
                                             title='ip network mixin',
@@ -406,20 +432,20 @@ class ip_networking(mixin):
         # @AttributeType IPv4 or IPV6 Address range, CIDR notation
         # @AttributeMultiplicity 0..1
         # @AttributeMutability mutable
-        self.address = address
+        self.occi_network_address = occi_network_address
         # Internet Protocol (IP) network address (e.g. 192.168.0.1, fc00::)
         # occi.network.gateway
         # @AttributeType IPv4 or IPV6 Address
         # @AttributeMultiplicity 0..1
         # @AttributeMutability mutable
-        self.gateway = gateway
+        self.occi_network_gateway = occi_network_gateway
         # Address allocation mechanism: dynamic e.g. uses the dynamic host configuration protocol,
         #    static e.g. uses user supplied static network configurations
         # occi.network.allocation
         # @AttributeType Enum {dynamic, static}
         # @AttributeMultiplicity 0..1
         # @AttributeMutability mutable
-        self.allocation = allocation
+        self.occi_network_allocation = occi_network_allocation
 
 
 class ip_network_interface(mixin):
@@ -434,13 +460,17 @@ class ip_network_interface(mixin):
     # Enumeration for the address allocation mechanism
     _ip_network_interface_state = Enum('dynamic', 'static')
 
-    def __init__(self, address='', gateway='', allocation=_ip_network_interface_state.static):
+    def __init__(self, occi_networkinterface_address='', occi_networkinterface_gateway='',
+                 occi_networkinterface_allocation=_ip_network_interface_state.static):
         super(ip_network_interface, self).__init__(term='ipnetworkinterface',
                                                    scheme='http://schemas.ogf.org/occi/infrastructure/networkinterface',
                                                    title='ip network interface mixin',
-                                                   attributes=(attribute(name='occi.networkinterface.address', required=True, mutable=True),
-                                                               attribute(name='occi.networkinterface.gateway', mutable=True),
-                                                               attribute(name='occi.networkinterface.allocation', required=True, mutable=True)),
+                                                   attributes=(
+                                                   attribute(name='occi.networkinterface.address', required=True,
+                                                             mutable=True),
+                                                   attribute(name='occi.networkinterface.gateway', mutable=True),
+                                                   attribute(name='occi.networkinterface.allocation', required=True,
+                                                             mutable=True)),
                                                    actions=(),
                                                    related=(),
                                                    entities=[])
@@ -449,20 +479,20 @@ class ip_network_interface(mixin):
         # @AttributeType IPv4 or IPV6 Address
         # @AttributeMultiplicity 1
         # @AttributeMutability mutable
-        self.address = address
+        self.occi_networkinterface_address = occi_networkinterface_address
         # Internet Protocol (IP network address (e.g. 192.168.0.1/24, fc00::/7)
         # occi.networkinterface.gateway
         # @AttributeType IPv4 or IPV6 Address
         # @AttributeMultiplicity 0..1
         # @AttributeMutability mutable
-        self.gateway = gateway
+        self.occi_networkinterface_gateway = occi_networkinterface_gateway
         # Address allocation mechanism: dynamic e.g. uses the dynamic host configuration protocol,
         #    static e.g. uses user supplied static network configurations
         # occi.networkinterface.allocation
         # @AttributeType Enum {dynamic, static}
         # @AttributeMultiplicity 1
         # @AttributeMutability mutable
-        self.allocation = allocation
+        self.occi_networkinterface_allocation = occi_networkinterface_allocation
 
 
 class os_tpl(mixin):

@@ -33,26 +33,12 @@ from eventlet import wsgi
 import uuid
 import re
 
+from domain_controller.api.ocni.occi.occi_core import category, kind, mixin, action, entity, resource, link
 
-from domain_controller.api.ocni.occi.occi_core import category
-from domain_controller.api.ocni.occi.occi_core import kind
-from domain_controller.api.ocni.occi.occi_core import mixin
-from domain_controller.api.ocni.occi.occi_core import action
-from domain_controller.api.ocni.occi.occi_core import entity
-from domain_controller.api.ocni.occi.occi_core import resource
-from domain_controller.api.ocni.occi.occi_core import link
+from domain_controller.api.ocni.occi.occi_infrastructure import compute, network, storage,\
+    network_interface, storage_link, ip_networking, ip_network_interface
 
-from domain_controller.api.ocni.occi.occi_infrastructure import compute
-from domain_controller.api.ocni.occi.occi_infrastructure import network
-from domain_controller.api.ocni.occi.occi_infrastructure import storage
-from domain_controller.api.ocni.occi.occi_infrastructure import network_interface
-from domain_controller.api.ocni.occi.occi_infrastructure import storage_link
-from domain_controller.api.ocni.occi.occi_infrastructure import ip_networking
-from domain_controller.api.ocni.occi.occi_infrastructure import ip_network_interface
-
-
-from domain_controller.api.ocni.registry.registry import category_registry
-from domain_controller.api.ocni.registry.registry import location_registry
+from domain_controller.api.ocni.registry.registry import category_registry, location_registry
 
 from domain_controller.api.ocni.rendering.http.renderer import category_renderer
 
@@ -183,6 +169,5 @@ if __name__ == '__main__':
     c = category_renderer()
     print '###########################'
     print c.renderer(link._storage_kind)
-
 
     pass
