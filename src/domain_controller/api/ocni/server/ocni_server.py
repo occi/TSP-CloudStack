@@ -40,7 +40,7 @@ from domain_controller.api.ocni.occi.occi_infrastructure import Compute, Network
 
 from domain_controller.api.ocni.registry.registry import category_registry, location_registry
 
-from domain_controller.api.ocni.rendering.http.renderer import category_renderer
+from domain_controller.api.ocni.rendering.http.renderer import category_renderer, link_renderer, action_renderer, attributes_renderer, location_renderer
 
 # Loading the logging configuration file
 logging.config.fileConfig("../../../../CloNeLogging.conf")
@@ -166,8 +166,30 @@ location_registry.register_location("/ipnetworkinterface/", IPNetworkInterface()
 #wsgi.server(eventlet.listen(('', 8090)), hello_world)
 
 if __name__ == '__main__':
+    logger.debug('############ BEGIN OCCI Category rendering ###############')
     c = category_renderer()
-    print '###########################'
-    print c.renderer(Compute._kind)
+    logger.debug(c.renderer(Compute._kind))
+    logger.debug('############# END OCCI Category rendering ################')
+
+    logger.debug('############ BEGIN OCCI Link instance rendering ###############')
+    network_instance = Network('/network/123', 'active')
+    location_registry.register_location("/network/123", network_instance)
+
+    networkinterface_instance = NetworkInterface('456', 'source', '/network/123', '192.168.1.2', '00:00:10:20:30:40',
+                                                 'active')
+    location_registry.register_location("/link/networkinterface/456", networkinterface_instance)
+
+    l = link_renderer()
+    logger.debug(l.renderer(NetworkInterface('456', 'source', '/network/123', 'eth0', '00:01:20:50:90:80', 'active')))
+    logger.debug('############# END OCCI Link instance rendering ################')
+
+    logger.debug('############ BEGIN OCCI Action instance rendering ###############')
+    compute_instance = Compute('/compute/123', 'active')
+    location_registry.register_location("/compute/123", compute_instance)
+
+    a = action_renderer()
+    logger.debug(a.renderer(compute_instance, Compute._action_start))
+    logger.debug('############# END OCCI Action instance rendering ################')
+
 
     pass

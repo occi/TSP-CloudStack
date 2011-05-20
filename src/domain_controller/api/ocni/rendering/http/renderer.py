@@ -31,6 +31,8 @@ from domain_controller.api.ocni.occi.occi_core import Category, Kind, Mixin, Act
 
 from domain_controller.api.ocni.registry.registry import location_registry
 
+import re
+
 import logging.config
 
 # Loading the logging configuration file
@@ -132,14 +134,21 @@ class link_renderer(object):
         if isinstance(obj, Link):
             _location_registry = location_registry()
             _location_of_obj = _location_registry.get_location(obj)
-            _source = obj.source
-            _target_location = obj.target
+
+            _source = obj.occi_core_source
+            _target_location = obj.occi_core_target
+
             _target_object = _location_registry.get_object(_target_location)
 
-            link_value += _target_location + ';\nrel="' + _target_object.kind.__repr__() + '";\nself="' + _location_of_obj + '";\n'
+            logger.debug('the Target location of this link is: ' + _target_location)
+            logger.debug('the Target object of this link is: ' + _target_object.__repr__())
 
-            link_param += 'category="' + obj.kind.__repr__() + '";\n'
+            link_value += '<' + _target_location + '>;\nrel="' + _target_object.kind.__repr__() + '";\nself="' + _location_of_obj + '";\n'
 
+            link_param += 'category="' + obj.kind.__repr__() + '";'
+
+            for attribute in obj.kind.attributes:
+                link_param += '\n' + attribute.name + '="' + obj.__getattribute__(re.sub('\.', '_', attribute.name)) + '";'
 
         else:
             logger.warning("Object bad type: Only a Link can be rendered")
@@ -154,9 +163,25 @@ class link_renderer(object):
 # Rendering of references to OCCI Action instances
 # ======================================================================================
 class action_renderer(object):
-    def renderer(self, obj):
+    def renderer(self, obj, action):
         header = {}
-        pass
+        link_value = ''
+
+        if isinstance(obj, Resource):
+            _location_registry = location_registry()
+            _location_of_obj = _location_registry.get_location(obj)
+
+            _location_of_action = _location_of_obj + '?action=' + action.category.term
+
+            link_value += '<' + _location_of_action + '>;\nrel="' + action.__repr__() + '"'
+        else:
+            logger.warning("Object bad type: Only a Resource can be rendered")
+            raise ("Object bad type: Only a Resource can be rendered")
+
+        header[header_link] = link_value
+
+        return header[header_link]
+        
 
 # ======================================================================================
 # OCCI Entity attributes rendering
@@ -165,6 +190,9 @@ class action_renderer(object):
 class attributes_renderer(object):
     def renderer(self, obj):
         header = {}
+
+        
+
         pass
 
 # ======================================================================================
