@@ -168,7 +168,8 @@ location_registry.register_location("/ipnetworkinterface/", IPNetworkInterface()
 if __name__ == '__main__':
     logger.debug('############ BEGIN OCCI Category rendering ###############')
     c = category_renderer()
-    logger.debug(c.renderer(Compute._kind))
+    result = c.renderer(Compute._kind)
+    logger.debug(result.get('Category'))
     logger.debug('############# END OCCI Category rendering ################')
 
     logger.debug('############ BEGIN OCCI Link instance rendering ###############')
@@ -180,7 +181,8 @@ if __name__ == '__main__':
     location_registry.register_location("/link/networkinterface/456", networkinterface_instance)
 
     l = link_renderer()
-    logger.debug(l.renderer(NetworkInterface('456', 'source', '/network/123', 'eth0', '00:01:20:50:90:80', 'active')))
+    result = l.renderer(NetworkInterface('456', 'source', '/network/123', 'eth0', '00:01:20:50:90:80', 'active'))
+    logger.debug(result.get('Link'))
     logger.debug('############# END OCCI Link instance rendering ################')
 
     logger.debug('############ BEGIN OCCI Action instance rendering ###############')
@@ -188,8 +190,25 @@ if __name__ == '__main__':
     location_registry.register_location("/compute/123", compute_instance)
 
     a = action_renderer()
-    logger.debug(a.renderer(compute_instance, Compute._action_start))
+    result = a.renderer(compute_instance, Compute._action_start)
+    logger.debug(result.get('Link'))
     logger.debug('############# END OCCI Action instance rendering ################')
 
+    logger.debug('############# Begin OCCI Entity attributes rendering ################')
+    att = attributes_renderer()
+    result = att.renderer(compute_instance)
+    result2 = result.get('X-OCCI-Attribute')
+    for r in result2:
+        logger.debug('X-OCCI-Attribute' + ': ' + r)
+    logger.debug('############# END OCCI Entity attributes rendering ################')
 
+    logger.debug('############# BEGIN OCCI Location-URIs rendering ################')
+    location = location_renderer()
+    temp = location_registry.locations.values()
+    print temp
+    result = location.renderer(temp)
+    result2 = result.get('X-OCCI-Location')
+    for r in result2:
+        logger.debug('X-OCCI-Location' + ': ' + r)
+    logger.debug('############# END OCCI Location-URIs rendering ################')
     pass

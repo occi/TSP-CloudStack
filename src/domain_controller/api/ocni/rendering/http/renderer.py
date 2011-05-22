@@ -35,10 +35,16 @@ import re
 
 import logging.config
 
+from configobj import ConfigObj
+
 # Loading the logging configuration file
 logging.config.fileConfig("../../../../CloNeLogging.conf")
 # getting the Logger
 logger = logging.getLogger("CloNeLogging")
+
+config = ConfigObj("ocni_server.conf")
+OCNI_IP = config['OCNI_IP']
+OCNI_PORT = config['OCNI_PORT']
 
 # ======================================================================================
 # HTTP Return Codes
@@ -118,7 +124,7 @@ class category_renderer(object):
 
         header[header_category] = category_value + category_param
 
-        return header[header_category]
+        return header
 
 
 # ======================================================================================
@@ -148,7 +154,8 @@ class link_renderer(object):
             link_param += 'category="' + obj.kind.__repr__() + '";'
 
             for attribute in obj.kind.attributes:
-                link_param += '\n' + attribute.name + '="' + obj.__getattribute__(re.sub('\.', '_', attribute.name)) + '";'
+                link_param += '\n' + attribute.name + '="' + obj.__getattribute__(
+                    re.sub('\.', '_', attribute.name)) + '";'
 
         else:
             logger.warning("Object bad type: Only a Link can be rendered")
@@ -156,7 +163,7 @@ class link_renderer(object):
 
         header[header_link] = link_value + link_param
 
-        return header[header_link]
+        return header
 
 # ======================================================================================
 # OCCI action instance rendering
@@ -180,8 +187,8 @@ class action_renderer(object):
 
         header[header_link] = link_value
 
-        return header[header_link]
-        
+        return header
+
 
 # ======================================================================================
 # OCCI Entity attributes rendering
@@ -190,19 +197,37 @@ class action_renderer(object):
 class attributes_renderer(object):
     def renderer(self, obj):
         header = {}
+        attribute_value = []
 
-        
+        if isinstance(obj, Entity):
+            for attribute in obj._kind.attributes:
+                attribute_value.append(
+                    attribute.name + '="' + str(obj.__getattribute__(re.sub('\.', '_', attribute.name))) + '"')
 
-        pass
+        else:
+            logger.warning("Object bad type: Only an Entity can be rendered")
+            raise ("Object bad type: Only an Entity can be rendered")
+
+        header[header_attribute] = attribute_value
+
+        return header
 
 # ======================================================================================
 # OCCI Location-URIs rendering
 # Rendering of Location-URIs
 # ======================================================================================
 class location_renderer(object):
-    def renderer(self, obj):
+    def renderer(self, locations):
         header = {}
-        pass
+        location_values = []
+
+        for location in locations:
+            authority = OCNI_IP + ':' + OCNI_PORT
+            location_values.append(authority + location)
+
+        header[header_location] = location_values
+
+        return header
 
 
 # ======================================================================================

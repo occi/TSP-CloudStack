@@ -47,7 +47,6 @@ class Attribute(object):
         self.mutable = mutable
 
 
-
 class Category(object):
     """
 
@@ -299,7 +298,6 @@ class Link(Entity):
         # @AttributeMultiplicity 1
         # @AttributeMutability mutable
         self.occi_core_target = occi_core_target
-
 
 
 if __name__ == '__main__':
