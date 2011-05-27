@@ -2,20 +2,20 @@
 
 # Copyright (C) 2011 Houssem Medhioub - Institut Telecom
 #
-# This file is part of CloNeDCP.
+# This file is part of TSP-CloudStack.
 #
-# CloNeDCP is free software: you can redistribute it and/or modify
+# TSP-CloudStack is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Lesser General Public License as
 # published by the Free Software Foundation, either version 3 of
 # the License, or (at your option) any later version.
 #
-# CloNeDCP is distributed in the hope that it will be useful,
+# TSP-CloudStack is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU Lesser General Public License for more details.
 #
 # You should have received a copy of the GNU Lesser General Public License
-# along with CloNeDCP.  If not, see <http://www.gnu.org/licenses/>.
+# along with TSP-CloudStack.  If not, see <http://www.gnu.org/licenses/>.
 
 '''
 Created on Feb 25, 2011
@@ -46,21 +46,6 @@ config = ConfigObj("ocni_server.conf")
 OCNI_IP = config['OCNI_IP']
 OCNI_PORT = config['OCNI_PORT']
 
-# ======================================================================================
-# HTTP Return Codes
-# ======================================================================================
-return_code = {'OK': 200,
-               'Accepted': 202,
-               'Bad Request': 400,
-               'Unauthorized': 401,
-               'Forbidden': 403,
-               'Method Not Allowed': 405,
-               'Conflict': 409,
-               'Gone': 410,
-               'Unsupported Media Type': 415,
-               'Internal Server Error': 500,
-               'Not Implemented': 501,
-               'Service Unavailable': 503}
 
 
 # ======================================================================================
@@ -228,6 +213,31 @@ class location_renderer(object):
         header[header_location] = location_values
 
         return header
+
+
+# ======================================================================================
+# OCCI Content-type text/plain rendering
+# ======================================================================================
+class text_plain_renderer(object):
+    pass
+
+# ======================================================================================
+# OCCI Content-type text/occi rendering
+# ======================================================================================
+class text_occi_renderer(object):
+    pass
+
+# ======================================================================================
+# OCCI Content-type text/uri-list rendering
+# ======================================================================================
+class text_urilist_renderer(object):
+    pass
+
+# ======================================================================================
+# OCCI main rendering
+# ======================================================================================
+class main_renderer(object):
+    pass
 
 
 # ======================================================================================

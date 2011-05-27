@@ -2,20 +2,20 @@
 
 # Copyright (C) 2011 Houssem Medhioub - Institut Telecom
 #
-# This file is part of CloNeDCP.
+# This file is part of TSP-CloudStack.
 #
-# CloNeDCP is free software: you can redistribute it and/or modify
+# TSP-CloudStack is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Lesser General Public License as
 # published by the Free Software Foundation, either version 3 of
 # the License, or (at your option) any later version.
 #
-# CloNeDCP is distributed in the hope that it will be useful,
+# TSP-CloudStack is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU Lesser General Public License for more details.
 #
 # You should have received a copy of the GNU Lesser General Public License
-# along with CloNeDCP.  If not, see <http://www.gnu.org/licenses/>.
+# along with TSP-CloudStack.  If not, see <http://www.gnu.org/licenses/>.
 
 '''
 Created on Feb 25, 2011

@@ -2,20 +2,20 @@
 
 # Copyright (C) 2011 Houssem Medhioub - Institut Telecom
 #
-# This file is part of CloNeDCP.
+# This file is part of TSP-CloudStack.
 #
-# CloNeDCP is free software: you can redistribute it and/or modify
+# TSP-CloudStack is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Lesser General Public License as
 # published by the Free Software Foundation, either version 3 of
 # the License, or (at your option) any later version.
 #
-# CloNeDCP is distributed in the hope that it will be useful,
+# TSP-CloudStack is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU Lesser General Public License for more details.
 #
 # You should have received a copy of the GNU Lesser General Public License
-# along with CloNeDCP.  If not, see <http://www.gnu.org/licenses/>.
+# along with TSP-CloudStack.  If not, see <http://www.gnu.org/licenses/>.
 
 '''
 Created on Feb 25, 2011
@@ -30,6 +30,7 @@ Created on Feb 25, 2011
 import logging.config
 import eventlet
 from eventlet import wsgi
+#from webob import Request
 import uuid
 import re
 
@@ -46,6 +47,22 @@ from domain_controller.api.ocni.rendering.http.renderer import category_renderer
 logging.config.fileConfig("../../../../CloNeLogging.conf")
 # getting the Logger
 logger = logging.getLogger("CloNeLogging")
+
+# ======================================================================================
+# HTTP Return Codes
+# ======================================================================================
+return_code = {'OK': 200,
+               'Accepted': 202,
+               'Bad Request': 400,
+               'Unauthorized': 401,
+               'Forbidden': 403,
+               'Method Not Allowed': 405,
+               'Conflict': 409,
+               'Gone': 410,
+               'Unsupported Media Type': 415,
+               'Internal Server Error': 500,
+               'Not Implemented': 501,
+               'Service Unavailable': 503}
 
 
 # ======================================================================================
@@ -165,12 +182,28 @@ location_registry.register_location("/ipnetworkinterface/", IPNetworkInterface()
 #
 #wsgi.server(eventlet.listen(('', 8090)), hello_world)
 
+
+
+
+class Server(object):
+    """
+
+    A class to manage multiple WSGI sockets and applications.
+
+    """
+    pass
+
+
+
+
 if __name__ == '__main__':
     logger.debug('############ BEGIN OCCI Category rendering ###############')
     c = category_renderer()
     result = c.renderer(Compute._kind)
     logger.debug(result.get('Category'))
     logger.debug('############# END OCCI Category rendering ################')
+
+
 
     logger.debug('############ BEGIN OCCI Link instance rendering ###############')
     network_instance = Network('/network/123', 'active')
@@ -185,6 +218,8 @@ if __name__ == '__main__':
     logger.debug(result.get('Link'))
     logger.debug('############# END OCCI Link instance rendering ################')
 
+
+
     logger.debug('############ BEGIN OCCI Action instance rendering ###############')
     compute_instance = Compute('/compute/123', 'active')
     location_registry.register_location("/compute/123", compute_instance)
@@ -194,6 +229,8 @@ if __name__ == '__main__':
     logger.debug(result.get('Link'))
     logger.debug('############# END OCCI Action instance rendering ################')
 
+
+
     logger.debug('############# Begin OCCI Entity attributes rendering ################')
     att = attributes_renderer()
     result = att.renderer(compute_instance)
@@ -202,10 +239,12 @@ if __name__ == '__main__':
         logger.debug('X-OCCI-Attribute' + ': ' + r)
     logger.debug('############# END OCCI Entity attributes rendering ################')
 
+
+    
     logger.debug('############# BEGIN OCCI Location-URIs rendering ################')
     location = location_renderer()
     temp = location_registry.locations.values()
-    print temp
+    
     result = location.renderer(temp)
     result2 = result.get('X-OCCI-Location')
     for r in result2:
