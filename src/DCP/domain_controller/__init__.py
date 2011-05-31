@@ -26,4 +26,3 @@ Created on Feb 25, 2011
 @version: 0.1
 @license: LGPL - Lesser General Public License
 '''
-print 'dsgfsdf'
