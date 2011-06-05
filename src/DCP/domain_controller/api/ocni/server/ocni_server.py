@@ -44,9 +44,9 @@ from domain_controller.api.ocni.registry.registry import category_registry, loca
 from domain_controller.api.ocni.rendering.http.renderer import category_renderer, link_renderer, action_renderer, attributes_renderer, location_renderer
 
 # Loading the logging configuration file
-logging.config.fileConfig("../../../../CloNeLogging.conf")
+logging.config.fileConfig("../../../../DCPLogging.conf")
 # getting the Logger
-logger = logging.getLogger("CloNeLogging")
+logger = logging.getLogger("DCPLogging")
 
 # ======================================================================================
 # HTTP Return Codes

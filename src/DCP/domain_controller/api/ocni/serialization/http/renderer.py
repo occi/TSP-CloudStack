@@ -38,9 +38,9 @@ import logging.config
 from configobj import ConfigObj
 
 # Loading the logging configuration file
-logging.config.fileConfig("../../../../CloNeLogging.conf")
+logging.config.fileConfig("../../../../DCPLogging.conf")
 # getting the Logger
-logger = logging.getLogger("CloNeLogging")
+logger = logging.getLogger("DCPLogging")
 
 config = ConfigObj("ocni_server.conf")
 OCNI_IP = config['OCNI_IP']

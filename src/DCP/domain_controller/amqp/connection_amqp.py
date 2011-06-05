@@ -33,9 +33,9 @@ from kombu.connection import BrokerConnection
 from kombu.messaging import Exchange, Queue, Consumer, Producer
 
 # Loading the logging configuration file
-logging.config.fileConfig("../../CloNeLogging.conf")
+logging.config.fileConfig("../../DCPLogging.conf")
 # getting the Logger
-logger = logging.getLogger("CloNeLogging")
+logger = logging.getLogger("DCPLogging")
 
 config = ConfigObj("amqp.conf")
 AMQP_IP = config['AMQP_IP']

@@ -36,9 +36,9 @@ from domain_controller.api.ocni.occi.occi_infrastructure import Compute, Network
 
 
 # Loading the logging configuration file
-logging.config.fileConfig("../../../../CloNeLogging.conf")
+logging.config.fileConfig("../../../../DCPLogging.conf")
 # getting the Logger
-logger = logging.getLogger("CloNeLogging")
+logger = logging.getLogger("DCPLogging")
 
 # ======================================================================================
 # Location registry

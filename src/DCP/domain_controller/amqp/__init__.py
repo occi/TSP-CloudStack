@@ -30,9 +30,9 @@ Created on Feb 25, 2011
 import logging.config
 
 """ Loading the logging configuration file """
-logging.config.fileConfig("../../CloNeLogging.conf")
+logging.config.fileConfig("../../DCPLogging.conf")
 
 if __name__ == '__main__':
-    logger = logging.getLogger("CloNeLogging")
+    logger = logging.getLogger("DCPLogging")
     logger.debug("debug")
     logger.info("info")

@@ -34,9 +34,9 @@ from pycassa.system_manager import SystemManager
 
 
 # Loading the logging configuration file
-logging.config.fileConfig("../../CloNeLogging.conf")
+logging.config.fileConfig("../../DCPLogging.conf")
 # getting the Logger
-logger = logging.getLogger("CloNeLogging")
+logger = logging.getLogger("DCPLogging")
 
 # The IP Address of the Database. In CloNe's domain controller, it should be localhost/127.0.0.1
 config = ConfigObj("db.conf")

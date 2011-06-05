@@ -32,9 +32,9 @@ from kombu.messaging import Exchange, Queue, Consumer, Producer
 import connection_amqp
 
 # Loading the logging configuration file
-logging.config.fileConfig("../../CloNeLogging.conf")
+logging.config.fileConfig("../../DCPLogging.conf")
 # getting the Logger
-logger = logging.getLogger("CloNeLogging")
+logger = logging.getLogger("DCPLogging")
 
 class topic_exchange:
     def __init__(self, exchange_name):
