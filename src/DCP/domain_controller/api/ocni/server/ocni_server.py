@@ -194,16 +194,12 @@ class Server(object):
     pass
 
 
-
-
 if __name__ == '__main__':
     logger.debug('############ BEGIN OCCI Category rendering ###############')
     c = category_renderer()
     result = c.renderer(Compute._kind)
     logger.debug(result.get('Category'))
     logger.debug('############# END OCCI Category rendering ################')
-
-
 
     logger.debug('############ BEGIN OCCI Link instance rendering ###############')
     network_instance = Network('/network/123', 'active')
@@ -218,8 +214,6 @@ if __name__ == '__main__':
     logger.debug(result.get('Link'))
     logger.debug('############# END OCCI Link instance rendering ################')
 
-
-
     logger.debug('############ BEGIN OCCI Action instance rendering ###############')
     compute_instance = Compute('/compute/123', 'active')
     location_registry.register_location("/compute/123", compute_instance)
@@ -229,8 +223,6 @@ if __name__ == '__main__':
     logger.debug(result.get('Link'))
     logger.debug('############# END OCCI Action instance rendering ################')
 
-
-
     logger.debug('############# Begin OCCI Entity attributes rendering ################')
     att = attributes_renderer()
     result = att.renderer(compute_instance)
@@ -239,12 +231,10 @@ if __name__ == '__main__':
         logger.debug('X-OCCI-Attribute' + ': ' + r)
     logger.debug('############# END OCCI Entity attributes rendering ################')
 
-
-    
     logger.debug('############# BEGIN OCCI Location-URIs rendering ################')
     location = location_renderer()
     temp = location_registry.locations.values()
-    
+
     result = location.renderer(temp)
     result2 = result.get('X-OCCI-Location')
     for r in result2:

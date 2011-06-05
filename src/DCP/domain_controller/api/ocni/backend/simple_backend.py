@@ -34,8 +34,6 @@ logging.config.fileConfig("../../../../DCPLogging.conf")
 # getting the Logger
 logger = logging.getLogger("DCPLogging")
 
-
-
 class simple_backend(object):
     '''
 
