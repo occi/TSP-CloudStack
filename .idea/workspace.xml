@@ -4,29 +4,7 @@
     <option name="SCOPE_TYPE" value="2" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27fce940-8ada-4b23-8a22-1c04fdce0d9e" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/it/tsp/cloudstack/DCP/DCPLogging.conf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/it/tsp/cloudstack/DCP/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/it/tsp/cloudstack/DCP/domain_controller/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/it/tsp/cloudstack/DCP/domain_controller/amqp/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/it/tsp/cloudstack/DCP/domain_controller/amqp/amqp.conf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/it/tsp/cloudstack/DCP/domain_controller/amqp/connection_amqp.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/it/tsp/cloudstack/DCP/domain_controller/amqp/direct_exchange.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/it/tsp/cloudstack/DCP/domain_controller/amqp/fanout_exchange.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/it/tsp/cloudstack/DCP/domain_controller/amqp/topic_exchange.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/it/tsp/cloudstack/DCP/domain_controller/api/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/it/tsp/cloudstack/DCP/domain_controller/cloud_framework/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/it/tsp/cloudstack/DCP/domain_controller/core/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/it/tsp/cloudstack/DCP/domain_controller/db/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/it/tsp/cloudstack/DCP/domain_controller/db/connection.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/it/tsp/cloudstack/DCP/domain_controller/db/db.conf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/it/tsp/cloudstack/DCP/domain_controller/scheduler/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/it/tsp/cloudstack/DCP/domain_controller/specialized_controller/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/it/tsp/cloudstack/DCP/host_controller/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/it/tsp/cloudstack/DCP/host_controller/amqp/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/it/tsp/cloudstack/DCP/network_element_controller/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/it/tsp/cloudstack/DCP/vm_controller/__init__.py" afterPath="" />
-    </list>
+    <list default="true" id="27fce940-8ada-4b23-8a22-1c04fdce0d9e" name="Default" comment="" />
     <ignored path="CloNe.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -911,13 +889,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/it/tsp/cloudstack/dcp/domain_controller/amqp/connection_amqp.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0023696683">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/it/tsp/cloudstack/dcp/domain_controller/amqp/direct_exchange.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="27" column="0" selection-start="1013" selection-end="1013" vertical-scroll-proportion="0.47867298">
@@ -977,6 +948,13 @@
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.9063981">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/it/tsp/cloudstack/dcp/domain_controller/amqp/connection_amqp.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
