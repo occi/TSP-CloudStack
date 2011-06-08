@@ -5,52 +5,67 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="27fce940-8ada-4b23-8a22-1c04fdce0d9e" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/DCP/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/amqp/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/amqp/amqp.conf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/amqp/connection_amqp.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/amqp/direct_exchange.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/amqp/fanout_exchange.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/amqp/topic_exchange.py" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/CloNe.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dictionaries/jordan.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/it/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/it/tsp/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/it/tsp/cloudstack/DCP/DCPLogging.conf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/it/tsp/cloudstack/DCP/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/it/tsp/cloudstack/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/it/tsp/cloudstack/api/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/it/tsp/cloudstack/api/ocni/__init__.py" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/api/ocni/ocni/ocni.py" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/api/ocni/ocpi/ocpi_jbi.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/api/ocni/serialization/amqp/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/api/ocni/serialization/json/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/api/ocni/serialization/xml/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/cloud_framework/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/core/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/db/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/db/connection.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/db/db.conf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/scheduler/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/specialized_controller/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/DCP/host_controller/__init__.py" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/DCP/host_controller/amqp/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/DCP/network_element_controller/__init__.py" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/src/DCP/vm_controller/__init__.py" afterPath="" />
       <change type="MOVED" beforePath="$PROJECT_DIR$/src/DCP/DCPLogging.conf" afterPath="$PROJECT_DIR$/src/it/tsp/cloudstack/api/occi/OCCILogging.conf" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/api/__init__.py" afterPath="$PROJECT_DIR$/src/it/tsp/cloudstack/api/occi/__init__.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/api/ocni/__init__.py" afterPath="$PROJECT_DIR$/src/it/tsp/cloudstack/api/occi/backend/__init__.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/api/ocni/backend/__init__.py" afterPath="$PROJECT_DIR$/src/it/tsp/cloudstack/api/occi/occi/__init__.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/DCP/__init__.py" afterPath="$PROJECT_DIR$/src/it/tsp/cloudstack/api/ocpi/__init__.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/__init__.py" afterPath="$PROJECT_DIR$/src/it/tsp/cloudstack/DCP/domain_controller/__init__.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/amqp/__init__.py" afterPath="$PROJECT_DIR$/src/it/tsp/cloudstack/DCP/domain_controller/amqp/__init__.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/amqp/amqp.conf" afterPath="$PROJECT_DIR$/src/it/tsp/cloudstack/DCP/domain_controller/amqp/amqp.conf" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/amqp/connection_amqp.py" afterPath="$PROJECT_DIR$/src/it/tsp/cloudstack/DCP/domain_controller/amqp/connection_amqp.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/amqp/direct_exchange.py" afterPath="$PROJECT_DIR$/src/it/tsp/cloudstack/DCP/domain_controller/amqp/direct_exchange.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/amqp/fanout_exchange.py" afterPath="$PROJECT_DIR$/src/it/tsp/cloudstack/DCP/domain_controller/amqp/fanout_exchange.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/amqp/topic_exchange.py" afterPath="$PROJECT_DIR$/src/it/tsp/cloudstack/DCP/domain_controller/amqp/topic_exchange.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/api/__init__.py" afterPath="$PROJECT_DIR$/src/it/tsp/cloudstack/DCP/domain_controller/api/__init__.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/api/ocni/__init__.py" afterPath="$PROJECT_DIR$/src/it/tsp/cloudstack/DCP/domain_controller/cloud_framework/__init__.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/api/ocni/backend/__init__.py" afterPath="$PROJECT_DIR$/src/it/tsp/cloudstack/DCP/domain_controller/core/__init__.py" />
       <change type="MOVED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/api/ocni/backend/simple_backend.py" afterPath="$PROJECT_DIR$/src/it/tsp/cloudstack/api/occi/backend/simple_backend.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/api/ocni/client/__init__.py" afterPath="$PROJECT_DIR$/src/it/tsp/cloudstack/api/occi/client/__init__.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/api/ocni/occi/__init__.py" afterPath="$PROJECT_DIR$/src/it/tsp/cloudstack/api/occi/registry/__init__.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/api/ocni/client/__init__.py" afterPath="$PROJECT_DIR$/src/it/tsp/cloudstack/DCP/network_element_controller/__init__.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/api/ocni/occi/__init__.py" afterPath="$PROJECT_DIR$/src/it/tsp/cloudstack/DCP/domain_controller/db/__init__.py" />
       <change type="MOVED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/api/ocni/occi/occi_core.py" afterPath="$PROJECT_DIR$/src/it/tsp/cloudstack/api/occi/occi/occi_core.py" />
       <change type="MOVED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/api/ocni/occi/occi_infrastructure.py" afterPath="$PROJECT_DIR$/src/it/tsp/cloudstack/api/occi/occi/occi_infrastructure.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/api/ocni/ocni/__init__.py" afterPath="$PROJECT_DIR$/src/it/tsp/cloudstack/api/occi/serialization/__init__.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/api/ocni/ocpi/__init__.py" afterPath="$PROJECT_DIR$/src/it/tsp/cloudstack/api/occi/serialization/amqp/__init__.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/api/ocni/registry/__init__.py" afterPath="$PROJECT_DIR$/src/it/tsp/cloudstack/api/occi/serialization/json/__init__.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/api/ocni/ocni/__init__.py" afterPath="$PROJECT_DIR$/src/it/tsp/cloudstack/DCP/domain_controller/scheduler/__init__.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/api/ocni/ocpi/__init__.py" afterPath="$PROJECT_DIR$/src/it/tsp/cloudstack/DCP/domain_controller/specialized_controller/__init__.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/api/ocni/registry/__init__.py" afterPath="$PROJECT_DIR$/src/it/tsp/cloudstack/DCP/host_controller/__init__.py" />
       <change type="MOVED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/api/ocni/registry/registry.py" afterPath="$PROJECT_DIR$/src/it/tsp/cloudstack/api/occi/registry/registry.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/api/ocni/serialization/__init__.py" afterPath="$PROJECT_DIR$/src/it/tsp/cloudstack/api/occi/serialization/xml/__init__.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/api/ocni/serialization/__init__.py" afterPath="$PROJECT_DIR$/src/it/tsp/cloudstack/DCP/host_controller/amqp/__init__.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/api/ocni/serialization/amqp/__init__.py" afterPath="$PROJECT_DIR$/src/it/tsp/cloudstack/DCP/vm_controller/__init__.py" />
       <change type="MOVED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/api/ocni/serialization/amqp/renderer.py" afterPath="$PROJECT_DIR$/src/it/tsp/cloudstack/api/occi/serialization/amqp/renderer.py" />
       <change type="MOVED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/api/ocni/serialization/http/__init__.py" afterPath="$PROJECT_DIR$/src/it/tsp/cloudstack/api/occi/serialization/http/__init__.py" />
       <change type="MOVED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/api/ocni/serialization/http/renderer.py" afterPath="$PROJECT_DIR$/src/it/tsp/cloudstack/api/occi/serialization/http/renderer.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/api/ocni/serialization/json/__init__.py" afterPath="$PROJECT_DIR$/src/it/tsp/cloudstack/api/occi/__init__.py" />
       <change type="MOVED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/api/ocni/serialization/json/renderer.py" afterPath="$PROJECT_DIR$/src/it/tsp/cloudstack/api/occi/serialization/json/renderer.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/api/ocni/serialization/xml/__init__.py" afterPath="$PROJECT_DIR$/src/it/tsp/cloudstack/api/occi/backend/__init__.py" />
       <change type="MOVED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/api/ocni/serialization/xml/renderer.py" afterPath="$PROJECT_DIR$/src/it/tsp/cloudstack/api/occi/serialization/xml/renderer.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/api/ocni/server/__init__.py" afterPath="$PROJECT_DIR$/src/it/tsp/cloudstack/api/occi/server/__init__.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/api/ocni/server/__init__.py" afterPath="$PROJECT_DIR$/src/it/tsp/cloudstack/api/occi/client/__init__.py" />
       <change type="MOVED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/api/ocni/server/ocni_server.conf" afterPath="$PROJECT_DIR$/src/it/tsp/cloudstack/api/occi/server/ocni_server.conf" />
       <change type="MOVED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/api/ocni/server/ocni_server.py" afterPath="$PROJECT_DIR$/src/it/tsp/cloudstack/api/occi/server/ocni_server.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/cloud_framework/__init__.py" afterPath="$PROJECT_DIR$/src/it/tsp/cloudstack/api/occi/occi/__init__.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/core/__init__.py" afterPath="$PROJECT_DIR$/src/it/tsp/cloudstack/api/occi/registry/__init__.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/db/__init__.py" afterPath="$PROJECT_DIR$/src/it/tsp/cloudstack/api/occi/serialization/__init__.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/db/connection.py" afterPath="$PROJECT_DIR$/src/it/tsp/cloudstack/DCP/domain_controller/db/connection.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/db/db.conf" afterPath="$PROJECT_DIR$/src/it/tsp/cloudstack/DCP/domain_controller/db/db.conf" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/scheduler/__init__.py" afterPath="$PROJECT_DIR$/src/it/tsp/cloudstack/api/occi/serialization/amqp/__init__.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/specialized_controller/__init__.py" afterPath="$PROJECT_DIR$/src/it/tsp/cloudstack/api/occi/serialization/json/__init__.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/DCP/host_controller/__init__.py" afterPath="$PROJECT_DIR$/src/it/tsp/cloudstack/api/occi/serialization/xml/__init__.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/DCP/network_element_controller/__init__.py" afterPath="$PROJECT_DIR$/src/it/tsp/cloudstack/api/occi/server/__init__.py" />
     </list>
     <ignored path="CloNe.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -980,7 +995,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1280" y="19" width="1278" height="1003" extended-state="0" />
+    <frame x="1281" y="20" width="1278" height="1003" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35204855" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
