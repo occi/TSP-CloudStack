@@ -28,9 +28,9 @@ Created on Feb 25, 2011
 import logging.config
 
 # Loading the logging configuration file
-logging.config.fileConfig("../../../../DCPLogging.conf")
+logging.config.fileConfig("../OCCILogging.conf")
 # getting the Logger
-logger = logging.getLogger("DCPLogging")
+logger = logging.getLogger("OCCILogging")
 
 class simple_backend(object):
     '''

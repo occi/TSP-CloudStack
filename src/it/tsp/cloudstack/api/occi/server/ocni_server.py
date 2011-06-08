@@ -26,25 +26,25 @@ Created on Feb 25, 2011
 '''
 
 import logging.config
-import eventlet
-from eventlet import wsgi
+#import eventlet
+#from eventlet import wsgi
 #from webob import Request
 import uuid
 import re
 
-from domain_controller.api.ocni.occi.occi_core import Category, Kind, Mixin, Action, Entity, Resource, Link
+from  it.tsp.cloudstack.api.occi.occi.occi_core import Category, Kind, Mixin, Action, Entity, Resource, Link
 
-from domain_controller.api.ocni.occi.occi_infrastructure import Compute, Network, Storage,\
+from it.tsp.cloudstack.api.occi.occi.occi_infrastructure import Compute, Network, Storage,\
     NetworkInterface, StorageLink, IPNetworking, IPNetworkInterface
 
-from domain_controller.api.ocni.registry.registry import category_registry, location_registry
+from it.tsp.cloudstack.api.occi.registry.registry import category_registry, location_registry
 
-from domain_controller.api.ocni.rendering.http.renderer import category_renderer, link_renderer, action_renderer, attributes_renderer, location_renderer
+from it.tsp.cloudstack.api.occi.serialization.http.renderer import category_renderer, link_renderer, action_renderer, attributes_renderer, location_renderer
 
 # Loading the logging configuration file
-logging.config.fileConfig("../../../../DCPLogging.conf")
+logging.config.fileConfig("../OCCILogging.conf")
 # getting the Logger
-logger = logging.getLogger("DCPLogging")
+logger = logging.getLogger("OCCILogging")
 
 # ======================================================================================
 # HTTP Return Codes

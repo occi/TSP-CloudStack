@@ -1,0 +1,1202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="SCOPE_TYPE" value="2" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="27fce940-8ada-4b23-8a22-1c04fdce0d9e" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/DCP/__init__.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/__init__.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/amqp/__init__.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/amqp/amqp.conf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/amqp/connection_amqp.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/amqp/direct_exchange.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/amqp/fanout_exchange.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/amqp/topic_exchange.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/api/ocni/ocni/ocni.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/api/ocni/ocpi/ocpi_jbi.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/api/ocni/serialization/amqp/__init__.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/api/ocni/serialization/json/__init__.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/api/ocni/serialization/xml/__init__.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/cloud_framework/__init__.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/core/__init__.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/db/__init__.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/db/connection.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/db/db.conf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/scheduler/__init__.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/specialized_controller/__init__.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/DCP/host_controller/__init__.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/DCP/host_controller/amqp/__init__.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/DCP/network_element_controller/__init__.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/DCP/vm_controller/__init__.py" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/DCP/DCPLogging.conf" afterPath="$PROJECT_DIR$/src/it/tsp/cloudstack/api/occi/OCCILogging.conf" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/api/__init__.py" afterPath="$PROJECT_DIR$/src/it/tsp/cloudstack/api/occi/__init__.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/api/ocni/__init__.py" afterPath="$PROJECT_DIR$/src/it/tsp/cloudstack/api/occi/backend/__init__.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/api/ocni/backend/__init__.py" afterPath="$PROJECT_DIR$/src/it/tsp/cloudstack/api/occi/occi/__init__.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/api/ocni/backend/simple_backend.py" afterPath="$PROJECT_DIR$/src/it/tsp/cloudstack/api/occi/backend/simple_backend.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/api/ocni/client/__init__.py" afterPath="$PROJECT_DIR$/src/it/tsp/cloudstack/api/occi/client/__init__.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/api/ocni/occi/__init__.py" afterPath="$PROJECT_DIR$/src/it/tsp/cloudstack/api/occi/registry/__init__.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/api/ocni/occi/occi_core.py" afterPath="$PROJECT_DIR$/src/it/tsp/cloudstack/api/occi/occi/occi_core.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/api/ocni/occi/occi_infrastructure.py" afterPath="$PROJECT_DIR$/src/it/tsp/cloudstack/api/occi/occi/occi_infrastructure.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/api/ocni/ocni/__init__.py" afterPath="$PROJECT_DIR$/src/it/tsp/cloudstack/api/occi/serialization/__init__.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/api/ocni/ocpi/__init__.py" afterPath="$PROJECT_DIR$/src/it/tsp/cloudstack/api/occi/serialization/amqp/__init__.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/api/ocni/registry/__init__.py" afterPath="$PROJECT_DIR$/src/it/tsp/cloudstack/api/occi/serialization/json/__init__.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/api/ocni/registry/registry.py" afterPath="$PROJECT_DIR$/src/it/tsp/cloudstack/api/occi/registry/registry.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/api/ocni/serialization/__init__.py" afterPath="$PROJECT_DIR$/src/it/tsp/cloudstack/api/occi/serialization/xml/__init__.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/api/ocni/serialization/amqp/renderer.py" afterPath="$PROJECT_DIR$/src/it/tsp/cloudstack/api/occi/serialization/amqp/renderer.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/api/ocni/serialization/http/__init__.py" afterPath="$PROJECT_DIR$/src/it/tsp/cloudstack/api/occi/serialization/http/__init__.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/api/ocni/serialization/http/renderer.py" afterPath="$PROJECT_DIR$/src/it/tsp/cloudstack/api/occi/serialization/http/renderer.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/api/ocni/serialization/json/renderer.py" afterPath="$PROJECT_DIR$/src/it/tsp/cloudstack/api/occi/serialization/json/renderer.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/api/ocni/serialization/xml/renderer.py" afterPath="$PROJECT_DIR$/src/it/tsp/cloudstack/api/occi/serialization/xml/renderer.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/api/ocni/server/__init__.py" afterPath="$PROJECT_DIR$/src/it/tsp/cloudstack/api/occi/server/__init__.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/api/ocni/server/ocni_server.conf" afterPath="$PROJECT_DIR$/src/it/tsp/cloudstack/api/occi/server/ocni_server.conf" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/DCP/domain_controller/api/ocni/server/ocni_server.py" afterPath="$PROJECT_DIR$/src/it/tsp/cloudstack/api/occi/server/ocni_server.py" />
+    </list>
+    <ignored path="CloNe.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+    <option name="REVERSE_PATCH" value="false" />
+  </component>
+  <component name="DaemonCodeAnalyzer">
+    <disable_hints />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="CloNe" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name=".gitignore" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="3" column="13" selection-start="50" selection-end="50" vertical-scroll-proportion="0.052508753">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindManager">
+    <FindUsagesManager>
+      <setting name="OPEN_NEW_TAB" value="false" />
+    </FindUsagesManager>
+  </component>
+  <component name="Git.Settings">
+    <option name="CHECKOUT_INCLUDE_TAGS" value="true" />
+    <option name="UPDATE_CHANGES_POLICY" value="STASH" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="changedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/src/DCP/host_controller/amqp/__init__.py" />
+        <option value="$PROJECT_DIR$/src/DCP/network_element_controller/__init__.py" />
+        <option value="$PROJECT_DIR$/src/DCP/vm_controller/__init__.py" />
+        <option value="$PROJECT_DIR$/src/DCP/domain_controller/api/ocni/client/__init__.py" />
+        <option value="$PROJECT_DIR$/src/DCP/domain_controller/api/ocni/OCCILogging.conf" />
+        <option value="$PROJECT_DIR$/src/DCP/domain_controller/api/ocni/backend/simple_backend.py" />
+        <option value="$PROJECT_DIR$/src/DCP/domain_controller/api/ocni/registry/registry.py" />
+        <option value="$PROJECT_DIR$/src/DCP/domain_controller/api/ocni/serialization/http/renderer.py" />
+        <option value="$PROJECT_DIR$/src/DCP/domain_controller/api/__init__.py" />
+        <option value="$PROJECT_DIR$/src/DCP/domain_controller/api/ocni/__init__.py" />
+        <option value="$PROJECT_DIR$/src/DCP/domain_controller/api/ocni/server/ocni_server.py" />
+        <option value="$PROJECT_DIR$/src/it/tsp/cloudstack/api/occi/registry/registry.py" />
+        <option value="$PROJECT_DIR$/src/it/tsp/cloudstack/api/occi/serialization/http/renderer.py" />
+        <option value="$PROJECT_DIR$/src/it/tsp/cloudstack/api/occi/server/ocni_server.py" />
+        <option value="$PROJECT_DIR$/src/it/tsp/cloudstack/api/ocpi/__init__.py" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+          <State>
+            <id>Python</id>
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>PyArgumentListInspection</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectReloadState">
+    <option name="STATE" value="0" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="Scope" currentSubView="Project Files" proportions="" version="1" splitterProportion="0.5">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType ProjectPane="true" />
+    </navigator>
+    <panes>
+      <pane id="Favorites">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.intellij.ide.favoritesTreeView.FavoritesTreeNodeDescriptor" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+        <subPane subId="CloNe">
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.intellij.ide.favoritesTreeView.FavoritesTreeNodeDescriptor" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TSP-CloudStack" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TSP-CloudStack" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TSP-CloudStack" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TSP-CloudStack" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TSP-CloudStack" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="it" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TSP-CloudStack" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TSP-CloudStack" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="it" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tsp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TSP-CloudStack" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TSP-CloudStack" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="it" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tsp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cloudstack" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="TSP-CloudStack">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="TSP-CloudStack">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="src">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="it">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="TSP-CloudStack">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="src">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="it">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="tsp">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="TSP-CloudStack">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="src">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="it">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="tsp">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="cloudstack">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="TSP-CloudStack">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="src">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="it">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="tsp">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="cloudstack">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="api">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="TSP-CloudStack">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="src">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="DCP">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="TSP-CloudStack">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="src">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="DCP">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="domain_controller">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="TSP-CloudStack">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="src">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="DCP">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="domain_controller">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="api">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="TSP-CloudStack">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="src">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="DCP">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="domain_controller">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="api">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="ocni">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+        <subPane subId="Non-Project Files" />
+        <subPane subId="Problems" />
+        <subPane subId="Tests" />
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="TSP-CloudStack">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="TSP-CloudStack">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="src">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="it">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="TSP-CloudStack">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="src">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="it">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="tsp">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="TSP-CloudStack">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="src">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="it">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="tsp">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="cloudstack">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="TSP-CloudStack">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="src">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="it">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="tsp">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="cloudstack">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="api">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="TSP-CloudStack">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="src">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="it">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="tsp">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="cloudstack">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="api">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="occi">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="TSP-CloudStack">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="src">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="it">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="tsp">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="cloudstack">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="DCP">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="TSP-CloudStack">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="src">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="it">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="tsp">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="cloudstack">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="DCP">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="domain_controller">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="TSP-CloudStack">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="src">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="it">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="tsp">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="cloudstack">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="DCP">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="domain_controller">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="amqp">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+        <subPane subId="All">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="CloNe">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="TSP-CloudStack">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="66" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="158" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
+    <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="73" />
+    <property name="options.lastSelected" value="reference.settings.ide.settings.web.browsers" />
+    <property name="recentsLimit" value="5" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="166" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="822" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="969" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="87" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="83" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
+    <property name="options.splitter.details.proportions" value="0.31616765" />
+    <property name="options.searchVisible" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/it/tsp" />
+      <recent name="$PROJECT_DIR$/src/it/tsp/cloudstack/api/occi" />
+      <recent name="$PROJECT_DIR$/src/it/tsp/cloudstack/api/ocni" />
+      <recent name="$PROJECT_DIR$/src/it/tsp/cloudstack/api" />
+      <recent name="$PROJECT_DIR$/src/it/tsp/cloudstack" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.registry">
+    <configuration default="false" name="occi_core" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/domain_controller/api/ocni/occi" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <module name="CloNe" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/domain_controller/api/ocni/occi/occi_core.py" />
+      <option name="PARAMETERS" value="" />
+      <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="occi_infrastructure" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/domain_controller/api" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <module name="CloNe" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/domain_controller/api/occi_infrastructure.py" />
+      <option name="PARAMETERS" value="" />
+      <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="registry" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/it/tsp/cloudstack/api/occi/registry" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <module name="CloNe" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/it/tsp/cloudstack/api/occi/registry/registry.py" />
+      <option name="PARAMETERS" value="" />
+      <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="renderer" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/domain_controller/api/ocni/rendering/http" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <module name="CloNe" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/domain_controller/api/ocni/rendering/http/renderer.py" />
+      <option name="PARAMETERS" value="" />
+      <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="ocni_server" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/DCP/domain_controller/api/ocni/server" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <module name="CloNe" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/DCP/domain_controller/api/ocni/server/ocni_server.py" />
+      <option name="PARAMETERS" value="" />
+      <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
+    </configuration>
+    <configuration default="true" type="PythonUnitTestConfigurationType" factoryName="Python's unittest">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <module name="CloNe" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="PUREUNITTEST" value="true" />
+      <method />
+    </configuration>
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <module name="CloNe" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="PyRemoteDebugConfigurationType" factoryName="Python Remote Debug">
+      <module name="" />
+      <option name="PORT" value="0" />
+      <option name="HOST" value="null" />
+      <option name="USE_MAPPING" value="false" />
+      <option name="REMOTE_ROOT" value="" />
+      <option name="LOCAL_ROOT" value="" />
+      <option name="REDIRECT_OUTPUT" value="true" />
+      <option name="SUSPEND_AFTER_CONNECT" value="true" />
+      <method />
+    </configuration>
+    <configuration default="true" type="PythonDocTestRunConfigurationType" factoryName="Python's doctests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <module name="CloNe" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Unnamed" type="PythonConfigurationType" factoryName="Python">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="/usr/bin/python2.6" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/domain_controller/api" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <module name="CloNe" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/domain_controller/api/ocpi.py" />
+      <option name="PARAMETERS" value="" />
+      <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
+    </configuration>
+    <list size="6">
+      <item index="0" class="java.lang.String" itemvalue="Python.occi_core" />
+      <item index="1" class="java.lang.String" itemvalue="Python.occi_infrastructure" />
+      <item index="2" class="java.lang.String" itemvalue="Python.registry" />
+      <item index="3" class="java.lang.String" itemvalue="Python.renderer" />
+      <item index="4" class="java.lang.String" itemvalue="Python.ocni_server" />
+      <item index="5" class="java.lang.String" itemvalue="Python.Unnamed" />
+    </list>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration" maxAnnotateRevisions="500">
+    <option name="USER" value="" />
+    <option name="PASSWORD" value="" />
+    <option name="mySSHConnectionTimeout" value="30000" />
+    <option name="mySSHReadTimeout" value="30000" />
+    <option name="LAST_MERGED_REVISION" />
+    <option name="MERGE_DRY_RUN" value="false" />
+    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
+    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
+    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
+    <option name="DETECT_NESTED_COPIES" value="true" />
+    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
+    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
+    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
+    <option name="FORCE_UPDATE" value="false" />
+    <configuration useDefault="true">$USER_HOME$/.subversion_IDEA</configuration>
+    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="27fce940-8ada-4b23-8a22-1c04fdce0d9e" name="Default" comment="" />
+      <created>1301249627915</created>
+      <updated>1301249627915</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="TodoView" selected-index="0">
+    <todo-panel id="selected-file">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+    <todo-panel id="default-changelist">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="1280" y="19" width="1278" height="1003" extended-state="0" />
+    <editor active="false" />
+    <layout>
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35204855" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32776934" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24960127" sideWeight="0.400607" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2942584" sideWeight="0.0" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.398641" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" weight="0.30577576" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" x="190" y="559" width="1086" height="220" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37025797" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.6130501" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="SVN Repositories" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32776934" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39788198" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="CHECK_NEW_TODO" value="true" />
+    <option name="myTodoPanelSettings">
+      <value>
+        <are-packages-shown value="false" />
+        <are-modules-shown value="false" />
+        <flatten-packages value="false" />
+        <is-autoscroll-to-source value="false" />
+      </value>
+    </option>
+    <option name="PERFORM_UPDATE_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_COMMIT_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_EDIT_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_CHECKOUT_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_ADD_REMOVE_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_ROLLBACK_IN_BACKGROUND" value="false" />
+    <option name="CHECK_LOCALLY_CHANGED_CONFLICTS_IN_BACKGROUND" value="false" />
+    <option name="ENABLE_BACKGROUND_PROCESSES" value="false" />
+    <option name="CHANGED_ON_SERVER_INTERVAL" value="60" />
+    <option name="SHOW_ONLY_CHANGED_IN_SELECTION_DIFF" value="true" />
+    <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="true" />
+    <option name="DEFAULT_PATCH_EXTENSION" value="patch" />
+    <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
+    <option name="LAST_COMMIT_MESSAGE" value="add of OCCI client folder" />
+    <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="REFORMAT_BEFORE_FILE_COMMIT" value="false" />
+    <option name="FILE_HISTORY_DIALOG_COMMENTS_SPLITTER_PROPORTION" value="0.8" />
+    <option name="FILE_HISTORY_DIALOG_SPLITTER_PROPORTION" value="0.5" />
+    <option name="ACTIVE_VCS_NAME" />
+    <option name="UPDATE_GROUP_BY_PACKAGES" value="false" />
+    <option name="UPDATE_GROUP_BY_CHANGELIST" value="false" />
+    <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
+    <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
+    <MESSAGE value="Add of server folder&#10;11/05/2011@13:30PM" />
+    <MESSAGE value="files structures&#10;12/05/2011@19:30PM" />
+    <MESSAGE value="files and folders structures&#10;13/05/2011@18:30PM" />
+    <MESSAGE value="files and folders structures&#10;13/05/2011@20:45" />
+    <MESSAGE value="first version of registry (category + location)&#10;16/05/2011@19:40" />
+    <MESSAGE value="a" />
+    <MESSAGE value="khaled" />
+    <MESSAGE value="khaled2" />
+    <MESSAGE value="Rendering category header" />
+    <MESSAGE value="commit to houssem branch" />
+    <MESSAGE value="commit before the _xxx_kind to _kind change" />
+    <MESSAGE value="new class in Core called attribute" />
+    <MESSAGE value="change of the attribute names (Core and Infra): title -&gt; occi.core.title" />
+    <MESSAGE value="refactor of the class names of Core and Infra (Camel format)" />
+    <MESSAGE value="refactor of the name of class kind e.g. _compute_kind -&gt; _kind" />
+    <MESSAGE value="few modification to render a compute after the list of changes (add of the Attribute class; change of _kind name and OCCI Class names)" />
+    <MESSAGE value="just a small formatting update" />
+    <MESSAGE value="Link and action instances rendering" />
+    <MESSAGE value="Attributes and Location-URIs rendering blocks inserted" />
+    <MESSAGE value="from CloNeDCP to TSP-CloudStack (for license)" />
+    <MESSAGE value="add of DCP folder and move the domain_controller, host_controller, vm_controller and network_element_controller into this new folder" />
+    <MESSAGE value="name refactor (rendering to serialization)" />
+    <MESSAGE value="name refactor&#10;DCP and DCPLogging" />
+    <MESSAGE value="License refactor" />
+    <MESSAGE value="add of OCCI client folder" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/it/tsp/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/it/tsp/cloudstack/api/occi/serialization/http/renderer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="21" selection-start="1230" selection-end="1230" vertical-scroll-proportion="0.5829384">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/it/tsp/cloudstack/api/occi/serialization/json/renderer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/it/tsp/cloudstack/api/occi/serialization/xml/renderer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/it/tsp/cloudstack/api/occi/serialization/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/it/tsp/cloudstack/api/occi/server/ocni_server.conf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/it/tsp/cloudstack/api/occi/server/ocni_server.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="41" column="67" selection-start="1562" selection-end="1562" vertical-scroll-proportion="0.5687204">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/it/tsp/cloudstack/api/occi/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/it/tsp/cloudstack/api/occi/OCCILogging.conf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/it/tsp/cloudstack/DCP/domain_controller/amqp/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/it/tsp/cloudstack/DCP/domain_controller/amqp/connection_amqp.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0023696683">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/it/tsp/cloudstack/DCP/domain_controller/amqp/direct_exchange.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="0" selection-start="1013" selection-end="1013" vertical-scroll-proportion="0.47867298">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/it/tsp/cloudstack/api/ocpi/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="3" selection-start="1014" selection-end="1014" vertical-scroll-proportion="0.45507586">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/it/tsp/cloudstack/api/ocni/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="1" selection-start="0" selection-end="1014" vertical-scroll-proportion="0.14002334">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/it/tsp/cloudstack/DCP/domain_controller/db/connection.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="13" selection-start="50" selection-end="50" vertical-scroll-proportion="0.052508753">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
+

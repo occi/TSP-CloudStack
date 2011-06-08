@@ -27,16 +27,16 @@ Created on Feb 25, 2011
 
 import logging.config
 
-from domain_controller.api.ocni.occi.occi_core import Category, Kind, Mixin, Action, Entity, Resource, Link
+from it.tsp.cloudstack.api.occi.occi.occi_core import Category, Kind, Mixin, Action, Entity, Resource, Link
 
-from domain_controller.api.ocni.occi.occi_infrastructure import Compute, Network, Storage,\
+from it.tsp.cloudstack.api.occi.occi.occi_infrastructure import Compute, Network, Storage,\
     NetworkInterface, StorageLink, IPNetworking, IPNetworkInterface
 
 
 # Loading the logging configuration file
-logging.config.fileConfig("../../../../DCPLogging.conf")
+logging.config.fileConfig("../OCCILogging.conf")
 # getting the Logger
-logger = logging.getLogger("DCPLogging")
+logger = logging.getLogger("OCCILogging")
 
 # ======================================================================================
 # Location registry

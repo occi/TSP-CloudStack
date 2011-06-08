@@ -25,9 +25,9 @@ Created on Feb 25, 2011
 @license: LGPL - Lesser General Public License
 '''
 
-from domain_controller.api.ocni.occi.occi_core import Category, Kind, Mixin, Action, Entity, Resource, Link
+from it.tsp.cloudstack.api.occi.occi.occi_core import Category, Kind, Mixin, Action, Entity, Resource, Link
 
-from domain_controller.api.ocni.registry.registry import location_registry
+from it.tsp.cloudstack.api.occi.registry.registry import location_registry
 
 import re
 
@@ -36,9 +36,9 @@ import logging.config
 from configobj import ConfigObj
 
 # Loading the logging configuration file
-logging.config.fileConfig("../../../../DCPLogging.conf")
+logging.config.fileConfig("../OCCILogging.conf")
 # getting the Logger
-logger = logging.getLogger("DCPLogging")
+logger = logging.getLogger("OCCILogging")
 
 config = ConfigObj("ocni_server.conf")
 OCNI_IP = config['OCNI_IP']
