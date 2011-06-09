@@ -183,15 +183,6 @@ location_registry.register_location("/ipnetworkinterface/", IPNetworkInterface()
 
 
 
-class Server(object):
-    """
-
-    A class to manage multiple WSGI sockets and applications.
-
-    """
-    pass
-
-
 if __name__ == '__main__':
     logger.debug('############ BEGIN OCCI Category rendering ###############')
     c = category_renderer()
