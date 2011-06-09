@@ -1,4 +1,5 @@
 *.pyc
+.idea/*
 zz-consumer.py
 zz-consumer2.py
 zz-producer.py
