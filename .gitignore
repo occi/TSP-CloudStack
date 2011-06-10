@@ -1,5 +1,6 @@
 *.pyc
-.idea/*
+.idea/*.*
+.idea/dictionaries/*.xml
 zz-consumer.py
 zz-consumer2.py
 zz-producer.py
