@@ -18,14 +18,27 @@
 """
 Created on Feb 25, 2011
 
-@author: Houssem Medhioub
+@author: Providence Salumu Munga, Houssem Medhioub
 @contact: houssem.medhioub@it-sudparis.eu
 @organization: Institut Telecom - Telecom SudParis
 @version: 0.1
 @license: LGPL - Lesser General Public License
 """
 
-# ==================================
-# OCCI HTTP Rendering version 1.1
-# defines how the OCCI Core Model cab be communicated and thus serialised using the HTTP protocol
-# ==================================
+from optparse import OptionParser
+
+parser = OptionParser ()
+parser.add_option('-c', '--config_file',
+                  default = './OCCILogging.conf',
+                  help = 'Configuration file path',
+                  type = 'string',
+                  action = 'store',
+                  dest = 'config_file')
+parser.add_option('-o', '--output_file',
+                  default = '',
+                  help = 'log file',
+                  type = 'string',
+                  action = 'store',
+                  dest = 'output_file')
+(options, args) = parser.parse_args()
+Parameters = options

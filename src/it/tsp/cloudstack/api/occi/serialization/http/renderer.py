@@ -15,7 +15,7 @@
 # You should have received a copy of the GNU Lesser General Public License
 # along with this library.  If not, see <http://www.gnu.org/licenses/>.
 
-'''
+"""
 Created on Feb 25, 2011
 
 @author: Houssem Medhioub
@@ -23,27 +23,20 @@ Created on Feb 25, 2011
 @organization: Institut Telecom - Telecom SudParis
 @version: 0.1
 @license: LGPL - Lesser General Public License
-'''
+"""
 
-from it.tsp.cloudstack.api.occi.occi.occi_core import Category, Kind, Mixin, Action, Entity, Resource, Link
-
-from it.tsp.cloudstack.api.occi.registry.registry import location_registry
-
+import it.tsp.cloudstack.api.occi.config as config
 import re
 
-import logging.config
+from it.tsp.cloudstack.api.occi.occi.occi_core import Category, Kind, Mixin, Action, Entity, Resource, Link
+from it.tsp.cloudstack.api.occi.registry.registry import location_registry
 
-from configobj import ConfigObj
-
-# Loading the logging configuration file
-logging.config.fileConfig("../OCCILogging.conf")
 # getting the Logger
-logger = logging.getLogger("OCCILogging")
+logger = config.logger
 
-config = ConfigObj("ocni_server.conf")
-OCNI_IP = config['OCNI_IP']
-OCNI_PORT = config['OCNI_PORT']
-
+# getting IP and Port of the OCCI server
+OCCI_IP = config.OCCI_IP
+OCCI_PORT = config.OCCI_PORT
 
 
 # ======================================================================================
@@ -205,7 +198,7 @@ class location_renderer(object):
         location_values = []
 
         for location in locations:
-            authority = OCNI_IP + ':' + OCNI_PORT
+            authority = OCCI_IP + ':' + OCCI_PORT
             location_values.append(authority + location)
 
         header[header_location] = location_values
@@ -243,4 +236,5 @@ class main_renderer(object):
 # ======================================================================================
 if __name__ == '__main__':
     print 'test'
+    print OCCI_IP + ':' + OCCI_PORT
     pass

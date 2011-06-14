@@ -15,7 +15,7 @@
 # You should have received a copy of the GNU Lesser General Public License
 # along with this library.  If not, see <http://www.gnu.org/licenses/>.
 
-'''
+"""
 Created on Feb 25, 2011
 
 @author: Houssem Medhioub
@@ -23,9 +23,9 @@ Created on Feb 25, 2011
 @organization: Institut Telecom - Telecom SudParis
 @version: 0.1
 @license: LGPL - Lesser General Public License
-'''
+"""
 
-import logging.config
+import it.tsp.cloudstack.api.occi.config as config
 
 from it.tsp.cloudstack.api.occi.occi.occi_core import Category, Kind, Mixin, Action, Entity, Resource, Link
 
@@ -33,10 +33,8 @@ from it.tsp.cloudstack.api.occi.occi.occi_infrastructure import Compute, Network
     NetworkInterface, StorageLink, IPNetworking, IPNetworkInterface
 
 
-# Loading the logging configuration file
-logging.config.fileConfig("../OCCILogging.conf")
 # getting the Logger
-logger = logging.getLogger("OCCILogging")
+logger = config.logger
 
 # ======================================================================================
 # Location registry
@@ -109,15 +107,15 @@ class category_registry(object):
     actions = {}
 
     def __init__(self):
-    #        self.register_kind(entity._entity_kind)
-    #        self.register_kind(resource._resource_kind)
-    #        self.register_kind(link._link_kind)
+        self.register_kind(Entity._kind)
+    #        self.register_kind(Resource._resource_kind)
+    #        self.register_kind(Link._kind)
     #
-    #        self.register_kind(compute._compute_kind)
-    #        self.register_kind(network._network_kind)
-    #        self.register_kind(storage._storage_kind)
-    #        self.register_kind(network_interface._network_interface_kind)
-    #        self.register_kind(storage_link._storage_link_kind)
+    #        self.register_kind(Compute._kind)
+    #        self.register_kind(Network._kind)
+    #        self.register_kind(Storage._kind)
+    #        self.register_kind(Network_interface._kind)
+    #        self.register_kind(Storage_link._kind)
     #
     #        self.register_mixin(ip_networking())
     #        self.register_mixin(ip_network_interface())

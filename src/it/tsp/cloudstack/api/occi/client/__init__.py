@@ -15,7 +15,7 @@
 # You should have received a copy of the GNU Lesser General Public License
 # along with this library.  If not, see <http://www.gnu.org/licenses/>.
 
-'''
+"""
 Created on Feb 25, 2011
 
 @author: Houssem Medhioub
@@ -23,5 +23,5 @@ Created on Feb 25, 2011
 @organization: Institut Telecom - Telecom SudParis
 @version: 0.1
 @license: LGPL - Lesser General Public License
-'''
+"""
 

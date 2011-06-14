@@ -18,14 +18,28 @@
 """
 Created on Feb 25, 2011
 
-@author: Houssem Medhioub
+@author: Houssem Medhioub, Providence Salumu Munga
 @contact: houssem.medhioub@it-sudparis.eu
 @organization: Institut Telecom - Telecom SudParis
-@version: 0.1
+@version: 0.1.1
 @license: LGPL - Lesser General Public License
-"""
 
-# ==================================
-# OCCI HTTP Rendering version 1.1
-# defines how the OCCI Core Model cab be communicated and thus serialised using the HTTP protocol
-# ==================================
+"""
+import logging.config
+from configobj import ConfigObj
+
+import os
+
+from arguments import Parameters
+
+def get_absolute_path_from_relative_path(filename):
+    return os.path.abspath(os.path.join(os.path.dirname(__file__), filename))
+
+# Loading the logging configuration file
+logging.config.fileConfig(get_absolute_path_from_relative_path("./OCCILogging.conf"))
+logger = logging.getLogger("OCCILogging")
+
+# Loading the OCCI server configuration file
+config = ConfigObj(get_absolute_path_from_relative_path("./occi_server.conf"))
+OCCI_IP = config['OCCI_IP']
+OCCI_PORT = config['OCCI_PORT']
