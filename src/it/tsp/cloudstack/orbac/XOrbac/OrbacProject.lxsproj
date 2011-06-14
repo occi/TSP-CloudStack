@@ -1,0 +1,32 @@
+﻿<?xml version="1.0"?>
+<!--Created by Liquid XML Data Binding Libraries (www.liquid-technologies.com) for Liquid Technologies Limited-->
+<XmlStudioProject xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" Version="9.0.11.3078" UseRelativePaths="false">
+	<Project Name="OrbacProject">
+		<SubGroup Name="Documents">
+			<File Uri="C:\#STAGE_final\TSP-CloudStack\src\it\tsp\cloudstack\orbac\XOrbac\organizations.xml"/>
+			<File Uri="C:\#STAGE_final\TSP-CloudStack\src\it\tsp\cloudstack\orbac\XOrbac\roles.xml"/>
+			<File Uri="C:\#STAGE_final\TSP-CloudStack\src\it\tsp\cloudstack\orbac\XOrbac\concrete_entities.xml"/>
+			<File Uri="C:\#STAGE_final\TSP-CloudStack\src\it\tsp\cloudstack\orbac\XOrbac\activities.xml"/>
+			<File Uri="C:\#STAGE_final\TSP-CloudStack\src\it\tsp\cloudstack\orbac\XOrbac\views.xml"/>
+		</SubGroup>
+		<SubGroup Name="Schemas">
+			<File Uri="C:\#STAGE_final\TSP-CloudStack\src\it\tsp\cloudstack\orbac\XOrbac\db_orbac_organizations.xsd"/>
+			<File Uri="C:\#STAGE_final\TSP-CloudStack\src\it\tsp\cloudstack\orbac\XOrbac\db_orbac_roles.xsd"/>
+			<File Uri="C:\#STAGE_final\TSP-CloudStack\src\it\tsp\cloudstack\orbac\XOrbac\type_orbac_basic.xsd"/>
+			<File Uri="C:\#STAGE_final\TSP-CloudStack\src\it\tsp\cloudstack\orbac\XOrbac\type_orbac_basic_groups.xsd"/>
+			<File Uri="C:\#STAGE_final\TSP-CloudStack\src\it\tsp\cloudstack\orbac\XOrbac\type_orbac_constrains.xsd"/>
+			<File Uri="C:\#STAGE_final\TSP-CloudStack\src\it\tsp\cloudstack\orbac\XOrbac\type_orbac_entity.xsd"/>
+			<File Uri="C:\#STAGE_final\TSP-CloudStack\src\it\tsp\cloudstack\orbac\XOrbac\type_orbac_hierarchy.xsd"/>
+			<File Uri="C:\#STAGE_final\TSP-CloudStack\src\it\tsp\cloudstack\orbac\XOrbac\type_orbac_operations.xsd"/>
+			<File Uri="C:\#STAGE_final\TSP-CloudStack\src\it\tsp\cloudstack\orbac\XOrbac\type_orbac_policy.xsd"/>
+			<File Uri="C:\#STAGE_final\TSP-CloudStack\src\it\tsp\cloudstack\orbac\XOrbac\type_orbac_relation.xsd"/>
+			<File Uri="C:\#STAGE_final\TSP-CloudStack\src\it\tsp\cloudstack\orbac\XOrbac\type_orbac_role.xsd"/>
+			<File Uri="C:\#STAGE_final\TSP-CloudStack\src\it\tsp\cloudstack\orbac\XOrbac\type_orbac_rules.xsd"/>
+			<File Uri="C:\#STAGE_final\TSP-CloudStack\src\it\tsp\cloudstack\orbac\XOrbac\db_orbac_concretes.xsd"/>
+			<File Uri="C:\#STAGE_final\TSP-CloudStack\src\it\tsp\cloudstack\orbac\XOrbac\db_orbac_activities.xsd"/>
+			<File Uri="C:\#STAGE_final\TSP-CloudStack\src\it\tsp\cloudstack\orbac\XOrbac\db_orbac_views.xsd"/>
+			<File Uri="C:\#STAGE_final\TSP-CloudStack\src\it\tsp\cloudstack\orbac\XOrbac\db_orbac_empower.xsd"/>
+		</SubGroup>
+		<SubGroup Name="Transforms"/>
+	</Project>
+</XmlStudioProject>

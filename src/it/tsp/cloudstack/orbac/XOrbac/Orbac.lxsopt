@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Created by Liquid XML Data Binding Libraries (www.liquid-technologies.com) for Liquid Technologies Limited-->
+<XmlStudioProjectOptions xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" Version="9.0.11.3078">
+	<OpenFile Uri="C:\#STAGE_final\Orbac\Orbac\orbac_hierarchy_type.xsd"/>
+	<OpenFile Uri="C:\#STAGE_final\Orbac\Orbac\orbac_rules_type.xsd"/>
+	<OpenFile Uri="C:\#STAGE_final\Orbac\Orbac\orbac_constrains_type.xsd"/>
+	<OpenFile Uri="C:\#STAGE_final\Orbac\Orbac\orbac_entity_type.xsd"/>
+	<OpenFile Uri="C:\#STAGE_final\Orbac\Orbac\orbac_policy_type.xsd"/>
+	<OpenFile Uri="C:\#STAGE_final\Orbac\Orbac\orbac_relation_type.xsd"/>
+	<OpenFile Uri="C:\#STAGE_final\Orbac\Orbac\orbac_basic_type.xsd"/>
+</XmlStudioProjectOptions>
