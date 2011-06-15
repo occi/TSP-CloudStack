@@ -25,38 +25,42 @@ Created on Feb 25, 2011
 @license: LGPL - Lesser General Public License
 """
 
-#**********************************************************************************************
-#**  This function creates a new class in the global namespace with the name                ***
-#**    classname inheriting from all classes in parentclasses, which is a list of strings.  ***
-#**********************************************************************************************
+#==============================================================================================
+#==  This function creates a new class in the global namespace with the name                ===
+#==    classname inheriting from all classes in parentclasses, which is a list of strings.  ===
+#==============================================================================================
 def create_new_class(classname, parentclasses):
-	if len(parentclasses) > 0:
-		parents = map(lambda p:p, parentclasses)
-		createclass = "class %s (%s):\n\tpass" % (classname, ",".join(parents))
-	else:
-		createclass = "class %s:\n\tpass" % classname
-	exec createclass
-	globals()[classname] = eval(classname)
-
-
+    """"""
+    if len(parentclasses) > 0:
+        parent = map(lambda p: p.__name__, parentclasses)
+        createclass = 'class %s (%s):\n\tpass' % (classname, ','.join(parent))
+        pass
+    else:
+        createclass = 'class %s:\n\tpass' % classname
+    print createclass
+    exec createclass
+    globals()[classname] = eval(classname)
+    pass
 
 
 if __name__ == '__main__':
-    class clazz1(object):
+    class clazz1:
         def __init__(self, a):
             self.a = a
-        def foo(self):
-            return "foo" + str(self.a)
 
-    class clazz2(object):
+        def foo(self):
+            return "clazz1: " + str(self.a)
+
+    class clazz2:
         def __init__(self, b, a):
             self.b = b
             self.a = a
+
         def bar(self):
-            return "bar" + str(self.b) + str(self.a)
+            return "clazz2: " + str(self.b) + str(self.a)
 
     # to create a new class names 'Test' that inherit from 'Foobar' and 'Barfoo'
-    create_new_class("Test", ["clazz1", "clazz2"])
+    create_new_class("Test", [clazz1, clazz2])
     print Test.__bases__
     t = Test("23")
     print t.foo() # this will print "foo23"
@@ -64,3 +68,5 @@ if __name__ == '__main__':
     t2 = globals()['Test']('23')
     print t2.foo()
     #print t.bar() # this will throw an exception, because self.b is not defined
+
+    pass
