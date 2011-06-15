@@ -209,8 +209,6 @@ class occi_server(object):
     pass
 
 
-
-
 if __name__ == '__main__':
     logger.debug('############ BEGIN OCCI Category rendering ###############')
     c = category_renderer()
@@ -257,31 +255,5 @@ if __name__ == '__main__':
     for r in result2:
         logger.debug('X-OCCI-Location' + ': ' + r)
     logger.debug('############# END OCCI Location-URIs rendering ################')
-
-
-
-
-
-
-
-    class clazz1(object):
-        def __init__(self, a):
-            self.a = a
-
-        def foo(self):
-            return "clazz1: " + str(self.a)
-
-    class clazz2(object):
-        def __init__(self, b, a):
-            self.b = b
-            self.a = a
-
-        def bar(self):
-            return "clazz2: " + str(self.b) + str(self.a)
-
-    globals()["clazz1"] = clazz1
-    create_new_class("Test", [clazz1])
-
-    print Test.__bases__
 
     pass
