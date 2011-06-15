@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<POLITICS
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xsi:noNamespaceSchemaLocation="./db_orbac_politics.xsd">
+
+    <permisions id="p1" precedence_order="0">
+        <authorization>permitted</authorization>
+        <organization>
+             <link type="simple" href="./organizations.xml#o1"></link>
+		</organization>
+        <role>
+            <link type="simple" href="./roles.xml#r1" />
+		</role>
+        <view>
+            <link type="simple" href="./views.xml#v1" />
+		</view>
+        <activity>
+            <link type="simple" href="./activities.xml#a1" />
+		</activity>
+        <context>
+            <link type="simple" href="./context.xml#ctx1" />
+		</context>
+	</permisions>
+    <permisions id="p2" precedence_order="1">
+        <authorization>permitted</authorization>
+        <organization>
+             <link type="simple" href="./organizations.xml#o1"></link>
+		</organization>
+        <role>
+            <link type="simple" href="./roles.xml#r1" />
+		</role>
+        <view>
+            <link type="simple" href="./views.xml#v1" />
+		</view>
+        <activity>
+            <link type="simple" href="./activities.xml#a1" />
+		</activity>
+        <context>
+            <link type="simple" href="./context.xml#ctx1" />
+		</context>
+	</permisions>
+    
+    <exceptions id="e1">
+        <organization>
+            <link type="simple" href="./organizations.xml#o1" />
+		</organization>
+        <context>
+            <link type="simple" href="./context.xml#ctx1" />
+		</context>
+        <is_permited>
+            <authorization>prohibited</authorization>
+            <subject>
+                <link type="simple" href="./concrete_entities.xml#su1" />
+            </subject>
+            <action>
+                <link type="simple" href="./concrete_entities.xml#ac1" />
+			</action>
+            <object>
+                <link type="simple" href="./concrete_entities.xml#ob1" />
+			</object>
+		</is_permited>
+	</exceptions>
+    <exceptions id="e2">
+        <organization>
+            <link type="simple" href="./organizations.xml#o1" />
+		</organization>
+        <context>
+            <link type="simple" href="./context.xml#ctx1" />
+		</context>
+        <is_permited>
+            <authorization>prohibited</authorization>
+            <subject>
+                <link type="simple" href="./concrete_entities.xml#su2" />
+            </subject>
+            <action>
+                <link type="simple" href="./concrete_entities.xml#ac2" />
+			</action>
+            <object>
+                <link type="simple" href="./concrete_entities.xml#ob2" />
+			</object>
+		</is_permited>
+	</exceptions>    
+</POLITICS>
