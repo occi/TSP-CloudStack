@@ -6,21 +6,21 @@
     <xs:element name="CONCRETE_ENTITIES">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="SUBJECTS">
+                <xs:element name="SUBJECTS" minOccurs="0" maxOccurs="unbounded">
                     <xs:complexType>
                         <xs:sequence>
                             <xs:element name="subject" type="subject_type" maxOccurs="unbounded" />
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
-                <xs:element name="ACTIONS">
+                <xs:element name="ACTIONS" minOccurs="0" maxOccurs="unbounded">
                     <xs:complexType>
                         <xs:sequence>
                             <xs:element name="action" type="action_type" maxOccurs="unbounded" />
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
-                <xs:element name="OBJECTS">
+                <xs:element name="OBJECTS" minOccurs="0" maxOccurs="unbounded">
                     <xs:complexType>
                         <xs:sequence>
                             <xs:element name="object" type="object_type" maxOccurs="unbounded" />

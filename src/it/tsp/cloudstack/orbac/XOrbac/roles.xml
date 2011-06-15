@@ -1,607 +1,106 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ROLES xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="./db_orbac_roles.xsd">
-    <role>
-        <id>1</id>
+<ROLES 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xsi:noNamespaceSchemaLocation="./db_orbac_roles.xsd">
+
+    <role id="r1">
         <info>
-            <name>Director of Deparment</name>
-            <atribute>
-                <name>Description</name>
-                <value>he has all the power in the deparment</value>
-			</atribute>
-		</info>
-        <mapping_info>
-            <name>Director of Deparment</name>
-            <atribute>
-                <name>attribute1</name>
-                <value>value1</value>
-            </atribute>
-        </mapping_info>
-        <permissions>
-            <authorization>permitted</authorization>
-            <organization>
-                <id>0</id>
-			</organization>
-            <role>
-                <id>0</id>
-			</role>
-            <view>
-                <id>0</id>
-			</view>
-            <activity>
-                <id>0</id>
-			</activity>
-            <context>
-                <id>0</id>
-			</context>
-		</permissions>
-        <exception>
-            <organization>
-                <id>0</id>
-			</organization>
-            <is_permited>
-                <authorization>prohibited</authorization>
-                <subject>
-                    <id>0</id>
-				</subject>
-                <action>
-                    <id>0</id>
-				</action>
-                <object>
-                    <id>0</id>
-				</object>
-    		</is_permited>
-            <context>
-                <id>0</id>
-            </context>
-        </exception>
+            <name>role 1</name>
+        </info>
     </role>
-    <role>
-        <id>2</id>
+    <role id="r2">
         <info>
-            <name>Professor</name>
-		</info>
-        <permissions>
-            <authorization>permitted</authorization>
-            <organization>
-                <id>0</id>
-			</organization>
-            <role>
-                <id>0</id>
-			</role>
-            <view>
-                <id>0</id>
-			</view>
-            <activity>
-                <id>0</id>
-			</activity>
-            <context>
-                <id>0</id>
-			</context>
-		</permissions>
-        <exception>
-            <organization>
-                <id>0</id>
-			</organization>
-            <is_permited>
-                <authorization>prohibited</authorization>
-                <subject>
-                    <id>0</id>
-				</subject>
-                <action>
-                    <id>0</id>
-				</action>
-                <object>
-                    <id>0</id>
-				</object>
-    		</is_permited>
-            <context>
-                <id>0</id>
-            </context>
-        </exception>
-    </role>
-    <role>
-        <id>3</id>
-        <info>
-            <name>Temporary Professor</name>
-		</info>
-        <permissions>
-            <authorization>permitted</authorization>
-            <organization>
-                <id>0</id>
-			</organization>
-            <role>
-                <id>0</id>
-			</role>
-            <view>
-                <id>0</id>
-			</view>
-            <activity>
-                <id>0</id>
-			</activity>
-            <context>
-                <id>0</id>
-			</context>
-		</permissions>
-        <exception>
-            <organization>
-                <id>0</id>
-			</organization>
-            <is_permited>
-                <authorization>prohibited</authorization>
-                <subject>
-                    <id>0</id>
-				</subject>
-                <action>
-                    <id>0</id>
-				</action>
-                <object>
-                    <id>0</id>
-				</object>
-    		</is_permited>
-            <context>
-                <id>0</id>
-            </context>
-        </exception>        
-    </role>
-    <role>
-        <id>4</id>
-        <info>
-            <name>Internship Student</name>
-		</info>
-        <permissions>
-            <authorization>permitted</authorization>
-            <organization>
-                <id>0</id>
-			</organization>
-            <role>
-                <id>0</id>
-			</role>
-            <view>
-                <id>0</id>
-			</view>
-            <activity>
-                <id>0</id>
-			</activity>
-            <context>
-                <id>0</id>
-			</context>
-		</permissions>
-        <exception>
-            <organization>
-                <id>0</id>
-			</organization>
-            <is_permited>
-                <authorization>prohibited</authorization>
-                <subject>
-                    <id>0</id>
-				</subject>
-                <action>
-                    <id>0</id>
-				</action>
-                <object>
-                    <id>0</id>
-				</object>
-    		</is_permited>
-            <context>
-                <id>0</id>
-            </context>
-        </exception>        
+            <name>role 1</name>
+        </info>
     </role>
     
-    <role>
-        <id>5</id>
-        <info>
-            <name>PhD Student</name>
-		</info>
-        <permissions>
-            <authorization>permitted</authorization>
-            <organization>
-                <id>0</id>
-			</organization>
-            <role>
-                <id>0</id>
-			</role>
-            <view>
-                <id>0</id>
-			</view>
-            <activity>
-                <id>0</id>
-			</activity>
-            <context>
-                <id>0</id>
-			</context>
-		</permissions>
-        <exception>
-            <organization>
-                <id>0</id>
-			</organization>
-            <is_permited>
-                <authorization>prohibited</authorization>
-                <subject>
-                    <id>0</id>
-				</subject>
-                <action>
-                    <id>0</id>
-				</action>
-                <object>
-                    <id>0</id>
-				</object>
-    		</is_permited>
-            <context>
-                <id>0</id>
-            </context>
-        </exception>        
-    </role>
-    <role>
-        <id>6</id>
-        <info>
-            <name>Student</name>
-		</info>
-        <permissions>
-            <authorization>permitted</authorization>
-            <organization>
-                <id>0</id>
-			</organization>
-            <role>
-                <id>0</id>
-			</role>
-            <view>
-                <id>0</id>
-			</view>
-            <activity>
-                <id>0</id>
-			</activity>
-            <context>
-                <id>0</id>
-			</context>
-		</permissions>
-        <exception>
-            <organization>
-                <id>0</id>
-			</organization>
-            <is_permited>
-                <authorization>prohibited</authorization>
-                <subject>
-                    <id>0</id>
-				</subject>
-                <action>
-                    <id>0</id>
-				</action>
-                <object>
-                    <id>0</id>
-				</object>
-    		</is_permited>
-            <context>
-                <id>0</id>
-            </context>
-        </exception>        
-    </role>
-    <role>
-        <id>7</id>
-        <info>
-            <name>ADMINISTRATIVE 1</name>
-		</info>
-        <permissions>
-            <authorization>permitted</authorization>
-            <organization>
-                <id>0</id>
-			</organization>
-            <role>
-                <id>0</id>
-			</role>
-            <view>
-                <id>0</id>
-			</view>
-            <activity>
-                <id>0</id>
-			</activity>
-            <context>
-                <id>0</id>
-			</context>
-		</permissions>
-        <exception>
-            <organization>
-                <id>0</id>
-			</organization>
-            <is_permited>
-                <authorization>prohibited</authorization>
-                <subject>
-                    <id>0</id>
-				</subject>
-                <action>
-                    <id>0</id>
-				</action>
-                <object>
-                    <id>0</id>
-				</object>
-    		</is_permited>
-            <context>
-                <id>0</id>
-            </context>
-        </exception>        
-	</role>   
-    <role>
-        <id>8</id>
-        <info>
-            <name>ADMINISTRATIVE 2</name>
-		</info>
-        <permissions>
-            <authorization>permitted</authorization>
-            <organization>
-                <id>0</id>
-			</organization>
-            <role>
-                <id>0</id>
-			</role>
-            <view>
-                <id>0</id>
-			</view>
-            <activity>
-                <id>0</id>
-			</activity>
-            <context>
-                <id>0</id>
-			</context>
-		</permissions>
-        <exception>
-            <organization>
-                <id>0</id>
-			</organization>
-            <is_permited>
-                <authorization>prohibited</authorization>
-                <subject>
-                    <id>0</id>
-				</subject>
-                <action>
-                    <id>0</id>
-				</action>
-                <object>
-                    <id>0</id>
-				</object>
-    		</is_permited>
-            <context>
-                <id>0</id>
-            </context>
-        </exception>        
-	</role>   
-    
-    <role_hierarchy id="0">
-        <type>specialized</type>
-        <direction>not_inheritance</direction>
+    <relevant_role id="rr1">
         <organization>
-            <id>1</id>
-            <info>
-                <name>SCHOOL</name>
-			</info>
-		</organization>
-        <sub_role>
-            <id>3</id>
-            <info>
-                <name>Temporary Professor</name>
-			</info>
-		</sub_role>
+            <link type="simple" href="./organizations.xml#o1" />
+        </organization>
         <role>
-            <id>2</id>
-            <info>
-                <name>Professor</name>
-			</info>
+            <link type="simple" href="./roles.xml#r1" />
+        </role>
+    </relevant_role>	
+    <relevant_role id="rr2">
+        <organization>
+            <link type="simple" href="./organizations.xml#o1" />
+        </organization>
+        <role>
+            <link type="simple" href="./roles.xml#r2" />
 		</role>
-	</role_hierarchy>
-    <role_hierarchy id="1">
+	</relevant_role>
+    
+    <faculty id="f1">
+        <relevant_role>
+            <link type="simple" href="./roles.xml#rr1" />
+		</relevant_role>
+        <permissions>
+            <link type="simple" href=".politics.xml#p1" />
+        </permissions>
+        <permissions>
+            <link type="simple" href=".politics.xml#p2" />
+        </permissions>
+        <exception>
+            <link type="simple" href=".politics.xml#e1" />
+		</exception>
+    </faculty>
+    <faculty id="f2">
+        <relevant_role>
+            <link type="simple" href="./roles.xml#rr2" />
+		</relevant_role>
+        <exception>
+            <link type="simple" href="./politics.xml#e2" />
+		</exception>
+
+	</faculty>
+    
+    <empower id="ep1">
+        <relevant_role>
+             <link type="simple" href="./roles.xml#rr1" />
+		</relevant_role>
+        <subject>
+            <link type="simple" href="./concrete_entities.xml#su1" />
+		</subject>
+        <subject>
+            <link type="simple" href="./concrete_entities.xml#su2" />
+		</subject>
+	</empower>
+    <empower id="ep2">
+        <relevant_role>
+             <link type="simple" href="./roles.xml#rr2" />
+		</relevant_role>
+        <subject>
+            <link type="simple" href="./concrete_entities.xml#su2" />
+		</subject>
+	</empower>
+    
+    <role_hierarchy id="rh1">
         <type>supervision</type>
-        <direction>not_inheritance</direction>
+        <direction>junior2senior</direction>
         <organization>
-            <id>1</id>
-            <info>
-                <name>SCHOOL</name>
-			</info>
+            <link type="simple" href="./organizations.xml#o1" />
 		</organization>
         <sub_role>
-            <id>3</id>
-            <info>
-                <name>Temporary Professor</name>
-			</info>
-		</sub_role>
+             <link type="simple" href="./roles.xml#r2" />
+        </sub_role>
         <role>
-            <id>2</id>
-            <info>
-                <name>Professor</name>
-			</info>
-		</role>
-	</role_hierarchy>
-    <role_hierarchy id="2">
-        <type>specialized</type>
-        <direction>not_inheritance</direction>        
-        <organization>
-            <id>4</id>
-            <info>
-                <name>TEAM1</name>
-			</info>
-		</organization>
-        <sub_role>
-            <id>5</id>
-            <info>
-                <name>PhD Students</name>
-			</info>
-		</sub_role>
-        <role>
-            <id>6</id>
-            <info>
-                <name>Students</name>
-			</info>
+            <link type="simple" href="./roles.xml#r1" />
 		</role>
 	</role_hierarchy> 
-    <role_hierarchy id="3">
-        <type>specialized</type>
-        <direction>not_inheritance</direction>        
-        <organization>
-            <id>5</id>
-            <info>
-                <name>TEAM2</name>
-			</info>
-		</organization>
-        <sub_role>
-            <id>5</id>
-            <info>
-                <name>Internship Students</name>
-			</info>
-		</sub_role>
-        <role>
-            <id>6</id>
-            <info>
-                <name>Students</name>
-			</info>
-		</role>
-	</role_hierarchy>
-    <role_hierarchy id="4">
+    <role_hierarchy id="rh2">
         <type>specialized</type>
         <direction>not_inheritance</direction>
         <organization>
-            <id>5</id>
-            <info>
-                <name>TEAM2</name>
-			</info>
+            <link type="simple" href="./organizations.xml#o1" />
 		</organization>
         <sub_role>
-            <id>5</id>
-            <info>
-                <name>PhD Students</name>
-			</info>
-		</sub_role>
+             <link type="simple" href="./roles.xml#r2" />
+        </sub_role>
         <role>
-            <id>6</id>
-            <info>
-                <name>Students</name>
-			</info>
+            <link type="simple" href="./roles.xml#r1" />
 		</role>
 	</role_hierarchy> 
     
-    <relevant_role id="10">
-        <organization>
-            <id>1</id>
-            <info>
-                <name>SCHOOL</name>
-            </info>
-		</organization>
-        <role>
-            <id>6</id>
-            <info>
-                <name>Student</name>
-            </info>
-        </role>
-	</relevant_role>
-    
-    <relevant_role id="11">
-        <organization>
-            <id>1</id>
-            <info>
-                <name>SCHOOL</name>
-            </info>
-		</organization>
-        <role>
-            <id>2</id>
-            <info>
-                <name>Professor</name>
-            </info>
-        </role>
-	</relevant_role>
-    
-    <relevant_role id="12">
-        <organization>
-            <id>1</id>
-            <info>
-                <name>SCHOOL</name>
-            </info>
-		</organization>
-        <role>
-            <id>3</id>
-            <info>
-                <name>Temporary Professor</name>
-            </info>
-        </role>
-	</relevant_role>    
-    
-    <relevant_role id="20">
-        <organization>
-            <id>2</id>
-            <info>
-                <name>ARTEMIS</name>
-            </info>
-		</organization>
-        <role>
-            <id>7</id>
-            <info>
-                <name>ADMINISTRATIVE 1</name>
-            </info>
-		</role>
-	</relevant_role>    
-
-    <relevant_role id="21">
-        <organization>
-            <id>2</id>
-            <info>
-                <name>ARTEMIS</name>
-            </info>
-		</organization>
-        <role>
-            <id>8</id>
-            <info>
-                <name>ADMINISTRATIVE 2</name>
-            </info>
-		</role>
-	</relevant_role>        
-    
-    <relevant_role id="40">
-        <organization>
-            <id>4</id>
-            <info>
-                <name>Team 1</name>
-            </info>
-		</organization>
-        <role>
-            <id>5</id>
-            <info>
-                <name>PhD Students</name>
-            </info>
-        </role>
-	</relevant_role>
-    
-    <relevant_role id="50">
-        <organization>
-            <id>5</id>
-            <info>
-                <name>Team 2</name>
-            </info>
-		</organization>
-        <role>
-            <id>4</id>
-            <info>
-                <name>Internship Student</name>
-            </info>
-        </role>
-	</relevant_role>
-
-    <relevant_role id="30">
-        <organization>
-            <id>3</id>
-		</organization>
-        <role>
-            <id>1</id>
-            <info>
-                <name>DIRECTOR</name>
-			</info>
-		</role>
-	</relevant_role>
-    
-    <relevant_role id="31">
-        <organization>
-            <id>3</id>
-		</organization>
-        <role>
-            <id>2</id>
-            <info>
-                <name>Professors</name>
-			</info>
-		</role>
-	</relevant_role>
 </ROLES>

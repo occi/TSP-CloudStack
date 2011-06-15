@@ -1,132 +1,65 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ORGANIZATIONS xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="./db_orbac_organizations.xsd">
-    <organization >
-        <id>1</id>
+<ORGANIZATIONS 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xsi:noNamespaceSchemaLocation="./db_orbac_organizations.xsd">
+
+    <organization id="o1">
         <info>
-            <name>SCHOOL</name>
+            <name>ORG1</name>
             <atribute>
-                <name>atribute1</name>
-                <value>value1</value>
-            </atribute>
-            <atribute>
-                <name>atribute2</name>
-                <value>value2</value>
+                <name>attribute 1</name>
+                <value>0</value>
             </atribute>
         </info>
         <mapping_info>
-            <name>MAP_SCHOOL</name>
+            <name>www.ORG1</name>
             <atribute>
-                <name>Map_atribute1</name>
-                <value>Map_value1</value>
-            </atribute>
-        </mapping_info>
-    </organization>
-    <organization>
-        <id>2</id>
-        <info>
-            <name>Artemis</name>
-        </info>
-        <mapping_info>
-            <name>MAP_SCHOOL_Artemis</name>
-        </mapping_info>
-    </organization>
-    <organization>
-        <id>3</id>
-        <info>
-            <name>RST</name>
-        </info>
-        <mapping_info>
-            <name>MAP_SCHOOL_RST</name>
-        </mapping_info>
-    </organization>
-    <organization>
-        <id>4</id>
-        <info>
-            <name>team1</name>
-        </info>
-    </organization>
-    <organization>
-        <id>5</id>
-        <info>
-            <name>team2</name>
-        </info>
-    </organization>
-    <organization>
-        <id>6</id>
-        <info>
-            <name>RS2M</name>
-        </info>
-    </organization>
+                <name>0</name>
+                <value>0</value>
+		    </atribute>
+	    </mapping_info>
+    </organization> 
     
+    <organization id="o2">
+        <info>
+            <name>ORG2</name>
+            <atribute>
+                <name>attribute 2</name>
+                <value>0</value>
+            </atribute>
+        </info>
+        <mapping_info>
+            <name>www.ORG2</name>
+            <atribute>
+                <name>0</name>
+                <value>0</value>
+		    </atribute>
+	    </mapping_info>
+    </organization> 
     
-    <organization_hierarchy id="1">
+    <organization_hierarchy id="oh1">
         <inheritance>
-            <entity>
-                <direction>not_inheritance</direction>
-                <elements>
-                    <activities>true</activities>
-                    <view>true</view>
-                </elements>
-            </entity>
-            <entity>
-                <direction>junior2senior</direction>
-                <elements>
-                    <roles>true</roles>
-                </elements>
-            </entity>
             <entity>
                 <direction>senior2junior</direction>
                 <elements>
-                    <context>true</context>
+                    <activities>1</activities>
                 </elements>
             </entity>
-        </inheritance>
-        <sub_organization>
-            <id>2</id>
-        </sub_organization>
-        <organization>
-            <id>1</id>
-        </organization>
-    </organization_hierarchy>
-    <organization_hierarchy id="2">
-        <inheritance>
             <entity>
                 <direction>not_inheritance</direction>
                 <elements>
-                    <activities>true</activities>
-                    <view>true</view>
-                    <context>true</context>
-                    <roles>true</roles>
+                    <roles>1</roles>
+                    <view>1</view>
                 </elements>
-            </entity>
+			</entity>
         </inheritance>
         <sub_organization>
-            <id>3</id>
-        </sub_organization>
+            <link type="simple" href="./organizations.xml#o2"></link> 
+		</sub_organization>
         <organization>
-            <id>1</id>
-        </organization>
+            <link type="simple" href="./organizations.xml#o1"></link>
+		</organization>
     </organization_hierarchy>
-    <organization_hierarchy id="3">
-        <inheritance>
-            <authorization>true</authorization>
-        </inheritance>
-        <sub_organization>
-            <id>4</id>
-        </sub_organization>
-        <organization>
-            <id>3</id>
-        </organization>
-    </organization_hierarchy>
-    <organization_hierarchy id="4">
-        <inheritance>
-            <hierarchy>true</hierarchy>
-        </inheritance>
-        <sub_organization>
-            <id>5</id>
-        </sub_organization>
-        <organization>
-            <id>3</id>
-        </organization>
-    </organization_hierarchy>
+    
 </ORGANIZATIONS>

@@ -5,19 +5,9 @@
     <xs:element name="VIEWS">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="view" maxOccurs="unbounded">
-                    <xs:complexType>
-                        <xs:complexContent>
-                            <xs:extension base="view_type">
-                                <xs:sequence>
-                                    <xs:element name="object" type="object_type" maxOccurs="unbounded" />
-                                </xs:sequence>
-                            </xs:extension>
-                        </xs:complexContent>
-                    </xs:complexType>
-                </xs:element>
+                <xs:element name="view" type="view_type" minOccurs="0" maxOccurs="unbounded" />
+                <xs:element name="use" type="use_type" minOccurs="0" maxOccurs="unbounded" />
                 <xs:element name="view_hierarchy" type="sub_view_type" minOccurs="0" maxOccurs="unbounded" />
-                <xs:element name="relevant_view" type="relevant_view_type" minOccurs="0" maxOccurs="unbounded" />
             </xs:sequence>
         </xs:complexType>
     </xs:element>

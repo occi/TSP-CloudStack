@@ -1,118 +1,65 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<VIEWS xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="./db_orbac_views.xsd">
-    <view>
-        <id>0</id>
+<VIEWS 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xsi:noNamespaceSchemaLocation="./db_orbac_views.xsd">
+    <view id="v1">
         <info>
-            <name>V</name>
-            <atribute>
-                <name>V</name>
-                <value>V</value>               
-			</atribute>
+            <name>view 1</name>
 		</info>
-        <mapping_info>
-            <name>V</name>
-            <atribute>
-                <name>v</name>
-                <value>v</value>
-			</atribute>
-		</mapping_info>
-        <object>
-            <id>0</id>
-            <info>
-                <name>v</name>
-			</info>
-		</object>
-        <object>
-            <id>0</id>
-            <info>
-                <name>v</name>
-			</info>
-		</object>
-    </view>
-    <view>
-        <id>0</id>
+	</view>
+    <view id="v2">
         <info>
-            <name>V</name>
-            <atribute>
-                <name>V</name>
-                <value>V</value>               
-			</atribute>
+            <name>view 2</name>
 		</info>
-        <mapping_info>
-            <name>V</name>
-            <atribute>
-                <name>v</name>
-                <value>v</value>
-			</atribute>
-		</mapping_info>
-        <object>
-            <id>0</id>
-            <info>
-                <name>v</name>
-			</info>
-		</object>
-        <object>
-            <id>0</id>
-            <info>
-                <name>v</name>
-			</info>
-		</object>
-    </view>
+	</view>
     
-    <view_hierarchy>
-        <type>specialized</type>
-        <direction>senior2junior</direction>
+    <use id="u1">
+        <relevant_view id="rv1">
+            <organization>
+                <link type="simple" href="./organizations.xml#o1" />
+            </organization>
+            <view>
+                <link type="simple" href="./views.xml#v1" />
+            </view>
+        </relevant_view>
+        <object>
+            <link type="simple" href="./concrete_entities.xml#ob1" />
+		</object>
+        <object>
+            <link type="simple" href="./concrete_entities.xml#ob2" />
+		</object>
+    </use>
+    <use>
+        <relevant_view id="rv2">
+            <organization>
+                <link type="simple" href="./organizations.xml#o1" />
+            </organization>
+            <view>
+                <link type="simple" href="./views.xml#v2" />
+            </view>
+        </relevant_view>
+        <object>
+            <link type="simple" href="./concrete_entities.xml#ob3" />
+		</object>
+        <object>
+            <link type="simple" href="./concrete_entities.xml#ob4" />
+		</object>        
+	</use>
+
+    
+    <view_hierarchy id="vh1">
         <organization>
-            <id>0</id>
-            <info>
-                <name>v</name>
-			</info>
+            <link type="simple" href="./organizations.xml#o1" />
 		</organization>
         <sub_view>
-            <id>0</id>
-            <info>
-                <name>v</name>
-			</info>
+            <link type="simple" href="./views.xml#v2" />
 		</sub_view>
         <view>
-            <id>0</id>
-		</view>
-	</view_hierarchy>
-    <view_hierarchy>
-        <type>specialized</type>
-        <direction>senior2junior</direction>
-        <organization>
-            <id>0</id>
-            <info>
-                <name>v</name>
-			</info>
-		</organization>
-        <sub_view>
-            <id>0</id>
-            <info>
-                <name>v</name>
-			</info>
-		</sub_view>
-        <view>
-            <id>0</id>
+            <link type="simple" href="./views.xml#v1" />
 		</view>
 	</view_hierarchy>
     
-    <relevant_view>
-        <organization>
-            <id>0</id>
-		</organization>
-        <view>
-            <id>0</id>
-		</view>
-	</relevant_view>
-    <relevant_view>
-        <organization>
-            <id>0</id>
-		</organization>
-        <view>
-            <id>0</id>
-		</view>
-	</relevant_view>
+    
 </VIEWS>
     

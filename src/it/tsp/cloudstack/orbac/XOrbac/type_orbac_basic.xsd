@@ -5,12 +5,21 @@
         <xs:annotation>
             <xs:documentation>It is an unique identifier of an entity.</xs:documentation>
         </xs:annotation>
-        <xs:restriction base="xs:unsignedLong" />
+        <xs:restriction base="xs:string" />
     </xs:simpleType>
-    <xs:complexType name="id_entity_type">
-        <xs:sequence>
-            <xs:element name="id" type="entity_id" />
-        </xs:sequence>
+    <xs:attributeGroup name="link_attribute">
+        <xs:attribute name="type" default="simple" use="optional">
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="simple" />
+                    <xs:enumeration value="extended" />
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="href" type="xs:string" use="optional" />
+    </xs:attributeGroup>
+    <xs:complexType name="link_type">
+        <xs:attributeGroup ref="link_attribute" />
     </xs:complexType>
     <xs:complexType name="attribute">
         <xs:annotation>
@@ -29,10 +38,18 @@
     </xs:complexType>
     <xs:complexType name="entity_type">
         <xs:sequence>
-            <xs:element name="id" type="entity_id" minOccurs="0" />
-            <xs:element name="info" type="entity_info" minOccurs="0" />
-            <xs:element name="mapping_info" type="entity_info" minOccurs="0" />
+            <xs:element name="link" minOccurs="0">
+                <xs:complexType>
+                    <xs:complexContent>
+                        <xs:extension base="link_type" />
+                    </xs:complexContent>
+                </xs:complexType>
+            </xs:element>
+            <xs:sequence minOccurs="0">
+                <xs:element name="info" type="entity_info" />
+                <xs:element name="mapping_info" type="entity_info" minOccurs="0" />
+            </xs:sequence>
         </xs:sequence>
-        <xs:attribute name="id" type="entity_id" />
+        <xs:attribute name="id" type="entity_id" use="optional" />
     </xs:complexType>
 </xs:schema>

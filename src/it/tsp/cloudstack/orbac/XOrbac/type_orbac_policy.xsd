@@ -2,38 +2,50 @@
 <!--Created with Liquid XML Studio Developer Edition (Trial) 9.0.11.3078 (http://www.liquid-technologies.com)-->
 <xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
     <xs:include schemaLocation=".\type_orbac_entity.xsd" />
-    <xs:simpleType name="permitted_prohibited">
+    <xs:simpleType name="precedence_type">
+        <xs:restriction base="xs:unsignedLong" />
+    </xs:simpleType>
+    <xs:simpleType name="permitted_prohibited_obligation">
         <xs:restriction base="xs:string">
             <xs:enumeration value="permitted" />
             <xs:enumeration value="prohibited" />
+            <xs:enumeration value="obligation" />
         </xs:restriction>
     </xs:simpleType>
-    <!--Organizational authorization type-->
-    <xs:complexType name="permission_type">
-        <xs:sequence minOccurs="0">
-            <xs:element name="authorization" type="permitted_prohibited" />
-            <xs:element name="organization" type="organization_type" />
-            <xs:element name="role" type="role_type" />
-            <xs:element name="view" type="view_type" />
-            <xs:element name="activity" type="activity_type" />
-            <xs:element name="context" type="context_type" />
-        </xs:sequence>
-        <xs:attribute name="id" type="xs:unsignedLong" use="optional" />
-    </xs:complexType>
     <xs:complexType name="is_permited_type">
         <xs:sequence>
-            <xs:element name="authorization" type="permitted_prohibited" />
+            <xs:element name="authorization" type="permitted_prohibited_obligation" />
             <xs:element name="subject" type="subject_type" />
             <xs:element name="action" type="action_type" />
             <xs:element name="object" type="object_type" />
         </xs:sequence>
     </xs:complexType>
-    <xs:complexType name="hold_type">
-        <xs:sequence minOccurs="0">
-            <xs:element name="organization" type="organization_type" />
-            <xs:element name="is_permited" type="is_permited_type" />
-            <xs:element name="context" type="context_type" />
+    <!--Organizational authorization type-->
+    <xs:complexType name="permission_type">
+        <xs:sequence>
+            <xs:element name="link" type="link_type" minOccurs="0" />
+            <xs:sequence minOccurs="0">
+                <xs:element name="authorization" type="permitted_prohibited_obligation" />
+                <xs:element name="organization" type="organization_type" />
+                <xs:element name="role" type="role_type" />
+                <xs:element name="view" type="view_type" />
+                <xs:element name="activity" type="activity_type" />
+                <xs:element name="context" type="context_type" />
+            </xs:sequence>
         </xs:sequence>
-        <xs:attribute name="id" type="xs:unsignedLong" use="optional" />
+        <xs:attribute name="id" type="entity_id" use="optional" />
+        <xs:attribute name="precedence_order" type="precedence_type" use="optional" />
+    </xs:complexType>
+    <xs:complexType name="hold_type">
+        <xs:sequence>
+            <xs:element name="link" type="link_type" minOccurs="0" />
+            <xs:sequence minOccurs="0">
+                <xs:element name="organization" type="organization_type" />
+                <xs:element name="context" type="context_type" />
+                <xs:element name="is_permited" type="is_permited_type" />
+            </xs:sequence>
+        </xs:sequence>
+        <xs:attribute name="id" type="entity_id" use="optional" />
+        <xs:attribute name="precedence_order" type="precedence_type" use="optional" />
     </xs:complexType>
 </xs:schema>

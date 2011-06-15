@@ -5,19 +5,9 @@
     <xs:element name="ACTIVITIES">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="activity" maxOccurs="unbounded">
-                    <xs:complexType>
-                        <xs:complexContent>
-                            <xs:extension base="activity_type">
-                                <xs:sequence>
-                                    <xs:element name="action" type="action_type" maxOccurs="unbounded" />
-                                </xs:sequence>
-                            </xs:extension>
-                        </xs:complexContent>
-                    </xs:complexType>
-                </xs:element>
+                <xs:element name="activity" type="activity_type" minOccurs="0" maxOccurs="unbounded" />
+                <xs:element name="consider" type="consider_type" minOccurs="0" maxOccurs="unbounded" />
                 <xs:element name="activity_hierarchy" type="sub_activity_type" minOccurs="0" maxOccurs="unbounded" />
-                <xs:element name="relevant_activity" type="relevant_activity_type" minOccurs="0" maxOccurs="unbounded" />
             </xs:sequence>
         </xs:complexType>
     </xs:element>

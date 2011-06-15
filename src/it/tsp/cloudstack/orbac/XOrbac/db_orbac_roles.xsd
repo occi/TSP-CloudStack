@@ -6,20 +6,23 @@
     <xs:element name="ROLES">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="role" maxOccurs="unbounded">
+                <xs:element name="role" type="role_type" minOccurs="0" maxOccurs="unbounded" />
+                <xs:element name="relevant_role" type="relevant_role_type" minOccurs="0" maxOccurs="unbounded" />
+                <xs:element name="faculty" minOccurs="0" maxOccurs="unbounded">
                     <xs:complexType>
-                        <xs:complexContent>
-                            <xs:extension base="role_type">
-                                <xs:sequence>
-                                    <xs:element name="permissions" type="permission_type" minOccurs="0" maxOccurs="unbounded" />
-                                    <xs:element name="exception" type="hold_type" minOccurs="0" maxOccurs="unbounded" />
-                                </xs:sequence>
-                            </xs:extension>
-                        </xs:complexContent>
+                        <xs:sequence minOccurs="0">
+                            <xs:element name="link" type="link_type" minOccurs="0" />
+                            <xs:sequence minOccurs="0">
+                                <xs:element name="relevant_role" type="relevant_role_type" />
+                                <xs:element name="permissions" type="permission_type" minOccurs="0" maxOccurs="unbounded" />
+                                <xs:element name="exception" type="hold_type" minOccurs="0" maxOccurs="unbounded" />
+                            </xs:sequence>
+                        </xs:sequence>
+                        <xs:attribute name="id" type="entity_id" use="optional" />
                     </xs:complexType>
                 </xs:element>
+                <xs:element name="empower" type="empower_type" minOccurs="0" maxOccurs="unbounded" />
                 <xs:element name="role_hierarchy" type="sub_role_type" minOccurs="0" maxOccurs="unbounded" />
-                <xs:element name="relevant_role" type="relevant_role_type" minOccurs="0" maxOccurs="unbounded" />
             </xs:sequence>
         </xs:complexType>
     </xs:element>
