@@ -28,7 +28,9 @@ Created on Mai 25, 2011
 '''
 
 from extract_cr import Indicator
+import logging
 
+logging.basic(Configformat='%(asctime)s %(message)s',level=logging.DEBUG)
 
 class fixed_thresholds:
 

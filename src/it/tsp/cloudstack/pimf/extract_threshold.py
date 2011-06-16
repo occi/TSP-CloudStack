@@ -28,6 +28,9 @@ Created on Feb 25, 2011
 @license: LGPL - Lesser General Public License
 '''
 
+import logging
+
+logging.basic(Configformat='%(asctime)s %(message)s',level=logging.DEBUG)
 
 class Threshold:
     maxApp = None
@@ -80,7 +83,7 @@ class TransformXmlToThreshold:
                     c.minApp = self.getText(thresholds.getElementsByTagName("minApplicationThreshold")[0])
 
                 except:
-                    print 'Un des TAGS suivant est manquants : MaxAppThreshold, MaxPhyThreshold, MinAppThreshold'
+                    logging.error('ERROR IN USED TAGS')
 
                 self.__thresholdList__.append(c)
 

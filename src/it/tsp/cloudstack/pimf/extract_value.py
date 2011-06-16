@@ -33,8 +33,16 @@ import math
 from run_command import RunCommand
 from treat_commandResult import treat_result
 from extract_cmd import Cmd
+import logging
+
+logging.basic(Configformat='%(asctime)s %(message)s',level=logging.DEBUG)
 
 class obj_cmp:
+    '''
+    this class define the structure of the returned object by the class below
+    this object contain the value to compare and and the consumption thresholds for an indicator
+    '''
+    cr=None
     value=None
     maxExt=None
     minCmpt=None
@@ -43,6 +51,10 @@ class obj_cmp:
         pass
 
 class obj_extract:
+    '''
+    this class is used to execute command to extract value
+    and calculates thresholds
+    '''
     def __init__(self):
         pass
 
@@ -50,64 +62,71 @@ class obj_extract:
     # cmde is an abject of type Cmd passed as an argument
     def extract(self,host,cmde,cr):
 
-        sommeExt = 0
-        sommeExtCarree = 0
-        sommeCmpt = 0
-        sommeCmptCarree = 0
+        sumExt = 0
+        sumExtSqr = 0
+        sumCmpt = 0
+        sumCmptSqr = 0
 
-        nbMesures = 3
+        nbMeasures = 3
 
         # preparing connection to host
         exe=RunCommand()
         exe.do_add_host(host)
+        logging.debug('host added')
         exe.do_connect()
+        logging.debug('connection established')
 
         result=treat_result(cr)
 
-        # executing commands for many times : nbMesures
-        for i in range(nbMesures):
+        # executing commands for many times : nbMeasures
+        for i in range(nbMeasures):
             #waiting and extracting value
             time.sleep(1)
 
             #execution of command
 
             res=exe.do_run(cmde.cmd)
+            logging.debug('command executed')
 
-            #traitement de la valeur extraite
+            # treatment of the extracted value
             valeur=result.return_result(res)
+            logging.debug('result of command treated')
 
-            #calcul des sommes d'extension
-            sommeExt = sommeExt + valeur.value
-            sommeExtCarree = sommeExtCarree + math.pow(valeur.value, 2)
-            #Calcul des sommes de compatage
-            sommeCmpt = sommeCmpt + valeur.complement
-            sommeCmptCarree = sommeCmptCarree + math.pow(valeur.complement, 2)
+            #determning of the sum of values dedicated for extension
+            sumExt = sumExt + valeur.value
+            sumExtSqr = sumExtSqr + math.pow(valeur.value, 2)
+            # determining the sum of values dedicated for compacting
+            sumCmpt = sumCmpt + valeur.complement
+            sumCmptSqr = sumCmptSqr + math.pow(valeur.complement, 2)
 
         #determining the average and other parameters
-        moyExt = sommeExt / nbMesures
-        ecartTypeExt = sommeExtCarree / nbMesures - math.pow(moyExt, 2)
-        moyCmpt = sommeCmpt / nbMesures
-        ecartTypeCmpt = sommeCmptCarree / nbMesures - math.pow(moyCmpt, 2)
+        moyExt = sumExt / nbMeasures
+        ecartTypeExt = sumExtSqr / nbMeasures - math.pow(moyExt, 2)
+        moyCmpt = sumCmpt / nbMeasures
+        ecartTypeCmpt = sumCmptSqr / nbMeasures - math.pow(moyCmpt, 2)
 
         # determining thresholds
-        seuilExt = float(cmde.tempsExt) * float(cmde.zExt) * ecartTypeExt
-        seuilCmpt = float(cmde.tempsCmpt) * float(cmde.zCmpt) * ecartTypeCmpt
+        thresholdExt = float(cmde.tempsExt) * float(cmde.zExt) * ecartTypeExt
+        thresholdCmpt = float(cmde.tempsCmpt) * float(cmde.zCmpt) * ecartTypeCmpt
+        logging.info('consumption threshold determined')
 
-        # extraction of the value to compare with thresholds
+        # extracting values to compare with thresholds
         res=exe.do_run(cmde.cmd)
         valeur=result.return_result(res)
 
         # creating the object that will be returned
         # this object contains value to compare and thresholds
         to_return=obj_cmp()
+        to_return.cr=cr.lower()
         to_return.value=valeur
-        to_return.maxExt=seuilExt
-        to_return.minCmpt=seuilCmpt
+        to_return.maxExt=thresholdExt
+        to_return.minCmpt=thresholdCmpt
 
-        print 'seuilExt ',seuilExt
-        print 'seuilCmpt ',seuilCmpt
+        print 'seuilExt ',thresholdExt
+        print 'seuilCmpt ',thresholdCmpt
         #closing connection to host
         exe.do_close()
+        logging.debug('connection to host closed')
 
         # returning obj to be compared
         return to_return

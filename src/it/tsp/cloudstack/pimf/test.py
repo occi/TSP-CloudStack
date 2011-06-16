@@ -12,7 +12,7 @@ from run_command import RunCommand
 from extract_cmd import TransformXmlToCmd, Cmd
 from extractVM import TransformXmlToVM, VM
 from extract_value import obj_extract
-
+import logging
 
 
 #extracting list of vms that will be used to extract values
@@ -38,25 +38,26 @@ print 'commande extraite'
 print cmd[0].cmd
 print cmd[0].tempsExt
 #preparing connexion to run commands
-cnx = RunCommand()
-cnx.do_add_host('157.159.103.101,vadmin,sector7g')
-cnx.do_connect()
+#cnx = RunCommand()
+#cnx.do_add_host('157.159.103.101,vadmin,sector7g')
+#cnx.do_connect()
 host='157.159.103.101,vadmin,sector7g'
 cmde="df -h | grep '^/'"
 #Excuting command on remote host
 print 'execution'
-r = cnx.do_run("df -h | grep '^/'")
+#r = cnx.do_run("df -h | grep '^/'")
 print"'affichage"
-print r[0]
+#print r[0]
 
 print'fin exec'
 
-rt= r[0].split("G")
-print float(rt[1])
+
+#rt= r[0].split("G")
+#print float(rt[1])
 print '.:fin test simple cmd:. \n .:debut test extract:.'
 
-ex=obj_extract()
-ex.extract(host,cmd[0],'disk')
+#ex=obj_extract()
+#ex.extract(host,cmd[0],'disk')
 
 
 

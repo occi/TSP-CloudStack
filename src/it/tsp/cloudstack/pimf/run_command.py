@@ -29,7 +29,9 @@ Created on Feb 25, 2011
 
 import paramiko
 import cmd
+import logging
 
+logging.basicConfig(Configformat='%(asctime)s %(message)s',level=logging.DEBUG)
 class RunCommand(cmd.Cmd):
     """ Simple shell to run a command on the host """
 
@@ -45,7 +47,7 @@ class RunCommand(cmd.Cmd):
         if args:
             self.hosts.append(args.split(','))
         else:
-            print "usage: host <hostip,user,password>"
+            logging.error('error in format of host to add')
 
     #function to establish connexion to the remote host
     def do_connect(self):
@@ -73,9 +75,11 @@ class RunCommand(cmd.Cmd):
                     result.append(line)
                 return result
         else:
-            print "usage: run <command>"
+            logging.error('error, format must be : run <command>')
+
 
     #closing connexion with remote host
     def do_close(self):
+        logging.info('closing connections')
         for conn in self.connections:
             conn.close()
