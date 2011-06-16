@@ -25,12 +25,14 @@ Created on Feb 25, 2011
 @license: LGPL - Lesser General Public License
 """
 
-#==============================================================================================
-#==  This function creates a new class in the provided namespace (gl) with the name         ===
-#==    classname inheriting from all classes in parentclasses, which is a list of strings.  ===
-#==============================================================================================
-def create_new_class(classname, parentclasses, gl = globals()):
-    """"""
+def create_new_class(classname, parentclasses, gl=globals()):
+    """
+
+     This function creates a new class in the provided namespace (gl) with the name classname inheriting
+     from all classes in parentclasses, which is a list of strings.
+
+    """
+
     if len(parentclasses) > 0:
         parent = map(lambda p: p.__name__, parentclasses)
         createclass = 'class %s (%s):\n\tpass' % (classname, ','.join(parent))
@@ -39,7 +41,10 @@ def create_new_class(classname, parentclasses, gl = globals()):
     exec createclass in gl
     gl[classname] = eval(classname, gl)
 
+
+    
 if __name__ == '__main__':
+    # ============================== Test of create_new_class function (start) ====================
     class clazz1:
         def __init__(self, a):
             self.a = a
@@ -64,5 +69,6 @@ if __name__ == '__main__':
     t2 = globals()['Test']('23')
     print t2.foo()
     #print t.bar() # this will throw an exception, because self.b is not defined
+    # ============================== Test of create_new_class function (end) =====================
 
     pass
