@@ -18,7 +18,7 @@
 			<File Uri="C:\#STAGE_final\TSP-CloudStack\src\it\tsp\cloudstack\orbac\XOrbac\type_orbac_constrains.xsd"/>
 			<File Uri="C:\#STAGE_final\TSP-CloudStack\src\it\tsp\cloudstack\orbac\XOrbac\type_orbac_entity.xsd"/>
 			<File Uri="C:\#STAGE_final\TSP-CloudStack\src\it\tsp\cloudstack\orbac\XOrbac\type_orbac_hierarchy.xsd"/>
-			<File Uri="C:\#STAGE_final\TSP-CloudStack\src\it\tsp\cloudstack\orbac\XOrbac\type_orbac_operations.xsd"/>
+			<File Uri="C:\#STAGE_final\TSP-CloudStack\src\it\tsp\cloudstack\orbac\XOrbac\z_type_orbac_operations.xsd"/>
 			<File Uri="C:\#STAGE_final\TSP-CloudStack\src\it\tsp\cloudstack\orbac\XOrbac\type_orbac_policy.xsd"/>
 			<File Uri="C:\#STAGE_final\TSP-CloudStack\src\it\tsp\cloudstack\orbac\XOrbac\type_orbac_relation.xsd"/>
 			<File Uri="C:\#STAGE_final\TSP-CloudStack\src\it\tsp\cloudstack\orbac\XOrbac\type_orbac_role.xsd"/>
@@ -26,7 +26,6 @@
 			<File Uri="C:\#STAGE_final\TSP-CloudStack\src\it\tsp\cloudstack\orbac\XOrbac\db_orbac_concretes.xsd"/>
 			<File Uri="C:\#STAGE_final\TSP-CloudStack\src\it\tsp\cloudstack\orbac\XOrbac\db_orbac_activities.xsd"/>
 			<File Uri="C:\#STAGE_final\TSP-CloudStack\src\it\tsp\cloudstack\orbac\XOrbac\db_orbac_views.xsd"/>
-			<File Uri="C:\#STAGE_final\TSP-CloudStack\src\it\tsp\cloudstack\orbac\XOrbac\db_orbac_empower.xsd"/>
 			<File Uri="C:\#STAGE_final\TSP-CloudStack\src\it\tsp\cloudstack\orbac\XOrbac\db_orbac_politics.xsd"/>
 		</SubGroup>
 		<SubGroup Name="Transforms"/>
