@@ -39,7 +39,7 @@ class decision:
     the decision will be either adding/removing if it will reach the prefixed thresholds
     or extending/compacting if we will reach only the consumption thresholds
     '''
-    def __init__(self,):
+    def __init__(self):
         pass
 
     def optimize(self,extracted,mxAdd,mnRem):
