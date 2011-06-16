@@ -26,7 +26,16 @@ Created on Feb 25, 2011
 @version: 0.1
 @license: LGPL - Lesser General Public License
 '''
+
+import logging
+
+logging.basic(Configformat='%(asctime)s %(message)s',level=logging.DEBUG)
+
 class Indicator:
+    '''
+    this class wil specify the fixed characteristics for used indicators in architecture
+    these parameters are specifics of installed architecture
+    '''
     name=None
     maxApp = None
     maxPhy = None
@@ -76,7 +85,7 @@ class TransformXmlToCr:
                     obj.minApp = self.getText(crs.getElementsByTagName("minApplicationThreshold")[0])
 
                 except:
-                    print 'TAGS manquants'
+                    logging.error('ERROR IN USED TAGS')
 
                 self.__crList__.append(obj)
 

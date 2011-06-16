@@ -28,8 +28,16 @@ Created on Feb 25, 2011
 '''
 
 import commands
+import logging
+
+logging.basicConfig(Configformat='%(asctime)s %(message)s',level=logging.DEBUG)
 
 class Cmd:
+    '''
+    this class defines the characteristic of an indicator with its command
+    in addition of command it have the parameters of optimization
+    the xml file tied to this class is fixed and contains parameters for all indicators
+    '''
     critere = None
     cmd = None
     tempsExt = None
@@ -42,6 +50,9 @@ class Cmd:
 
 
 class TransformXmlToCmd:
+    '''
+    this class is used to extract command and other parameters tied to each indicator
+    '''
     __currentNode__ = None
 
     __cmdList__ = None
@@ -72,6 +83,7 @@ class TransformXmlToCmd:
         self.__cmdList__ = []
 
         for cmds in self.getRootElement().getElementsByTagName("cmdCr"):
+            # browsing each one to extract characteristics
             if cmds.nodeType == cmds.ELEMENT_NODE:
                 c = Cmd()
 
@@ -85,12 +97,11 @@ class TransformXmlToCmd:
                     c.zCmpt = self.getText(cmds.getElementsByTagName("zCmpt")[0])
 
                 except:
-                    print 'Un des TAGS suivant est manquants : critere, commande'
+                    logging.error('ERROR IN USED TAGS')
 
                 #if the indicator is used for this case
                 if c.critere in crList:
                     self.__cmdList__.append(c)
-                    #print 'moujoud'
 
         return self.__cmdList__
 

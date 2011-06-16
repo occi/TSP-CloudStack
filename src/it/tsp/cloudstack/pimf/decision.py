@@ -29,9 +29,16 @@ Created on Feb 25, 2011
 
 from chaining import execution
 from extract_value import obj_extract
+import logging
 
+logging.basic(Configformat='%(asctime)s %(message)s',level=logging.DEBUG)
 
 class decision:
+    '''
+    in this class, the decision is taken for an indicator
+    the decision will be either adding/removing if it will reach the prefixed thresholds
+    or extending/compacting if we will reach only the consumption thresholds
+    '''
     def __init__(self,):
         pass
 
@@ -39,21 +46,25 @@ class decision:
 
         if extracted.value>mxAdd:
             # adding new VM according to this indicator
+            logging.info('Adding VM according to : %s ',extracted.cr)
             return 'add'
 
         elif extracted.value<mnRem:
             # Removing VM according to this indicator
+            logging.info('Removing VM according to : %s ',extracted.cr)
             return 'rem'
 
         elif extracted.value>extracted.maxExt:
             #extending VM according to this indicator
+            logging.info('Extending VM according to : %s ',extracted.cr)
             return 'ext'
+
         elif extracted.value>extracted.minCmpt:
             #compacting VM according to this indicator
+            logging.info('Compacting VM according to : %s ',extracted.cr)
             return 'cmpt'
+
         else:
             #nothing to do
+            logging.info('Nothing to do to : %s ',extracted.cr)
             return 'no'
-
-        
-        

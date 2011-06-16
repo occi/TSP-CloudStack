@@ -34,8 +34,15 @@ from fixed_thresholds import fixed_thresholds
 from decision import decision
 import threading
 import time
+import logging
 
+logging.basic(Configformat='%(asctime)s %(message)s',level=logging.DEBUG)
 class threadCR(threading.Thread):
+    '''
+    this class defines a thread that will treat an indicator
+    it will extract values, determines consumption thresholds
+    and makes decision for its indicator
+    '''
 
     def __init__(self,h,c):
         self.host=h

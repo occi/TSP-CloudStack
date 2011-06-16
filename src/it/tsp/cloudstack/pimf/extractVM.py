@@ -28,8 +28,15 @@ Created on Feb 25, 2011
 '''
 
 import commands
+import logging
+
+logging.basicConfig(Configformat='%(asctime)s %(message)s',level=logging.DEBUG)
 
 class VM:
+    '''
+    this class will define the structure of vm (host,username,passwd,type of priority)
+    the priority define if the vm will be used to extract value or not in hte used architecture
+    '''
     host = None
     user = None
     password = None
@@ -40,6 +47,10 @@ class VM:
 
 
 class TransformXmlToVM:
+    '''
+    list of vm with its characteristics are saved in an xml file
+    this class will extract characteristics of vms that will be used to treat values to optimise architecture
+    '''
     __currentNode__ = None
 
     __vmList__ = None
@@ -51,6 +62,9 @@ class TransformXmlToVM:
 
 
     def readXml(self, file):
+        '''
+        this method is use to read the xml file
+        '''
         from xml.dom.minidom import parse
 
         self.doc = parse(file)
@@ -64,6 +78,9 @@ class TransformXmlToVM:
 
 
     def getVM(self):
+        '''
+        this method is used to extract list of vm that will be used to extract measurements
+        '''
         if self.__vmList__ != None:
             return
 
@@ -81,7 +98,7 @@ class TransformXmlToVM:
                     v.extract = self.getText(vms.getElementsByTagName("extract")[0])
 
                 except:
-                    print 'Un des TAGS suivant est manquants : host, user, password, extractType'
+                    logging.error('ERROR IN USED TAGS')
 
                 #if the vm is used to extract value for optimisation process
                 if v.extract == 'yes':
@@ -91,5 +108,6 @@ class TransformXmlToVM:
 
 
     def getText(self, node):
+        # return the text of a tag in the xml file
         return node.childNodes[0].nodeValue
 

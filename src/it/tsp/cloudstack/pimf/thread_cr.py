@@ -35,8 +35,16 @@ from extract_value import obj_extract
 from thread_exec import threadCR
 import threading
 import time
+import logging
 
+logging.basic(Configformat='%(asctime)s %(message)s',level=logging.DEBUG)
 class threadVM(threading.Thread):
+    '''
+    this class defines a thread that will be executed in each vm
+    it will extract indicators and run an other thread for each indicator
+    to calculate consumption thresholds and make decision for its indicator
+     this thread will make decision for the entire vm
+    '''
 
     def __init__(self,h):
         self.host=h
