@@ -15,7 +15,7 @@
 # You should have received a copy of the GNU Lesser General Public License
 # along with this library.  If not, see <http://www.gnu.org/licenses/>.
 
-'''
+"""
 Created on Feb 25, 2011
 
 @author: Houssem Medhioub
@@ -23,17 +23,18 @@ Created on Feb 25, 2011
 @organization: Institut Telecom - Telecom SudParis
 @version: 0.1
 @license: LGPL - Lesser General Public License
-'''
+"""
 
-import logging.config
-#import eventlet
-#from eventlet import wsgi
+import it.tsp.cloudstack.api.occi.config as config
+from it.tsp.cloudstack.tools import create_new_class
+
+from eventlet import wsgi
+import eventlet
 #from webob import Request
 import uuid
 import re
 
 from  it.tsp.cloudstack.api.occi.occi.occi_core import Category, Kind, Mixin, Action, Entity, Resource, Link
-
 from it.tsp.cloudstack.api.occi.occi.occi_infrastructure import Compute, Network, Storage,\
     NetworkInterface, StorageLink, IPNetworking, IPNetworkInterface
 
@@ -41,10 +42,14 @@ from it.tsp.cloudstack.api.occi.registry.registry import category_registry, loca
 
 from it.tsp.cloudstack.api.occi.serialization.http.renderer import category_renderer, link_renderer, action_renderer, attributes_renderer, location_renderer
 
-# Loading the logging configuration file
-logging.config.fileConfig("../OCCILogging.conf")
+
 # getting the Logger
-logger = logging.getLogger("OCCILogging")
+logger = config.logger
+
+# getting IP and Port of the OCCI server
+OCCI_IP = config.OCCI_IP
+OCCI_PORT = config.OCCI_PORT
+
 
 # ======================================================================================
 # HTTP Return Codes
@@ -180,15 +185,27 @@ location_registry.register_location("/ipnetworkinterface/", IPNetworkInterface()
 #
 #wsgi.server(eventlet.listen(('', 8090)), hello_world)
 
-
-
-
-class Server(object):
+class occi_server(object):
     """
 
-    A class to manage multiple WSGI sockets and applications.
+    Represent the main occi REST server
 
     """
+
+
+    def run_server(self):
+        """
+
+        to run the server
+
+        """
+        wsgi.server(eventlet.listen(('', 8090)), self.application)
+
+        pass
+
+    def application(self):
+        pass
+
     pass
 
 
@@ -238,4 +255,5 @@ if __name__ == '__main__':
     for r in result2:
         logger.debug('X-OCCI-Location' + ': ' + r)
     logger.debug('############# END OCCI Location-URIs rendering ################')
+
     pass

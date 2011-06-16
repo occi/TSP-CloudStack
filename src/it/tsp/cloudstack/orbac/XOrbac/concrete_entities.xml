@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CONCRETE_ENTITIES 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xsi:noNamespaceSchemaLocation="./db_orbac_concretes.xsd">
+    <SUBJECTS>
+        <subject id="su1">
+            <info>
+                <name>subject 1</name>
+			</info>
+		</subject> 
+        <subject id="su2">
+            <info>
+                <name>subject 2</name>
+			</info>
+		</subject> 
+	</SUBJECTS>
+    
+    <ACTIONS>
+        <action id="ac1">
+            <info>
+                <name>Action 1</name>
+            </info>
+            <mapping_info>
+                <name>x</name>
+                <atribute>
+                    <name>x</name>
+                    <value>0</value>
+				</atribute>
+			</mapping_info>
+		</action>
+        <action id="ac2">
+            <info>
+                <name>Action 2</name>
+            </info>
+            <mapping_info>
+                <name>x</name>
+                <atribute>
+                    <name>x</name>
+                    <value>0</value>
+				</atribute>
+			</mapping_info>
+		</action>
+        <action id="ac3">
+            <info>
+                <name>Action 3</name>
+            </info>
+            <mapping_info>
+                <name>x</name>
+                <atribute>
+                    <name>x</name>
+                    <value>0</value>
+				</atribute>
+			</mapping_info>
+		</action>
+        <action id="ac4">
+            <info>
+                <name>Action 4</name>
+            </info>
+            <mapping_info>
+                <name>x</name>
+                <atribute>
+                    <name>x</name>
+                    <value>0</value>
+				</atribute>
+			</mapping_info>
+		</action>
+	</ACTIONS>
+    
+    <OBJECTS>
+        <object id="ob1">
+            <info>
+                <name>object 1</name>
+			</info>
+		</object>
+        <object id="ob2">
+            <info>
+                <name>object 2</name>
+			</info>
+		</object>
+        <object id="ob3">
+            <info>
+                <name>object 3</name>
+			</info>
+		</object>        
+        <object id="ob4">
+            <info>
+                <name>object 4</name>
+			</info>
+		</object>        
+	</OBJECTS>
+</CONCRETE_ENTITIES>

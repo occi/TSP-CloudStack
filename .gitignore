@@ -1,5 +1,13 @@
 *.pyc
+.idea/*.*
+.idea/encodings.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml
+.idea/TSP-CloudStack.iml
+.idea/workspace.xml
+.idea/dictionaries/*.xml
+.idea/dictionaries/jordan.xml
 zz-consumer.py
 zz-consumer2.py
 zz-producer.py
-workspace.xml

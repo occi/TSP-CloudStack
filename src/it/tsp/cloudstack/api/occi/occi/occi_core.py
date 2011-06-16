@@ -15,7 +15,7 @@
 # You should have received a copy of the GNU Lesser General Public License
 # along with this library.  If not, see <http://www.gnu.org/licenses/>.
 
-'''
+"""
 Created on Feb 25, 2011
 
 @author: Houssem Medhioub
@@ -27,7 +27,7 @@ Created on Feb 25, 2011
 ==================================
 OCCI Core version 1.1
 ==================================
-'''
+"""
 
 class Attribute(object):
     """

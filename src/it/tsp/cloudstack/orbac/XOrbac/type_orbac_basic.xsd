@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--Created with Liquid XML Studio Developer Edition (Trial) 9.0.11.3078 (http://www.liquid-technologies.com)-->
+<xs:schema xmlns:xlink="http://www.w3.org/1999/xlink" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:simpleType name="entity_id">
+        <xs:annotation>
+            <xs:documentation>It is an unique identifier of an entity.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string" />
+    </xs:simpleType>
+    <xs:attributeGroup name="link_attribute">
+        <xs:attribute name="type" default="simple" use="optional">
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="simple" />
+                    <xs:enumeration value="extended" />
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="href" type="xs:string" use="optional" />
+    </xs:attributeGroup>
+    <xs:complexType name="link_type">
+        <xs:attributeGroup ref="link_attribute" />
+    </xs:complexType>
+    <xs:complexType name="attribute">
+        <xs:annotation>
+            <xs:documentation />
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="name" type="xs:string" />
+            <xs:element name="value" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="entity_info">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string" />
+            <xs:element name="atribute" type="attribute" minOccurs="0" maxOccurs="unbounded" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="entity_type">
+        <xs:sequence>
+            <xs:element name="link" minOccurs="0">
+                <xs:complexType>
+                    <xs:complexContent>
+                        <xs:extension base="link_type" />
+                    </xs:complexContent>
+                </xs:complexType>
+            </xs:element>
+            <xs:sequence minOccurs="0">
+                <xs:element name="info" type="entity_info" />
+                <xs:element name="mapping_info" type="entity_info" minOccurs="0" />
+            </xs:sequence>
+        </xs:sequence>
+        <xs:attribute name="id" type="entity_id" use="optional" />
+    </xs:complexType>
+</xs:schema>
