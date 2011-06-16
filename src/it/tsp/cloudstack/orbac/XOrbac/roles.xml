@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ROLES 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xsi:noNamespaceSchemaLocation="./db_orbac_roles.xsd">
+
+    <role id="r1">
+        <info>
+            <name>role 1</name>
+        </info>
+    </role>
+    <role id="r2">
+        <info>
+            <name>role 1</name>
+        </info>
+    </role>
+    
+    <relevant_role id="rr1">
+        <organization>
+            <link type="simple" href="./organizations.xml#o1" />
+        </organization>
+        <role>
+            <link type="simple" href="./roles.xml#r1" />
+        </role>
+    </relevant_role>	
+    <relevant_role id="rr2">
+        <organization>
+            <link type="simple" href="./organizations.xml#o1" />
+        </organization>
+        <role>
+            <link type="simple" href="./roles.xml#r2" />
+		</role>
+	</relevant_role>
+    
+    <faculty id="f1">
+        <relevant_role>
+            <link type="simple" href="./roles.xml#rr1" />
+		</relevant_role>
+        <permissions>
+            <link type="simple" href=".politics.xml#p1" />
+        </permissions>
+        <permissions>
+            <link type="simple" href=".politics.xml#p2" />
+        </permissions>
+        <exception>
+            <link type="simple" href=".politics.xml#e1" />
+		</exception>
+    </faculty>
+    <faculty id="f2">
+        <relevant_role>
+            <link type="simple" href="./roles.xml#rr2" />
+		</relevant_role>
+        <exception>
+            <link type="simple" href="./politics.xml#e2" />
+		</exception>
+
+	</faculty>
+    
+    <empower id="ep1">
+        <relevant_role>
+             <link type="simple" href="./roles.xml#rr1" />
+		</relevant_role>
+        <subject>
+            <link type="simple" href="./concrete_entities.xml#su1" />
+		</subject>
+        <subject>
+            <link type="simple" href="./concrete_entities.xml#su2" />
+		</subject>
+	</empower>
+    <empower id="ep2">
+        <relevant_role>
+             <link type="simple" href="./roles.xml#rr2" />
+		</relevant_role>
+        <subject>
+            <link type="simple" href="./concrete_entities.xml#su2" />
+		</subject>
+	</empower>
+    
+    <role_hierarchy id="rh1">
+        <type>supervision</type>
+        <direction>junior2senior</direction>
+        <organization>
+            <link type="simple" href="./organizations.xml#o1" />
+		</organization>
+        <sub_role>
+             <link type="simple" href="./roles.xml#r2" />
+        </sub_role>
+        <role>
+            <link type="simple" href="./roles.xml#r1" />
+		</role>
+	</role_hierarchy> 
+    <role_hierarchy id="rh2">
+        <type>specialized</type>
+        <direction>not_inheritance</direction>
+        <organization>
+            <link type="simple" href="./organizations.xml#o1" />
+		</organization>
+        <sub_role>
+             <link type="simple" href="./roles.xml#r2" />
+        </sub_role>
+        <role>
+            <link type="simple" href="./roles.xml#r1" />
+		</role>
+	</role_hierarchy> 
+    
+</ROLES>

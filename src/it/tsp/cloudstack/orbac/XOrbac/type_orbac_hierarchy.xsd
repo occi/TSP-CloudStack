@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--Created with Liquid XML Studio Developer Edition (Trial) 9.0.11.3078 (http://www.liquid-technologies.com)-->
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:include schemaLocation=".\type_orbac_entity.xsd" />
+    <xs:include schemaLocation=".\type_orbac_relation.xsd" />
+    <xs:simpleType name="inheritance_direction">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="senior2junior" />
+            <xs:enumeration value="junior2senior" />
+            <xs:enumeration value="not_inheritance" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="inhenritance_elements">
+        <xs:all>
+            <xs:element name="roles" type="xs:boolean" minOccurs="0" />
+            <xs:element name="activities" type="xs:boolean" minOccurs="0" />
+            <xs:element name="view" type="xs:boolean" minOccurs="0" />
+            <xs:element name="context" type="xs:boolean" minOccurs="0" />
+        </xs:all>
+    </xs:complexType>
+    <xs:complexType name="inheritance_direction_elements">
+        <xs:sequence>
+            <xs:element name="direction" type="inheritance_direction" />
+            <xs:element name="elements" type="inhenritance_elements" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="inheritance_type">
+        <xs:choice>
+            <xs:element name="entity" type="inheritance_direction_elements" minOccurs="0" maxOccurs="4" />
+            <xs:element name="hierarchy" type="xs:boolean" default="true" />
+            <xs:element name="authorization" type="xs:boolean" default="true" />
+        </xs:choice>
+    </xs:complexType>
+    <xs:simpleType name="specialized_supervision">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="specialized" />
+            <xs:enumeration value="supervision" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:group name="type_direction_group">
+        <xs:sequence>
+            <xs:element name="type" type="specialized_supervision" minOccurs="0" />
+            <xs:element name="direction" type="inheritance_direction" minOccurs="0" />
+        </xs:sequence>
+    </xs:group>
+    <xs:complexType name="sub_organizaton_type">
+        <xs:sequence>
+            <xs:element name="link" minOccurs="0">
+                <xs:complexType>
+                    <xs:complexContent>
+                        <xs:extension base="link_type" />
+                    </xs:complexContent>
+                </xs:complexType>
+            </xs:element>
+            <xs:sequence minOccurs="0">
+                <xs:element name="inheritance" type="inheritance_type" />
+                <xs:element name="sub_organization" type="organization_type" />
+                <xs:element name="organization" type="organization_type" />
+            </xs:sequence>
+        </xs:sequence>
+        <xs:attribute name="id" type="entity_id" use="optional" />
+    </xs:complexType>
+    <xs:complexType name="sub_role_type">
+        <xs:sequence>
+            <xs:element name="link" minOccurs="0">
+                <xs:complexType>
+                    <xs:complexContent>
+                        <xs:extension base="link_type" />
+                    </xs:complexContent>
+                </xs:complexType>
+            </xs:element>
+            <xs:sequence minOccurs="0">
+                <xs:group ref="type_direction_group" />
+                <xs:element name="organization" type="organization_type" />
+                <xs:element name="sub_role" type="role_type" />
+                <xs:element name="role" type="role_type" />
+            </xs:sequence>
+        </xs:sequence>
+        <xs:attribute name="id" type="entity_id" use="optional" />
+    </xs:complexType>
+    <xs:complexType name="sub_activity_type">
+        <xs:sequence>
+            <xs:element name="link" minOccurs="0">
+                <xs:complexType>
+                    <xs:complexContent>
+                        <xs:extension base="link_type" />
+                    </xs:complexContent>
+                </xs:complexType>
+            </xs:element>
+            <xs:sequence minOccurs="0">
+                <xs:group ref="type_direction_group" />
+                <xs:element name="organization" type="organization_type" />
+                <xs:element name="sub_activity" type="activity_type" />
+                <xs:element name="activity" type="activity_type" />
+            </xs:sequence>
+        </xs:sequence>
+        <xs:attribute name="id" type="entity_id" use="optional" />
+    </xs:complexType>
+    <xs:complexType name="sub_view_type">
+        <xs:sequence minOccurs="0">
+            <xs:element name="link" minOccurs="0">
+                <xs:complexType>
+                    <xs:complexContent>
+                        <xs:extension base="link_type" />
+                    </xs:complexContent>
+                </xs:complexType>
+            </xs:element>
+            <xs:sequence minOccurs="0">
+                <xs:group ref="type_direction_group" />
+                <xs:element name="organization" type="organization_type" />
+                <xs:element name="sub_view" type="view_type" />
+                <xs:element name="view" type="view_type" />
+            </xs:sequence>
+        </xs:sequence>
+        <xs:attribute name="id" type="entity_id" use="optional" />
+    </xs:complexType>
+    <xs:complexType name="h_relevant_role_type">
+        <xs:sequence>
+            <xs:element name="link" minOccurs="0">
+                <xs:complexType>
+                    <xs:complexContent>
+                        <xs:extension base="link_type" />
+                    </xs:complexContent>
+                </xs:complexType>
+            </xs:element>
+            <xs:sequence minOccurs="0">
+                <xs:element name="sub_role" type="sub_role_type" />
+                <xs:element name="sub_relevant_role" type="relevant_role_type" />
+                <xs:element name="relevant_role" type="relevant_role_type" />
+            </xs:sequence>
+        </xs:sequence>
+        <xs:attribute name="id" type="entity_id" use="optional" />
+    </xs:complexType>
+    <xs:complexType name="h_relevant_view_type">
+        <xs:sequence>
+            <xs:element name="link" minOccurs="0">
+                <xs:complexType>
+                    <xs:complexContent>
+                        <xs:extension base="link_type" />
+                    </xs:complexContent>
+                </xs:complexType>
+            </xs:element>
+            <xs:sequence minOccurs="0">
+                <xs:element name="sub_view" type="sub_view_type" />
+                <xs:element name="sub_relevant_role" type="relevant_view_type" />
+                <xs:element name="relevant_role" type="relevant_view_type" />
+            </xs:sequence>
+        </xs:sequence>
+        <xs:attribute name="id" type="entity_id" use="optional" />
+    </xs:complexType>
+    <xs:complexType name="h_relevant_activity_type">
+        <xs:sequence>
+            <xs:element name="link" minOccurs="0">
+                <xs:complexType>
+                    <xs:complexContent>
+                        <xs:extension base="link_type" />
+                    </xs:complexContent>
+                </xs:complexType>
+            </xs:element>
+            <xs:sequence minOccurs="0">
+                <xs:element name="sub_activity" type="sub_activity_type" />
+                <xs:element name="sub_relevant_activity" type="relevant_activity_type" />
+                <xs:element name="relevant_activity" type="relevant_activity_type" />
+            </xs:sequence>
+        </xs:sequence>
+        <xs:attribute name="id" type="entity_id" use="optional" />
+    </xs:complexType>
+</xs:schema>

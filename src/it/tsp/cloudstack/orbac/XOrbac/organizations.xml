@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ORGANIZATIONS 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xsi:noNamespaceSchemaLocation="./db_orbac_organizations.xsd">
+
+    <organization id="o1">
+        <info>
+            <name>ORG1</name>
+            <atribute>
+                <name>attribute 1</name>
+                <value>0</value>
+            </atribute>
+        </info>
+        <mapping_info>
+            <name>www.ORG1</name>
+            <atribute>
+                <name>0</name>
+                <value>0</value>
+		    </atribute>
+	    </mapping_info>
+    </organization> 
+    
+    <organization id="o2">
+        <info>
+            <name>ORG2</name>
+            <atribute>
+                <name>attribute 2</name>
+                <value>0</value>
+            </atribute>
+        </info>
+        <mapping_info>
+            <name>www.ORG2</name>
+            <atribute>
+                <name>0</name>
+                <value>0</value>
+		    </atribute>
+	    </mapping_info>
+    </organization> 
+    
+    <organization_hierarchy id="oh1">
+        <inheritance>
+            <entity>
+                <direction>senior2junior</direction>
+                <elements>
+                    <activities>1</activities>
+                </elements>
+            </entity>
+            <entity>
+                <direction>not_inheritance</direction>
+                <elements>
+                    <roles>1</roles>
+                    <view>1</view>
+                </elements>
+			</entity>
+        </inheritance>
+        <sub_organization>
+            <link type="simple" href="./organizations.xml#o2"></link> 
+		</sub_organization>
+        <organization>
+            <link type="simple" href="./organizations.xml#o1"></link>
+		</organization>
+    </organization_hierarchy>
+    
+</ORGANIZATIONS>

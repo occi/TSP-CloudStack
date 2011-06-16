@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ACTIVITIES
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xsi:noNamespaceSchemaLocation="./db_orbac_activities.xsd">
+    
+    <activity id="a1">
+        <info>
+            <name>Activity 1</name>
+        </info>
+	</activity>
+    <activity id="a2">
+        <info>
+            <name>Activity 2</name>
+        </info>
+	</activity>
+    
+    <consider id="c1">
+        <relevant_activity id="ra1">
+            <organization>
+                <link type="simple" href="./organizations.xml#o1" />
+            </organization>
+            <activity>
+                <link type="simple" href="./activities.xml#a1" />
+            </activity>
+        </relevant_activity>
+        <action>
+            <link type="simple" href="./concrete_entities.xml#ac1" />
+		</action>
+        <action>
+            <link type="simple" href="./concrete_entities.xml#ac2" />
+		</action>        
+	</consider>
+    <consider id="c2">
+        <relevant_activity id="ra2">
+            <organization>
+                <link type="simple" href="./organizations.xml#o2" />
+            </organization>
+            <activity>
+                <link type="simple" href="./activities.xml#a2" />
+            </activity>
+        </relevant_activity>
+        <action>
+            <link type="simple" href="./concrete_entities.xml#ac3" />
+		</action>
+        <action>
+            <link type="simple" href="./concrete_entities.xml#ac4" />
+		</action>         
+	</consider>
+    
+    <activity_hierarchy id="ah1">
+        <organization>
+            <link type="simple" href="./organizations.xml#o1" />
+		</organization>
+        <sub_activity>
+             <link type="simple" href="./activities.xml#a2" />
+		</sub_activity>
+        <activity>
+             <link type="simple" href="./activities.xml#a1" />
+		</activity>
+	</activity_hierarchy>
+    <activity_hierarchy id="ah2">
+        <type>supervision</type>
+        <direction>senior2junior</direction>
+        <organization>
+            <link type="simple" href="./organizations.xml#o2" />
+		</organization>
+        <sub_activity>
+             <link type="simple" href="./activities.xml#a2" />
+		</sub_activity>
+        <activity>
+             <link type="simple" href="./activities.xml#a1" />
+		</activity>
+	</activity_hierarchy>    
+
+    
+    
+</ACTIVITIES>
