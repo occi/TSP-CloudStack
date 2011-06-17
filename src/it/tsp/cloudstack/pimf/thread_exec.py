@@ -35,8 +35,11 @@ from decision import decision
 import threading
 import time
 import logging
+import Queue
 
-logging.basic(Configformat='%(asctime)s %(message)s',level=logging.DEBUG)
+logging.basicConfig(filename='content.log',Configformat='%(asctime)s %(message)s',level=logging.INFO)
+queueLock=threading.Lock()
+
 class threadCR(threading.Thread):
     '''
     this class defines a thread that will treat an indicator
@@ -45,6 +48,7 @@ class threadCR(threading.Thread):
     '''
 
     def __init__(self,h,c):
+        threading.Thread.__init__(self)
         self.host=h
         self.cr=c
         pass
@@ -53,7 +57,7 @@ class threadCR(threading.Thread):
 
         #extracting of command from xml file:
         cmdCl = TransformXmlToCmd()
-        cmdCl.readXml('/home/khaled/cmdCrTest.xml')
+        cmdCl.readXml('cmdCrTest.xml')
         cmd = cmdCl.getcmd(self.cr.name)
         #cmd is a list containing objects that contain the indicator and her command
 
@@ -69,4 +73,14 @@ class threadCR(threading.Thread):
         # decision for each indicator
         d=decision()
         crDecision=d.optimize(result,mxAdd,mnRem)
-        return crDecision
+
+        # saving decision
+        queueLock.acquire()
+        f=open('content.log','a')
+        content=self.cr.name+' , '+crDecision
+        f.write(content)
+        f.close()
+        # saving crDecision
+        queueLock.release()
+
+

@@ -2,20 +2,18 @@
 
 # Copyright (C) 2011 Khaled Ben Bahri - Institut Telecom
 #
-# This file is part of CloNeDCP.
-#
-# CloNeDCP is free software: you can redistribute it and/or modify
+# This library is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Lesser General Public License as
 # published by the Free Software Foundation, either version 3 of
 # the License, or (at your option) any later version.
 #
-# CloNeDCP is distributed in the hope that it will be useful,
+# This library is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU Lesser General Public License for more details.
 #
 # You should have received a copy of the GNU Lesser General Public License
-# along with CloNeDCP.  If not, see <http://www.gnu.org/licenses/>.
+# along with this library.  If not, see <http://www.gnu.org/licenses/>.
 
 '''
 Created on Feb 25, 2011
@@ -31,7 +29,8 @@ import paramiko
 import cmd
 import logging
 
-logging.basicConfig(Configformat='%(asctime)s %(message)s',level=logging.DEBUG)
+logging.basicConfig(Configformat='%(asctime)s %(message)s',level=logging.INFO)
+
 class RunCommand(cmd.Cmd):
     """ Simple shell to run a command on the host """
 
@@ -61,6 +60,7 @@ class RunCommand(cmd.Cmd):
                            password=host[2])
             self.connections.append(client)
 
+
     #function to execute commands
     def do_run(self, cmde):
         """run <command>
@@ -77,9 +77,8 @@ class RunCommand(cmd.Cmd):
         else:
             logging.error('error, format must be : run <command>')
 
-
-    #closing connexion with remote host
+    # closing connexion with remote host
     def do_close(self):
-        logging.info('closing connections')
+        logging.info('closing connections to hosts')
         for conn in self.connections:
             conn.close()

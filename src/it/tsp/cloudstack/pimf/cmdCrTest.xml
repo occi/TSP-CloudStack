@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<listeCmd>
+	<cmdCr>
+		<critere>hdfs</critere>
+		<cmd>CMDPOURHDFS</cmd>
+		<tempsExt>1</tempsExt>
+		<tempsCmpt>1</tempsCmpt>
+		<zExt>0.95</zExt>
+		<zCmpt>0.15</zCmpt>
+	</cmdCr>
+	<cmdCr>
+		<critere>disk</critere>
+		<cmd>df -h | grep '^/'</cmd>
+		<tempsExt>1</tempsExt>
+		<tempsCmpt>1</tempsCmpt>
+		<zExt>0.95</zExt>
+		<zCmpt>0.15</zCmpt>
+	</cmdCr>
+	<cmdCr>
+		<critere>cpu</critere>
+		<cmd>CMDPOURCPU</cmd>
+		<tempsExt>1</tempsExt>
+		<tempsCmpt>1</tempsCmpt>
+		<zExt>0.95</zExt>
+		<zCmpt>0.15</zCmpt>
+	</cmdCr>
+	<cmdCr>
+		<critere>memory</critere>
+		<cmd>CMDPOURMEMORY</cmd>
+		<tempsExt>1</tempsExt>
+		<tempsCmpt>1</tempsCmpt>
+		<zExt>0.95</zExt>
+		<zCmpt>0.15</zCmpt>
+	</cmdCr>
+	<cmdCr>
+		<critere>bandwidth</critere>
+		<cmd>CMDPOURBANDWIDTH</cmd>
+		<tempsExt>1</tempsExt>
+		<tempsCmpt>1</tempsCmpt>
+		<zExt>0.95</zExt>
+		<zCmpt>0.15</zCmpt>
+	</cmdCr>
+</listeCmd>
