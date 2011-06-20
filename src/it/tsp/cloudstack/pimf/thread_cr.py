@@ -31,6 +31,7 @@ from fixed_thresholds import fixed_thresholds
 from extract_cr import TransformXmlToCr
 from extract_value import obj_extract
 from thread_exec import threadCR
+from action import action
 import threading
 import time
 import logging
@@ -69,7 +70,6 @@ class threadVM(threading.Thread):
         for th in crTh:
             th.join()
 
-        print 'fin exectous les threads'
         f=open('content.log','r')
         fileContent=f.readlines()
         print fileContent
@@ -77,6 +77,54 @@ class threadVM(threading.Thread):
         f=open('content.log','w')
         f.write('')
         f.close()
+
+        #browsing all decisions and choosing action to execute
+        compactList=[]
+        extendList=[]
+        testAdd=False
+        testRem=False
+        testExt=False
+        testCmpt=False
+        for ind in fileContent:
+            d=ind.split(',')
+            if 'add' in d[1]:
+                # adding vm
+                testAdd=True
+                break
+            elif 'rem' in d[1]:
+                # removing vm
+                testRem=True
+                break
+            elif 'ext' in d[1]:
+                # indicator will be extended
+                testExt=True
+                extendList.append(d[0])
+            elif 'cmpt' in d[1]:
+                testCmpt=True
+                # indicator will be compacted.append(d[0])
+                compactList.append(d[0])
+
+        # choosing action to optimize
+        choice=action()
+        if testAdd:
+            # addingVM
+            choice.add_vm()
+        elif testRem:
+            # removing VM
+            choice.remove_vm()
+        elif testExt:
+            # extending VM
+            choice.extend_vm(extendList)
+        elif testCmpt:
+            # compacting vm
+            choice.compact_vm(compactList)
+
+
+            
+
+
+
+
 
 t=threadVM('157.159.103.116,vadmin,sector7g')
 t.start()
