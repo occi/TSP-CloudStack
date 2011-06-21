@@ -56,21 +56,21 @@ class Compute(Resource):
     _action_stop_category = Category(term='stop',
                                      scheme='http://schemas.ogf/occi/infrastructure/compute/action',
                                      title='Stop a compute resource',
-                                     attributes=(Attribute(name='method', mutable=True)))
+                                     attributes=(Attribute(name='method', mutable=True), ))
     _action_stop = Action(_action_stop_category)
 
     # Restart action
     _action_restart_category = Category(term='restart',
                                         scheme='http://schemas.ogf/occi/infrastructure/compute/action',
                                         title='Restart a compute resource',
-                                        attributes=(Attribute(name='method', mutable=True)))
+                                        attributes=(Attribute(name='method', mutable=True), ))
     _action_restart = Action(_action_restart_category)
 
     # Suspend action
     _action_suspend_category = Category(term='suspend',
                                         scheme='http://schemas.ogf/occi/infrastructure/compute/action',
                                         title='Suspend a compute resource',
-                                        attributes=(Attribute(name='method', mutable=True)))
+                                        attributes=(Attribute(name='method', mutable=True), ))
     _action_suspend = Action(_action_suspend_category)
 
     # The kind instance assigned to the compute type
@@ -250,7 +250,7 @@ class Storage(Resource):
     _action_resize_category = Category(term='resize',
                                        scheme='http://schemas.ogf/occi/infrastructure/storage/action',
                                        title='resize a storage',
-                                       attributes=(Attribute(name='size', required=True, mutable=True)))
+                                       attributes=(Attribute(name='size', required=True, mutable=True), ))
     _action_resize = Action(_action_resize_category)
 
     # The kind instance assigned to the storage type

@@ -107,7 +107,7 @@ class category_registry(object):
     actions = {}
 
     def __init__(self):
-        self.register_kind(Entity._kind)
+    #        self.register_kind(Entity._kind)
     #        self.register_kind(Resource._resource_kind)
     #        self.register_kind(Link._kind)
     #

@@ -84,7 +84,7 @@ class category_renderer(object):
 
         _location_registry = location_registry()
         _location = _location_registry.get_location(_category)
-        category_param += 'location=' + _location + ';\n'
+        category_param += 'location=' + str(_location) + ';\n'
 
         if _classe == 'kind' or _classe == 'mixin':
             __attributes = ''

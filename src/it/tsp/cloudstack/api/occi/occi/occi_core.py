@@ -237,7 +237,7 @@ class Resource(Entity):
                  scheme='http://schemas.ogf.org/occi/core',
                  entity_type='', #resource
                  title='Resource',
-                 attributes=(Attribute(name='occi.core.summary', mutable=True)),
+                 attributes=(Attribute(name='occi.core.summary', mutable=True), ),
                  actions=(),
                  related=(Entity._kind, ),
                  entities=())

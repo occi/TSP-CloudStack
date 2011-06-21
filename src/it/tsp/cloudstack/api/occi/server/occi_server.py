@@ -30,12 +30,12 @@ from it.tsp.cloudstack.tools import create_new_class
 
 from eventlet import wsgi
 import eventlet
-#from webob import Request
+from webob import Request, Response
 import uuid
 import re
 
 from  it.tsp.cloudstack.api.occi.occi.occi_core import Category, Kind, Mixin, Action, Entity, Resource, Link
-from it.tsp.cloudstack.api.occi.occi.occi_infrastructure import Compute, Network, Storage,\
+from it.tsp.cloudstack.api.occi.occi.occi_infrastructure import Compute, Network, Storage, \
     NetworkInterface, StorageLink, IPNetworking, IPNetworkInterface
 
 from it.tsp.cloudstack.api.occi.registry.registry import category_registry, location_registry
@@ -199,11 +199,84 @@ class occi_server(object):
         to run the server
 
         """
-        wsgi.server(eventlet.listen(('', 8090)), self.application)
+
+        wsgi.server(eventlet.listen((OCCI_IP, int(OCCI_PORT) )), self.application)
 
         pass
 
-    def application(self):
+    def application(self, environ, start_response):
+
+        req = Request(environ)
+        res = Response()
+
+        location = req.path_info
+        logger.debug('the location in GET request: ' + location)
+
+
+        headers =  []
+
+        if location == '/-/':
+            _categories = category_registry.get_categories()
+            _ca_render = category_renderer()
+            for _category in _categories:
+                logger.debug('the type of category is: ' + str(type(_categories.get(_category))))
+                __category_instance = _categories.get(_category)
+                headers.append(_ca_render.renderer(__category_instance).get('Category'))
+
+            res.server = 'OCCI/1.1'
+
+            if  req.content_type == 'text/plain' or req.content_type == '*/*':
+                for a in headers:
+                    res.body += 'Category: ' + a + '\n'
+                res.content_type = 'text/plain'
+                res.status = 200
+            elif req.content_type == 'text/occi':
+                res.content_type = 'text/occi'
+                res.content_length = 50
+                __category_result = ''
+                for a in headers:
+                     __category_result += a + ',\n'
+                res.headers.add('Category', __category_result )
+                res.body = 'OK'
+                res.status = 200
+            elif req.content_type == 'text/uri-list':
+                res.content_type = 'text/uri-list'
+                res.status = 200
+            ####################################################################
+            # for future work regarding JSON or XML it should be inserted here
+            ####################################################################
+            else:
+                logger.warning('Unsupported Media Type (only text/occi, text/plain or text/uri-list are supported')
+                res.status = 415
+
+            return res(environ, start_response)
+#            start_response('200 OK', [('Content-Type', 'text/plain')])
+#            return ['Hello, World if!\r\n']
+        else:
+            return res(environ, start_response)
+#            start_response('200 OK', [('Content-Type', 'text/plain')])
+#            return ['Hello, World else!\r\n']
+
+        
+        # ========================================================================
+        #           GET request
+        # ========================================================================
+
+
+        # ========================================================================
+        #           POST request
+        # ========================================================================
+
+
+        # ========================================================================
+        #           PUT request
+        # ========================================================================
+
+
+        # ========================================================================
+        #           DELETE request
+        # ========================================================================
+
         pass
 
     pass
@@ -255,5 +328,9 @@ if __name__ == '__main__':
     for r in result2:
         logger.debug('X-OCCI-Location' + ': ' + r)
     logger.debug('############# END OCCI Location-URIs rendering ################')
+
+
+    server = occi_server()
+    server.run_server()
 
     pass
