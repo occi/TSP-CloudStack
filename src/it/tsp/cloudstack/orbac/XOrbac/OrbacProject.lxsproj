@@ -9,6 +9,7 @@
 			<File Uri="C:\#STAGE_final\TSP-CloudStack\src\it\tsp\cloudstack\orbac\XOrbac\activities.xml"/>
 			<File Uri="C:\#STAGE_final\TSP-CloudStack\src\it\tsp\cloudstack\orbac\XOrbac\views.xml"/>
 			<File Uri="C:\#STAGE_final\TSP-CloudStack\src\it\tsp\cloudstack\orbac\XOrbac\politics.xml"/>
+			<File Uri="C:\#STAGE_final\TSP-CloudStack\src\it\tsp\cloudstack\orbac\XOrbac\constrains.xml"/>
 		</SubGroup>
 		<SubGroup Name="Schemas">
 			<File Uri="C:\#STAGE_final\TSP-CloudStack\src\it\tsp\cloudstack\orbac\XOrbac\db_orbac_organizations.xsd"/>
@@ -27,6 +28,7 @@
 			<File Uri="C:\#STAGE_final\TSP-CloudStack\src\it\tsp\cloudstack\orbac\XOrbac\db_orbac_activities.xsd"/>
 			<File Uri="C:\#STAGE_final\TSP-CloudStack\src\it\tsp\cloudstack\orbac\XOrbac\db_orbac_views.xsd"/>
 			<File Uri="C:\#STAGE_final\TSP-CloudStack\src\it\tsp\cloudstack\orbac\XOrbac\db_orbac_politics.xsd"/>
+			<File Uri="C:\#STAGE_final\TSP-CloudStack\src\it\tsp\cloudstack\orbac\XOrbac\db_orbac_constrains.xsd"/>
 		</SubGroup>
 		<SubGroup Name="Transforms"/>
 	</Project>

@@ -58,8 +58,6 @@
         <view>
             <link type="simple" href="./views.xml#v1" />
 		</view>
-	</view_hierarchy>
-    
-    
+	</view_hierarchy>    
 </VIEWS>
     
