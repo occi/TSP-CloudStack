@@ -126,7 +126,5 @@ class threadVM(threading.Thread):
 
 
 
-t=threadVM('157.159.103.116,vadmin,sector7g')
+t=threadVM('157.159.103.101,vadmin,sector7g')
 t.start()
-
-

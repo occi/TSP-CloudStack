@@ -66,24 +66,34 @@ class treat_result:
 
     def treat_hdfs(self,rt):
         # this method will extract the value of the result of execution of command dedicated to the hdfs
+        val=returned_values()
+        ch=rt[4]
+        strt=ch.find(':')
+        end=ch.find('%',strt)
+        val.value=float(ch[strt+1:end])
+        val.complement=100-val.value
         logging.info('result treated for hdfs')
-        pass
+        return val
+
 
     def treat_cpu(self,rt):
         # this method will   treat the case of cpu
         logging.info('result treated for cpu')
         pass
 
+
     def treat_memory(self,rt):
         # this method is dedicated to treat the memory case
         logging.info('result treated for memory')
         pass
+
 
     def treat_bandwidth(self,rt):
         # this method is used to treat the result for bandwidth
         logging.info('result treated for bandwidth')
         pass
 
+    
     def return_result(self,rt):
         '''
         this method is used to choose a method of these above according to the indicator

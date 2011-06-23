@@ -35,6 +35,7 @@ class VM:
     this class will define the structure of vm (host,username,passwd,type of priority)
     the priority define if the vm will be used to extract value or not in hte used architecture
     '''
+    id=None
     host = None
     user = None
     password = None
@@ -90,6 +91,7 @@ class TransformXmlToVM:
 
                 try:
                     #extraction of value for each vm
+                    v.id=self.getText(vms.getElementsByTagName("id")[0])
                     v.host = self.getText(vms.getElementsByTagName("host")[0])
                     v.user = self.getText(vms.getElementsByTagName("user")[0])
                     v.password = self.getText(vms.getElementsByTagName("password")[0])

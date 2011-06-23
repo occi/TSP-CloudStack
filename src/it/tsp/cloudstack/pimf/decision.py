@@ -47,6 +47,7 @@ class decision:
             logging.info('Adding VM according to : %s ',extracted.cr)
             return 'add'
 
+
         elif extracted.value<mnRem:
             # Removing VM according to this indicator
             logging.info('Removing VM according to : %s ',extracted.cr)

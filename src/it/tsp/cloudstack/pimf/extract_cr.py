@@ -76,6 +76,7 @@ class TransformXmlToCr:
             if crs.nodeType == crs.ELEMENT_NODE:
                 obj=Indicator()
                 try:
+
                     #extraction of value for each indicator
                     obj.name = self.getText(crs.getElementsByTagName("name")[0])
                     obj.maxPhy = self.getText(crs.getElementsByTagName("maxPhysicalThreshold")[0])

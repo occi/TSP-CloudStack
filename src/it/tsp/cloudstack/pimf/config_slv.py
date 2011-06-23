@@ -24,38 +24,27 @@ Created on Feb 25, 2011
 @version: 0.1
 @license: LGPL - Lesser General Public License
 '''
-import logging
+from run_command import RunCommand
 
-logging.basicConfig(Configformat='%(asctime)s %(message)s',level=logging.INFO)
-
-class action:
-    '''
-    in this class, we will choose method of optimising
-    optimising method will add new vm or extend an existing one to add allocate more resources
-    or by removing or compacting an existing vm to deallocate resources
-    '''
-
+class configSlv:
     def __init__(self):
         pass
 
-    # this method is dedicated to add a new VM to the actual architecture
-    def add_vm(self):
-        logging.info('adding new vm')
-        pass
+    def config(self,ipList,masterIp,user,pwd):
+        cs=open('core.log', 'r')
+        csList=cs.readlines()
+        csList[6]=csList[6].replace('IP_ADRESS',masterIp)
+        csCh=''.join(csList)
+        print csCh
+        m=1
+        ip_slv=''
+        hdp_home='/usr/local/hadoop-0.20.2'
 
-    # this method is dedicated to remove a VM which is not in use
-    def remove_vm(self):
-        logging.info('removing vm')
-        pass
+        for vm in ipList:
+            hst=vm+','+user+','+pwd
+            slv=RunCommand()
+            slv.do_add_host(hst)
+            slv.do_connect()
+            rt=slv.do_run("echo '"+csCh+"'>"+hdp_home+"/conf/core-site.xml")
+            rt=slv.do_run("echo '"+masterIp+"'>"+hdp_home+"/conf/masters")
 
-    # this method is dedicated to extend resources of a VM
-    def extend_vm(self,extendeList):
-        logging.info('extending vm')
-        pass
-
-    # this method is dedicated to compact resources of a VM
-    def compact_vm(self,compactList):
-        logging.info('compacting vm')
-        pass
-
-  

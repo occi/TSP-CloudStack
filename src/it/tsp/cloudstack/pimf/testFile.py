@@ -46,10 +46,14 @@ print resultat
 
 
 
+
+
+
 ##### execution hdfs command
+'''
 from run_command import RunCommand
 exe=RunCommand()
-exe.do_add_host('157.159.103.116,vadmin,sector7g')
+exe.do_add_host('157.159.103.101,vadmin,sector7g')
 print('host added')
 exe.do_connect()
 res=exe.do_run('/usr/local/hadoop-0.20.2/bin/hadoop dfsadmin -report')
@@ -62,14 +66,133 @@ print val
 
 
 exe.do_close()
+'''
+
+
+
 
 ##### echange de cle
+
+'''
+ip_mstr='157.159.103.116'
+ip_slv='157.159.103.104\n157.159.103.240'
 
 mstr=RunCommand()
 mstr.do_add_host('157.159.103.116,vadmin,sector7g')
 mstr.do_connect()
 key=mstr.do_run("cd .ssh \nssh-keygen -q -t rsa -f id_rsa  -C '' -N ''")
 print 'cle'
-key=mstr.do_run('cat /home/vadmin/.ssh/id_rsa.pub')
-print key
+key_mstr=mstr.do_run('cat .ssh/id_rsa.pub')
+print key_mstr
 #cp=mstr.do_run('cp /home/vadmin/id_rsa* /home/vadmin/.ssh/')
+slvList=['157.159.103.104,vadmin,sector7g','157.159.103.240,vadmin,sector7g']
+key_slv=''
+
+for i in slvList:
+    slv=RunCommand()
+    slv.do_add_host(i)
+    slv.do_connect()
+    print 'connected to slaves'
+    exec_key_slv=slv.do_run("cd .ssh \nssh-keygen -q -t rsa -f id_rsa  -C '' -N ''")
+    key_slv+=slv.do_run('cat .ssh/id_rsa.pub')[0]+'\n'
+    #print key_slv
+    inject_slv=slv.do_run('echo '+key_mstr[0]+'>.ssh/authorized_keys')
+    scan_slv=slv.do_run('ssh-keyscan '+ip_mstr+'>.ssh/known_hosts')
+
+print 'injection dans master'
+print key_slv
+inject_mstr=mstr.do_run("echo '"+key_slv+"'>.ssh/authorized_keys")
+prep_scan_mstr=mstr.do_run("echo '"+ip_slv+"'>hosts")
+scan_mstr=mstr.do_run("ssh-keyscan -f hosts>.ssh/known_hosts")
+
+'''
+'''
+from extractVM import  VM
+from exchange_keys import exchangeKeys
+listVM=[]
+h1='157.159.103.116'
+h2='157.159.103.104'
+h3='157.159.103.240'
+
+v=VM()
+v1=VM()
+v2=VM()
+v.host=h1
+v.id=1
+v.user='vadmin'
+v.password='sector7g'
+listVM.append(v)
+v1.host=h2
+v1.id=1
+v1.user='vadmin'
+v1.password='sector7g'
+
+listVM.append(v1)
+v2.host=h3
+v2.id=1
+v2.user='vadmin'
+v2.password='sector7g'
+listVM.append(v2)
+for i in listVM:
+    print i.host
+
+o=exchangeKeys()
+o.exchange(listVM)
+'''
+
+##########################config hdfs
+'''
+from extractVM import  VM
+from exchange_keys import exchangeKeys
+from run_command import RunCommand
+listVM=[]
+h1='157.159.103.101'
+h2='157.159.103.104'
+h3='157.159.103.240'
+
+v=VM()
+v1=VM()
+v2=VM()
+v.host=h1
+v.id=1
+v.user='vadmin'
+v.password='sector7g'
+listVM.append(v)
+v1.host=h2
+v1.id=1
+v1.user='vadmin'
+v1.password='sector7g'
+
+listVM.append(v1)
+v2.host=h3
+v2.id=1
+v2.user='vadmin'
+v2.password='sector7g'
+listVM.append(v2)
+
+cs=open('core.log', 'r')
+csList=cs.readlines()
+csList[6]=csList[6].replace('IP_ADRESS',listVM[0].host)
+csCh=''.join(csList)
+print csCh
+m=1
+ip_slv=''
+hdp_home='/usr/local/hadoop-0.20.2'
+
+for vm in listVM:
+    hst=vm.host+','+vm.user+','+vm.password
+    slv=RunCommand()
+    slv.do_add_host(hst)
+    slv.do_connect()
+    rt=slv.do_run("echo '"+csCh+"'>"+hdp_home+"/conf/core-site.xml")
+    rt=slv.do_run("echo '"+listVM[0].host+"'>"+hdp_home+"/conf/masters")
+
+'''
+from config_mstr import configMstr
+
+cf=configMstr()
+listSlv=[]
+listSlv.append('157.159.103.104')
+listSlv.append('157.159.103.240')
+ms='157.159.103.101'
+cf.config(listSlv,ms,'vadmin','sector7g')

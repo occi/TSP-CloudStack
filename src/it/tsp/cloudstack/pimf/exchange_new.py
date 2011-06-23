@@ -1,3 +1,5 @@
+
+
 # -*- Mode: python; py-indent-offset: 4; indent-tabs-mode: nil; coding: utf-8; -*-
 
 # Copyright (C) 2011 Khaled Ben Bahri - Institut Telecom
@@ -24,38 +26,25 @@ Created on Feb 25, 2011
 @version: 0.1
 @license: LGPL - Lesser General Public License
 '''
-import logging
 
-logging.basicConfig(Configformat='%(asctime)s %(message)s',level=logging.INFO)
-
-class action:
-    '''
-    in this class, we will choose method of optimising
-    optimising method will add new vm or extend an existing one to add allocate more resources
-    or by removing or compacting an existing vm to deallocate resources
-    '''
-
+from run_command import RunCommand
+class exchangeNew:
     def __init__(self):
         pass
 
-    # this method is dedicated to add a new VM to the actual architecture
-    def add_vm(self):
-        logging.info('adding new vm')
-        pass
+    def exchange(self,mstr,slv,key):
+        slv_hst=slv+','+mstr.user+','+mstr.password
+        mstr_hst=mstr.host+','+mstr.user+','+mstr.password
+        key_slv=''
+        slv=RunCommand()
+        slv.do_add_host(slv_hst)
+        slv.do_connect()
+        print 'connected to slave'
+        exec_key_slv=slv.do_run("cd .ssh \nssh-keygen -q -t rsa -f id_rsa  -C '' -N ''")
+        key_slv+=slv.do_run('cat .ssh/id_rsa.pub')[0]+'\n'
+        inject_slv=slv.do_run('echo '+key+'>.ssh/authorized_keys')
+        scan_slv=slv.do_run('ssh-keyscan '+mstr.host+'>.ssh/known_hosts')
 
-    # this method is dedicated to remove a VM which is not in use
-    def remove_vm(self):
-        logging.info('removing vm')
+        inject_mstr=mstr_hst.do_run("echo '"+key_slv+"'>.ssh/authorized_keys")
+        scan_mstr=mstr_hst.do_run('ssh-keyscan '+slv+'>.ssh/known_hosts')
         pass
-
-    # this method is dedicated to extend resources of a VM
-    def extend_vm(self,extendeList):
-        logging.info('extending vm')
-        pass
-
-    # this method is dedicated to compact resources of a VM
-    def compact_vm(self,compactList):
-        logging.info('compacting vm')
-        pass
-
-  
