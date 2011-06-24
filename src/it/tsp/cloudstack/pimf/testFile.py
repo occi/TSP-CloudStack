@@ -189,10 +189,17 @@ for vm in listVM:
 
 '''
 from config_mstr import configMstr
+from extractVM import  VM
+m='157.159.103.116'
 
-cf=configMstr()
-listSlv=[]
-listSlv.append('157.159.103.104')
-listSlv.append('157.159.103.240')
-ms='157.159.103.101'
-cf.config(listSlv,ms,'vadmin','sector7g')
+hn='157.159.103.240'
+
+v=VM()
+v.host=m
+v.id=1
+v.user='vadmin'
+v.password='sector7g'
+
+from exchange_new import exchangeNew
+ex=exchangeNew()
+ex.exchange(v,hn,'aaaaaaaaaaaaaaaaaaaaaaaabbbbaaammlfggcfk')

@@ -35,16 +35,23 @@ class exchangeNew:
     def exchange(self,mstr,slv,key):
         slv_hst=slv+','+mstr.user+','+mstr.password
         mstr_hst=mstr.host+','+mstr.user+','+mstr.password
+        print mstr_hst
+        print slv_hst
         key_slv=''
-        slv=RunCommand()
-        slv.do_add_host(slv_hst)
-        slv.do_connect()
+        slvC=RunCommand()
+        slvC.do_add_host(slv_hst)
+        slvC.do_connect()
         print 'connected to slave'
-        exec_key_slv=slv.do_run("cd .ssh \nssh-keygen -q -t rsa -f id_rsa  -C '' -N ''")
-        key_slv+=slv.do_run('cat .ssh/id_rsa.pub')[0]+'\n'
-        inject_slv=slv.do_run('echo '+key+'>.ssh/authorized_keys')
-        scan_slv=slv.do_run('ssh-keyscan '+mstr.host+'>.ssh/known_hosts')
+        exec_key_slv=slvC.do_run("cd .ssh \nssh-keygen -q -t rsa -f id_rsa  -C '' -N ''")
+        key_slv+=slvC.do_run('cat .ssh/id_rsa.pub')[0]+'\n'
+        inject_slv=slvC.do_run('echo '+key+'>.ssh/authorized_keys')
+        scan_slv=slvC.do_run('ssh-keyscan '+mstr.host+'>.ssh/known_hosts')
+        slvC.do_close()
 
-        inject_mstr=mstr_hst.do_run("echo '"+key_slv+"'>.ssh/authorized_keys")
-        scan_mstr=mstr_hst.do_run('ssh-keyscan '+slv+'>.ssh/known_hosts')
-        pass
+        mstrC=RunCommand()
+        mstrC.do_add_host(mstr_hst)
+        mstrC.do_connect()
+        inject_mstr=mstrC.do_run("echo '"+key_slv+"'>>.ssh/authorized_keys")
+        scan_mstr=mstrC.do_run('ssh-keyscan '+slv+'>>.ssh/known_hosts')
+        mstrC.do_close()
+        
