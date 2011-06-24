@@ -188,6 +188,12 @@ for vm in listVM:
     rt=slv.do_run("echo '"+listVM[0].host+"'>"+hdp_home+"/conf/masters")
 
 '''
+
+
+
+
+
+'''
 from config_mstr import configMstr
 from extractVM import  VM
 m='157.159.103.116'
@@ -203,3 +209,8 @@ v.password='sector7g'
 from exchange_new import exchangeNew
 ex=exchangeNew()
 ex.exchange(v,hn,'aaaaaaaaaaaaaaaaaaaaaaaabbbbaaammlfggcfk')
+'''
+print 'exec'
+import commands
+rt=commands.getstatusoutput('ls /home/')
+print rt[1]
