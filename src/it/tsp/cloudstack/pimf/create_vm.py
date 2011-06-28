@@ -24,4 +24,31 @@ Created on Feb 25, 2011
 @version: 0.1
 @license: LGPL - Lesser General Public License
 '''
+from run_command import RunCommand
+import commands
+class createVM:
+    '''
+    this class is dedicated to create a vm
+    and return its id,ip address, user and password
+    '''
+    id=None
+    ip=None
+    def __init__(self):
+        pass
 
+    def getID(self,rt):
+        deb=rt.find('<ID>')+4
+        end=rt.find('</ID>')
+        self.id=rt[deb:end]
+
+    def getIP(self,rt):
+        deb=rt.find('<IP>')+4
+        end=rt.find('</IP>')
+        self.ip=rt[deb:end]
+    
+    def create(self):
+        cmdCurl='curl -X POST -u onadmin:2169279e8caff5398eeeb55a9be126890243bdc4 http://157.159.249.20:4567/compute -T compute.xml'
+        rt=commands.getstatusoutput(cmdCurl)
+        self.getID(rt)
+        self.getIP(rt)
+        
