@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<ORGANIZATIONS 
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-    xmlns:xlink="http://www.w3.org/1999/xlink"
-    xsi:noNamespaceSchemaLocation="./db_orbac_organizations.xsd">
-     
-
-    
-</ORGANIZATIONS>
