@@ -25,22 +25,27 @@ Created on Feb 25, 2011
 @license: LGPL - Lesser General Public License
 '''
 
+import os
 import logging.config
 from configobj import ConfigObj
 from kombu.connection import BrokerConnection
 from kombu.messaging import Exchange, Queue, Consumer, Producer
 
-# Loading the logging configuration file
-logging.config.fileConfig("../../DCPLogging.conf")
-# getting the Logger
-logger = logging.getLogger("DCPLogging")
+def get_absolute_path_from_relative_path(filename):
+    return os.path.abspath(os.path.join(os.path.dirname(__file__), filename))
 
-config = ConfigObj("amqp.conf")
+# Loading the logging configuration file
+logging.config.fileConfig(get_absolute_path_from_relative_path("../AMQPLogging.conf"))
+# getting the Logger
+logger = logging.getLogger("AMQPLogging")
+
+config = ConfigObj(get_absolute_path_from_relative_path("./amqp.conf"))
 AMQP_IP = config['AMQP_IP']
 AMQP_PORT = config['AMQP_PORT']
 AMQP_USER = config['AMQP_USER']
 AMQP_PASSWORD = config['AMQP_PASSWORD']
 AMQP_TRANSPORT = config['AMQP_TRANSPORT']
+
 
 class RabbitMQConnection:
     def connection(self):

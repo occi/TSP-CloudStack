@@ -30,28 +30,33 @@ from kombu.messaging import Exchange, Queue, Consumer, Producer
 import connection_amqp
 
 # Loading the logging configuration file
-logging.config.fileConfig("../../DCPLogging.conf")
+# logging.config.fileConfig("../../DCPLogging.conf")
 # getting the Logger
-logger = logging.getLogger("DCPLogging")
+logger = logging.getLogger("AMQPLogging")
 
-class fanout_exchange:
+class direct_exchange:
     def __init__(self, exchange_name):
         rabbitCon = connection_amqp.RabbitMQConnection()
         self.connection = rabbitCon.connection()
         self.channel = self.connection.channel()
 
-        self.media_exchange = Exchange(exchange_name, type="fanout", durable=True)
+        self.media_exchange = Exchange(exchange_name, type="direct", durable=True)
 
-    def producer(self):
-        producer = Producer(self.channel, exchange=self.media_exchange, serializer="json")
+    def producer(self, routingKey):
+        producer = Producer(self.channel, exchange=self.media_exchange, serializer="json", routing_key=routingKey)
         #producer.exchange.delete()
         producer.publish({"name": "/tmp/lolcat1.avi", "size": 1301013})
         pass
 
-    def consumer(self, queue_name):
-        video_queue = Queue(queue_name, exchange=self.media_exchange)
+    def consumer(self, queue_name, queue_key):
+        video_queue = Queue(queue_name, exchange=self.media_exchange, routing_key=queue_key, auto_delete=True)
 
         consumer = Consumer(self.channel, video_queue)
+
+        #To delete the queue
+        #bound_science_news = video_queue(self.channel)
+        #bound_science_news.delete()
+
         consumer.register_callback(self.process_media)
         consumer.consume()
         # Process messages on all channels

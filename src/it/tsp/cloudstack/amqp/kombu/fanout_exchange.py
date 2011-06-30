@@ -30,17 +30,17 @@ from kombu.messaging import Exchange, Queue, Consumer, Producer
 import connection_amqp
 
 # Loading the logging configuration file
-logging.config.fileConfig("../../DCPLogging.conf")
+# logging.config.fileConfig("../../DCPLogging.conf")
 # getting the Logger
-logger = logging.getLogger("DCPLogging")
+logger = logging.getLogger("AMQPLogging")
 
-class topic_exchange:
+class fanout_exchange:
     def __init__(self, exchange_name):
         rabbitCon = connection_amqp.RabbitMQConnection()
         self.connection = rabbitCon.connection()
         self.channel = self.connection.channel()
 
-        self.media_exchange = Exchange(exchange_name, type="topic", durable=True)
+        self.media_exchange = Exchange(exchange_name, type="fanout", durable=True)
 
     def producer(self):
         producer = Producer(self.channel, exchange=self.media_exchange, serializer="json")
