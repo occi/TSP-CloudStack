@@ -46,9 +46,10 @@ class threadVM(threading.Thread):
      this thread will make decision for the entire vm
     '''
 
-    def __init__(self,h):
+    def __init__(self,h,vms):
         threading.Thread.__init__(self)
         self.host=h
+        self.listVMs=vms
         pass
 
     def run(self):
@@ -105,7 +106,10 @@ class threadVM(threading.Thread):
                 compactList.append(d[0])
 
         # choosing action to optimize
-        choice=action()
+        # choosing vm to edit if removing or modifying
+        number=len(self.listVMs)
+        #choosing the last vm to edit
+        choice=action(self.listVMs[number-1])
         if testAdd:
             # addingVM
             choice.add_vm()
@@ -126,5 +130,3 @@ class threadVM(threading.Thread):
 
 
 
-t=threadVM('157.159.103.101,vadmin,sector7g')
-t.start()
