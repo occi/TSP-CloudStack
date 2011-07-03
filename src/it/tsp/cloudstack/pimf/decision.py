@@ -2,20 +2,18 @@
 
 # Copyright (C) 2011 Khaled Ben Bahri - Institut Telecom
 #
-# This file is part of CloNeDCP.
-#
-# CloNeDCP is free software: you can redistribute it and/or modify
+# This library is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Lesser General Public License as
 # published by the Free Software Foundation, either version 3 of
 # the License, or (at your option) any later version.
 #
-# CloNeDCP is distributed in the hope that it will be useful,
+# This library is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU Lesser General Public License for more details.
 #
 # You should have received a copy of the GNU Lesser General Public License
-# along with CloNeDCP.  If not, see <http://www.gnu.org/licenses/>.
+# along with this library.  If not, see <http://www.gnu.org/licenses/>.
 
 '''
 Created on Feb 25, 2011
@@ -31,7 +29,7 @@ from chaining import execution
 from extract_value import obj_extract
 import logging
 
-logging.basic(Configformat='%(asctime)s %(message)s',level=logging.DEBUG)
+logging.basicConfig(Configformat='%(asctime)s %(message)s',level=logging.INFO)
 
 class decision:
     '''
@@ -39,7 +37,7 @@ class decision:
     the decision will be either adding/removing if it will reach the prefixed thresholds
     or extending/compacting if we will reach only the consumption thresholds
     '''
-    def __init__(self,):
+    def __init__(self):
         pass
 
     def optimize(self,extracted,mxAdd,mnRem):
@@ -48,6 +46,7 @@ class decision:
             # adding new VM according to this indicator
             logging.info('Adding VM according to : %s ',extracted.cr)
             return 'add'
+
 
         elif extracted.value<mnRem:
             # Removing VM according to this indicator

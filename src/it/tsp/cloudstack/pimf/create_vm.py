@@ -16,7 +16,7 @@
 # along with this library.  If not, see <http://www.gnu.org/licenses/>.
 
 '''
-Created on Mai 25, 2011
+Created on Feb 25, 2011
 
 @author: Khaled Ben Bahri
 @contact: khaled.ben_bahri@it-sudparis.eu
@@ -24,30 +24,31 @@ Created on Mai 25, 2011
 @version: 0.1
 @license: LGPL - Lesser General Public License
 '''
+from run_command import RunCommand
+import commands
+class createVM:
+    '''
+    this class is dedicated to create a vm
+    and return its id,ip address, user and password
+    '''
+    id=None
+    ip=None
+    def __init__(self):
+        pass
 
-from extract_cr import Indicator
-import logging
+    def getID(self,rt):
+        deb=rt.find('<ID>')+4
+        end=rt.find('</ID>')
+        self.id=rt[deb:end]
 
-logging.basicConfig(Configformat='%(asctime)s %(message)s',level=logging.INFO)
-
-class fixed_thresholds:
-
-    def __init__(self,c):
-        self.mxPhysical=c.maxPhy
-        self.mxApp=c.maxApp
-        self.mnApp=c.minApp
-
-    def return_maxAdding(self):
-
-        # return the min prefixed thresholds
-        if self.mxPhysical<self.mxApp:
-            return self.mxPhysical
-        else:
-            return self.mxApp
-
-
-    def return_minRemoving(self):
-
-        # the min prefixed threshold is the prefixed threshold fixed by application
-        # because the min physical threshold is when we don't use any resource
-        return self.mnApp
+    def getIP(self,rt):
+        deb=rt.find('<IP>')+4
+        end=rt.find('</IP>')
+        self.ip=rt[deb:end]
+    
+    def create(self):
+        cmdCurl='curl -X POST -u onadmin:2169279e8caff5398eeeb55a9be126890243bdc4 http://157.159.249.20:4567/compute -T compute.xml'
+        rt=commands.getstatusoutput(cmdCurl)
+        self.getID(rt)
+        self.getIP(rt)
+        

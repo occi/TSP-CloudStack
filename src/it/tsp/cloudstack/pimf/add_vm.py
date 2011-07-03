@@ -1,3 +1,4 @@
+
 # -*- Mode: python; py-indent-offset: 4; indent-tabs-mode: nil; coding: utf-8; -*-
 
 # Copyright (C) 2011 Khaled Ben Bahri - Institut Telecom
@@ -16,7 +17,7 @@
 # along with this library.  If not, see <http://www.gnu.org/licenses/>.
 
 '''
-Created on Mai 25, 2011
+Created on Feb 25, 2011
 
 @author: Khaled Ben Bahri
 @contact: khaled.ben_bahri@it-sudparis.eu
@@ -25,29 +26,4 @@ Created on Mai 25, 2011
 @license: LGPL - Lesser General Public License
 '''
 
-from extract_cr import Indicator
-import logging
-
-logging.basicConfig(Configformat='%(asctime)s %(message)s',level=logging.INFO)
-
-class fixed_thresholds:
-
-    def __init__(self,c):
-        self.mxPhysical=c.maxPhy
-        self.mxApp=c.maxApp
-        self.mnApp=c.minApp
-
-    def return_maxAdding(self):
-
-        # return the min prefixed thresholds
-        if self.mxPhysical<self.mxApp:
-            return self.mxPhysical
-        else:
-            return self.mxApp
-
-
-    def return_minRemoving(self):
-
-        # the min prefixed threshold is the prefixed threshold fixed by application
-        # because the min physical threshold is when we don't use any resource
-        return self.mnApp
+  

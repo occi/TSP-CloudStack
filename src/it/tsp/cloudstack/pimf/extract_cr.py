@@ -2,20 +2,18 @@
 
 # Copyright (C) 2011 Khaled Ben Bahri - Institut Telecom
 #
-# This file is part of CloNeDCP.
-#
-# CloNeDCP is free software: you can redistribute it and/or modify
+# This library is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Lesser General Public License as
 # published by the Free Software Foundation, either version 3 of
 # the License, or (at your option) any later version.
 #
-# CloNeDCP is distributed in the hope that it will be useful,
+# This library is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU Lesser General Public License for more details.
 #
 # You should have received a copy of the GNU Lesser General Public License
-# along with CloNeDCP.  If not, see <http://www.gnu.org/licenses/>.
+# along with this library.  If not, see <http://www.gnu.org/licenses/>.
 
 '''
 Created on Feb 25, 2011
@@ -29,7 +27,7 @@ Created on Feb 25, 2011
 
 import logging
 
-logging.basic(Configformat='%(asctime)s %(message)s',level=logging.DEBUG)
+logging.basicConfig(Configformat='%(asctime)s %(message)s',level=logging.INFO)
 
 class Indicator:
     '''
@@ -78,6 +76,7 @@ class TransformXmlToCr:
             if crs.nodeType == crs.ELEMENT_NODE:
                 obj=Indicator()
                 try:
+
                     #extraction of value for each indicator
                     obj.name = self.getText(crs.getElementsByTagName("name")[0])
                     obj.maxPhy = self.getText(crs.getElementsByTagName("maxPhysicalThreshold")[0])
@@ -85,7 +84,7 @@ class TransformXmlToCr:
                     obj.minApp = self.getText(crs.getElementsByTagName("minApplicationThreshold")[0])
 
                 except:
-                    logging.error('ERROR IN USED TAGS')
+                    logging.error('ERROR IN USED TAGS.........')
 
                 self.__crList__.append(obj)
 

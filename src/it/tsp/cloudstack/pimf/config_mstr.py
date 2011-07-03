@@ -16,7 +16,7 @@
 # along with this library.  If not, see <http://www.gnu.org/licenses/>.
 
 '''
-Created on Mai 25, 2011
+Created on Feb 25, 2011
 
 @author: Khaled Ben Bahri
 @contact: khaled.ben_bahri@it-sudparis.eu
@@ -25,29 +25,24 @@ Created on Mai 25, 2011
 @license: LGPL - Lesser General Public License
 '''
 
-from extract_cr import Indicator
-import logging
+from run_command import RunCommand
 
-logging.basicConfig(Configformat='%(asctime)s %(message)s',level=logging.INFO)
+class configMstr:
+    def __init__(self):
+        pass
 
-class fixed_thresholds:
-
-    def __init__(self,c):
-        self.mxPhysical=c.maxPhy
-        self.mxApp=c.maxApp
-        self.mnApp=c.minApp
-
-    def return_maxAdding(self):
-
-        # return the min prefixed thresholds
-        if self.mxPhysical<self.mxApp:
-            return self.mxPhysical
-        else:
-            return self.mxApp
-
-
-    def return_minRemoving(self):
-
-        # the min prefixed threshold is the prefixed threshold fixed by application
-        # because the min physical threshold is when we don't use any resource
-        return self.mnApp
+    def config(self,ipList,masterIp,user,pwd):
+        cs=open('core.log', 'r')
+        csList=cs.readlines()
+        csList[6]=csList[6].replace('IP_ADRESS',masterIp)
+        csCh=''.join(csList)
+        print csCh
+        m=1
+        ip_slv='\n'.join(ipList)
+        hdp_home='/usr/local/hadoop-0.20.2'
+        hst=masterIp+','+user+','+pwd
+        slv=RunCommand()
+        slv.do_add_host(hst)
+        slv.do_connect()
+        rt=slv.do_run("echo '"+csCh+"'>"+hdp_home+"/conf/core-site.xml")
+        rt=slv.do_run("echo '"+ip_slv+"'>"+hdp_home+"/conf/slaves")

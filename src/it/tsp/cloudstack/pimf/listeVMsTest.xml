@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<listeVMs>
+	<vm>
+		<host>157.159.103.101</host>
+		<user>vadmin</user>
+		<password>sector7g</password>
+		<extract>yes</extract>
+	</vm>
+	<vm>
+		<host>157.159.103.52</host>
+		<user>vadmin</user>
+		<password>sector7g</password>
+		<extract>yes</extract>
+	</vm>
+</listeVMs>

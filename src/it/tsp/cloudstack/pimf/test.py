@@ -12,22 +12,40 @@ from run_command import RunCommand
 from extract_cmd import TransformXmlToCmd, Cmd
 from extractVM import TransformXmlToVM, VM
 from extract_value import obj_extract
+from extract_cr import Indicator
+from thread_exec import threadCR
 import logging
 
 
 #extracting list of vms that will be used to extract values
 vmObj = TransformXmlToVM()
-vmObj.readXml('/home/khaled/listeVMsTest.xml')
+vmObj.readXml('listeVMsTest.xml')
 vms = vmObj.getVM()
 v = "%s,%s,%s" % (vms[0].host, vms[0].user, vms[0].password)
 print 'VM:'
 print v
 
+cr=Indicator()
+cr.name='disk'
+cr.maxApp=100
+cr.maxPhy=150
+cr.minApp=0
+th=threadCR(v,cr)
+th.start()
+th.join()
+print 'Fin thread'
+print file('content.log').read()
 
 
+
+
+
+
+
+'''
 #extracting of command from xml file:
 cmdCl = TransformXmlToCmd()
-cmdCl.readXml('/home/khaled/cmdCrTest.xml')
+cmdCl.readXml('cmdCrTest.xml')
 
 #preapring list of indicator used
 listCr = []
@@ -58,7 +76,7 @@ print '.:fin test simple cmd:. \n .:debut test extract:.'
 
 #ex=obj_extract()
 #ex.extract(host,cmd[0],'disk')
-
+'''
 
 
 

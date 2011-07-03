@@ -2,20 +2,18 @@
 
 # Copyright (C) 2011 Khaled Ben Bahri - Institut Telecom
 #
-# This file is part of CloNeDCP.
-#
-# CloNeDCP is free software: you can redistribute it and/or modify
+# This library is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Lesser General Public License as
 # published by the Free Software Foundation, either version 3 of
 # the License, or (at your option) any later version.
 #
-# CloNeDCP is distributed in the hope that it will be useful,
+# This library is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU Lesser General Public License for more details.
 #
 # You should have received a copy of the GNU Lesser General Public License
-# along with CloNeDCP.  If not, see <http://www.gnu.org/licenses/>.
+# along with this library.  If not, see <http://www.gnu.org/licenses/>.
 
 '''
 Created on Feb 25, 2011
@@ -35,7 +33,7 @@ from treat_commandResult import treat_result
 from extract_cmd import Cmd
 import logging
 
-logging.basic(Configformat='%(asctime)s %(message)s',level=logging.DEBUG)
+logging.basicConfig(Configformat='%(asctime)s %(message)s',level=logging.INFO)
 
 class obj_cmp:
     '''
@@ -72,9 +70,9 @@ class obj_extract:
         # preparing connection to host
         exe=RunCommand()
         exe.do_add_host(host)
-        logging.debug('host added')
+        logging.info('host added')
         exe.do_connect()
-        logging.debug('connection established')
+        logging.info('connection established')
 
         result=treat_result(cr)
 
@@ -86,11 +84,11 @@ class obj_extract:
             #execution of command
 
             res=exe.do_run(cmde.cmd)
-            logging.debug('command executed')
+            logging.info('command executed')
 
             # treatment of the extracted value
             valeur=result.return_result(res)
-            logging.debug('result of command treated')
+            logging.info('result of command treated')
 
             #determning of the sum of values dedicated for extension
             sumExt = sumExt + valeur.value
@@ -126,7 +124,7 @@ class obj_extract:
         print 'seuilCmpt ',thresholdCmpt
         #closing connection to host
         exe.do_close()
-        logging.debug('connection to host closed')
+        logging.info('connection to host closed')
 
         # returning obj to be compared
         return to_return

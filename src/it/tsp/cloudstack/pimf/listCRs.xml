@@ -1,0 +1,8 @@
+<crList>
+	<cr>
+		<name>disk</name>
+        <maxPhysicalThreshold>100</maxPhysicalThreshold>
+        <maxApplicationThreshold>90</maxApplicationThreshold>
+        <minApplicationThreshold>1</minApplicationThreshold>
+	</cr>
+</crList>

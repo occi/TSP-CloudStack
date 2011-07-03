@@ -3,20 +3,18 @@
 
 # Copyright (C) 2011 Khaled Ben Bahri - Institut Telecom
 #
-# This file is part of CloNeDCP.
-#
-# CloNeDCP is free software: you can redistribute it and/or modify
+# This library is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Lesser General Public License as
 # published by the Free Software Foundation, either version 3 of
 # the License, or (at your option) any later version.
 #
-# CloNeDCP is distributed in the hope that it will be useful,
+# This library is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU Lesser General Public License for more details.
 #
 # You should have received a copy of the GNU Lesser General Public License
-# along with CloNeDCP.  If not, see <http://www.gnu.org/licenses/>.
+# along with this library.  If not, see <http://www.gnu.org/licenses/>.
 
 '''
 Created on Feb 25, 2011
@@ -31,7 +29,7 @@ Created on Feb 25, 2011
 
 import logging
 
-logging.basic(Configformat='%(asctime)s %(message)s',level=logging.DEBUG)
+logging.basicConfig(Configformat='%(asctime)s %(message)s',level=logging.INFO)
 
 class returned_values:
     '''
@@ -68,24 +66,34 @@ class treat_result:
 
     def treat_hdfs(self,rt):
         # this method will extract the value of the result of execution of command dedicated to the hdfs
+        val=returned_values()
+        ch=rt[4]
+        strt=ch.find(':')
+        end=ch.find('%',strt)
+        val.value=float(ch[strt+1:end])
+        val.complement=100-val.value
         logging.info('result treated for hdfs')
-        pass
+        return val
+
 
     def treat_cpu(self,rt):
         # this method will   treat the case of cpu
         logging.info('result treated for cpu')
         pass
 
+
     def treat_memory(self,rt):
         # this method is dedicated to treat the memory case
         logging.info('result treated for memory')
         pass
+
 
     def treat_bandwidth(self,rt):
         # this method is used to treat the result for bandwidth
         logging.info('result treated for bandwidth')
         pass
 
+    
     def return_result(self,rt):
         '''
         this method is used to choose a method of these above according to the indicator
