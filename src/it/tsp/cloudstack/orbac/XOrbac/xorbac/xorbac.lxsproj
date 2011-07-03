@@ -1,0 +1,9 @@
+﻿<?xml version="1.0"?>
+<!--Created by Liquid XML Data Binding Libraries (www.liquid-technologies.com) for Liquid Technologies Limited-->
+<XmlStudioProject xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" Version="9.1.1.3301" UseRelativePaths="false">
+	<Project Name="xorbac">
+		<SubGroup Name="Documents"/>
+		<SubGroup Name="Schemas"/>
+		<SubGroup Name="Transforms"/>
+	</Project>
+</XmlStudioProject>

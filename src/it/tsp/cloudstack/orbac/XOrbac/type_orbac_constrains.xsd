@@ -1,28 +1,56 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<!--Created with Liquid XML Studio Developer Edition (Trial) 9.0.11.3078 (http://www.liquid-technologies.com)-->
+<!--Created with Liquid XML Studio Developer Edition (Trial) 9.1.1.3301 (http://www.liquid-technologies.com)-->
 <xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
     <xs:include schemaLocation=".\type_orbac_entity.xsd" />
     <xs:include schemaLocation=".\type_orbac_relation.xsd" />
     <xs:include schemaLocation=".\type_orbac_policy.xsd" />
+    <xs:simpleType name="logical_operators">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="and" />
+            <xs:enumeration value="or" />
+            <xs:enumeration value="xor" />
+            <xs:enumeration value="nor" />
+        </xs:restriction>
+    </xs:simpleType>
     <xs:attributeGroup name="logical_operator">
-        <xs:attribute name="operation" type="xs:string" use="optional" />
+        <xs:attribute name="operator" type="logical_operators" use="optional" />
         <xs:attribute name="negation" type="xs:boolean" default="0" />
     </xs:attributeGroup>
-    <xs:group name="abstract_elements">
+    <xs:group name="elements">
         <xs:sequence>
-            <xs:element name="organization" minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="constraint" type="context_type" minOccurs="0" maxOccurs="unbounded" />
+            <xs:element name="permission" minOccurs="0" maxOccurs="unbounded">
                 <xs:complexType>
                     <xs:complexContent>
-                        <xs:extension base="organization_type">
+                        <xs:extension base="permission_type">
                             <xs:attributeGroup ref="logical_operator" />
                         </xs:extension>
                     </xs:complexContent>
                 </xs:complexType>
             </xs:element>
-            <xs:element name="context" minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="exceptions" type="hold_type" minOccurs="0" maxOccurs="unbounded" />
+            <xs:element name="subject" minOccurs="0" maxOccurs="unbounded">
                 <xs:complexType>
                     <xs:complexContent>
-                        <xs:extension base="context_type">
+                        <xs:extension base="subject_type">
+                            <xs:attributeGroup ref="logical_operator" />
+                        </xs:extension>
+                    </xs:complexContent>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="action" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                    <xs:complexContent>
+                        <xs:extension base="action_type">
+                            <xs:attributeGroup ref="logical_operator" />
+                        </xs:extension>
+                    </xs:complexContent>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="object" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                    <xs:complexContent>
+                        <xs:extension base="object_type">
                             <xs:attributeGroup ref="logical_operator" />
                         </xs:extension>
                     </xs:complexContent>
@@ -55,63 +83,19 @@
                     </xs:complexContent>
                 </xs:complexType>
             </xs:element>
-        </xs:sequence>
-    </xs:group>
-    <xs:group name="concrete_elements">
-        <xs:sequence>
-            <xs:element name="subject" minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="organization" minOccurs="0" maxOccurs="unbounded">
                 <xs:complexType>
                     <xs:complexContent>
-                        <xs:extension base="subject_type">
+                        <xs:extension base="organization_type">
                             <xs:attributeGroup ref="logical_operator" />
                         </xs:extension>
                     </xs:complexContent>
                 </xs:complexType>
             </xs:element>
-            <xs:element name="action" minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="context" minOccurs="0" maxOccurs="unbounded">
                 <xs:complexType>
                     <xs:complexContent>
-                        <xs:extension base="action_type">
-                            <xs:attributeGroup ref="logical_operator" />
-                        </xs:extension>
-                    </xs:complexContent>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="object" minOccurs="0" maxOccurs="unbounded">
-                <xs:complexType>
-                    <xs:complexContent>
-                        <xs:extension base="object_type">
-                            <xs:attributeGroup ref="logical_operator" />
-                        </xs:extension>
-                    </xs:complexContent>
-                </xs:complexType>
-            </xs:element>
-        </xs:sequence>
-    </xs:group>
-    <xs:group name="relevant_relations">
-        <xs:sequence>
-            <xs:element name="relevant_role" minOccurs="0" maxOccurs="unbounded">
-                <xs:complexType>
-                    <xs:complexContent>
-                        <xs:extension base="relevant_role_type">
-                            <xs:attributeGroup ref="logical_operator" />
-                        </xs:extension>
-                    </xs:complexContent>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="relevant_view" minOccurs="0" maxOccurs="unbounded">
-                <xs:complexType>
-                    <xs:complexContent>
-                        <xs:extension base="relevant_view_type">
-                            <xs:attributeGroup ref="logical_operator" />
-                        </xs:extension>
-                    </xs:complexContent>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="relevant_activity" minOccurs="0" maxOccurs="unbounded">
-                <xs:complexType>
-                    <xs:complexContent>
-                        <xs:extension base="relevant_activity_type">
+                        <xs:extension base="context_type">
                             <xs:attributeGroup ref="logical_operator" />
                         </xs:extension>
                     </xs:complexContent>
@@ -126,23 +110,28 @@
                     </xs:complexContent>
                 </xs:complexType>
             </xs:element>
-        </xs:sequence>
-    </xs:group>
-    <xs:group name="organizational_relations">
-        <xs:sequence>
-            <xs:element name="empower" minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="relevant_activity" minOccurs="0" maxOccurs="unbounded">
                 <xs:complexType>
                     <xs:complexContent>
-                        <xs:extension base="empower_type">
+                        <xs:extension base="relevant_activity_type">
                             <xs:attributeGroup ref="logical_operator" />
                         </xs:extension>
                     </xs:complexContent>
                 </xs:complexType>
             </xs:element>
-            <xs:element name="use" minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="relevant_view" minOccurs="0" maxOccurs="unbounded">
                 <xs:complexType>
                     <xs:complexContent>
-                        <xs:extension base="use_type">
+                        <xs:extension base="relevant_view_type">
+                            <xs:attributeGroup ref="logical_operator" />
+                        </xs:extension>
+                    </xs:complexContent>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="relevant_role" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                    <xs:complexContent>
+                        <xs:extension base="relevant_role_type">
                             <xs:attributeGroup ref="logical_operator" />
                         </xs:extension>
                     </xs:complexContent>
@@ -157,23 +146,19 @@
                     </xs:complexContent>
                 </xs:complexType>
             </xs:element>
-        </xs:sequence>
-    </xs:group>
-    <xs:group name="policies">
-        <xs:sequence>
-            <xs:element name="permission" minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="use" minOccurs="0" maxOccurs="unbounded">
                 <xs:complexType>
                     <xs:complexContent>
-                        <xs:extension base="permission_type">
+                        <xs:extension base="use_type">
                             <xs:attributeGroup ref="logical_operator" />
                         </xs:extension>
                     </xs:complexContent>
                 </xs:complexType>
             </xs:element>
-            <xs:element name="is_permited" minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="empower" minOccurs="0" maxOccurs="unbounded">
                 <xs:complexType>
                     <xs:complexContent>
-                        <xs:extension base="is_permited_type">
+                        <xs:extension base="empower_type">
                             <xs:attributeGroup ref="logical_operator" />
                         </xs:extension>
                     </xs:complexContent>
@@ -181,16 +166,9 @@
             </xs:element>
         </xs:sequence>
     </xs:group>
-    <xs:complexType name="constrain_type">
+    <xs:complexType name="constrain_elements_type" mixed="true">
         <xs:sequence>
-            <xs:element name="constrain_def" type="constrain_def_type" />
-            <xs:element name="constraint_rule" type="xs:string" minOccurs="0" />
-            <xs:group maxOccurs="unbounded" ref="policies" />
-            <xs:group maxOccurs="unbounded" ref="concrete_elements" />
-            <xs:group maxOccurs="unbounded" ref="abstract_elements" />
-            <xs:group maxOccurs="unbounded" ref="relevant_relations" />
-            <xs:group maxOccurs="unbounded" ref="organizational_relations" />
+            <xs:group maxOccurs="unbounded" ref="elements" />
         </xs:sequence>
     </xs:complexType>
-    <xs:element name="constrains" type="constrain_type" />
 </xs:schema>

@@ -11,6 +11,10 @@
                 <name>attribute 1</name>
                 <value>0</value>
             </atribute>
+            <atribute>
+                <name>attribute 2</name>
+                <value>1</value>
+			</atribute>
         </info>
         <mapping_info>
             <name>www.ORG1</name>
@@ -60,6 +64,5 @@
         <organization>
             <link type="simple" href="./organizations.xml#o1"></link>
 		</organization>
-    </organization_hierarchy>
-    
+    </organization_hierarchy>    
 </ORGANIZATIONS>

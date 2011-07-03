@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CONSTRAINS 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xsi:noNamespaceSchemaLocation="./db_orbac_constrains.xsd">
+    <constrain id="const1">
+        <info>
+            <name></name>
+		</info>
+        <constraint_rule> s1!=s2 </constraint_rule>
+        <constraint_elements>
+            <subject>
+                <link type="simple" href="./concrete_entities.xml#su2" />
+            </subject>
+            ^
+            <subject>
+                <link type="simple" href="./concrete_entities.xml#su1" />
+            </subject>
+            ^
+            <action>
+                <link type="simple" href="./concrete_entities.xml#ac1" />
+            </action>
+		</constraint_elements>
+	</constrain>
+    
+    <constrain id="const1">
+        <info>
+            <name></name>
+		</info>
+        <constraint_rule> ac1!=ac2 </constraint_rule>
+        <constraint_elements>
+            <action>
+                <link type="simple" href="./concrete_entities.xml#ac1" />
+            </action>
+            ^
+            <action>
+                <link type="simple" href="./concrete_entities.xml#ac2" />
+            </action>
+            ^
+            <object>
+                <link type="simple" href="./concrete_entities.xml#ob1" />
+			</object>
+		</constraint_elements>
+	</constrain>
+
+</CONSTRAINS>

@@ -1,7 +1,3 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--Created by Liquid XML Data Binding Libraries (www.liquid-technologies.com) for Liquid Technologies Limited-->
-<XmlStudioProjectOptions xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" Version="9.0.11.3078">
-	<OpenFile Uri="C:\#STAGE_final\TSP-CloudStack\src\it\tsp\cloudstack\orbac\XOrbac\db_orbac_roles.xsd"/>
-	<OpenFile Uri="C:\#STAGE_final\TSP-CloudStack\src\it\tsp\cloudstack\orbac\XOrbac\roles.xml"/>
-	<OpenFile Uri="C:\#STAGE_final\TSP-CloudStack\src\it\tsp\cloudstack\orbac\XOrbac\organizations.xml"/>
-</XmlStudioProjectOptions>
+<XmlStudioProjectOptions xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" Version="9.1.1.3301"/>
