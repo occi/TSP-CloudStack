@@ -24,24 +24,35 @@ Created on Feb 25, 2011
 @version: 0.1
 @license: LGPL - Lesser General Public License
 '''
+
 from run_command import RunCommand
 import commands
+
+import logging
+
+logging.basicConfig(Configformat='%(asctime)s %(message)s',level=logging.INFO)
+
 class createVM:
     '''
     this class is dedicated to create a vm
     and return its id,ip address, username and password
     '''
-    id=None
-    ip=None
+
     def __init__(self):
         pass
 
     def getID(self,rt):
+        '''
+        this method is dedicated to get th id of the created vm
+        '''
         deb=rt.find('<ID>')+4
         end=rt.find('</ID>')
         self.id=rt[deb:end]
 
     def getIP(self,rt):
+        '''
+        this method is dedicated to get the ip address of the created vm
+        '''
         deb=rt.find('<IP>')+4
         end=rt.find('</IP>')
         self.ip=rt[deb:end]
@@ -50,8 +61,18 @@ class createVM:
         '''
         this method is dedicated to create a vm
         '''
+        self.user='ubuntu'
+        self.password='intrs2m'
         cmdCurl='curl -X POST -u onadmin:2169279e8caff5398eeeb55a9be126890243bdc4 http://157.159.249.20:4567/compute -T compute.xml'
         rt=commands.getstatusoutput(cmdCurl)
+        logging.debug('creating vm launched through occi')
         self.getID(rt[1])
         self.getIP(rt[1])
+
+        # adding the new created vm to the list of saved vms
+        vm=self.id+','+self.ip+','+self.user+','+self.password+'\n'
+        logging.debug('adding the new vm to the list of created vm')
+        vms = open('vms.log', 'a')
+        vms.write(vm)
+        vms.close()
         
