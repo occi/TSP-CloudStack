@@ -1,0 +1,10 @@
+<COMPUTE>
+    <NAME>khaled</NAME>
+    <INSTANCE_TYPE>small</INSTANCE_TYPE>
+    <DISK>
+        <STORAGE href='54'/>
+    </DISK>
+    <NIC>
+        <NETWORK href='61'/>
+    </NIC>
+</COMPUTE>
