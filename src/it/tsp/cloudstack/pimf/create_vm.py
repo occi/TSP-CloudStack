@@ -29,7 +29,7 @@ import commands
 class createVM:
     '''
     this class is dedicated to create a vm
-    and return its id,ip address, user and password
+    and return its id,ip address, username and password
     '''
     id=None
     ip=None
@@ -47,8 +47,11 @@ class createVM:
         self.ip=rt[deb:end]
     
     def create(self):
+        '''
+        this method is dedicated to create a vm
+        '''
         cmdCurl='curl -X POST -u onadmin:2169279e8caff5398eeeb55a9be126890243bdc4 http://157.159.249.20:4567/compute -T compute.xml'
         rt=commands.getstatusoutput(cmdCurl)
-        self.getID(rt)
-        self.getIP(rt)
+        self.getID(rt[1])
+        self.getIP(rt[1])
         
