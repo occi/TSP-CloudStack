@@ -16,7 +16,7 @@
 # along with this library.  If not, see <http://www.gnu.org/licenses/>.
 
 """
-Created on Feb 25, 2011
+Created on Jun 15, 2011
 
 @author: Houssem Medhioub
 @contact: houssem.medhioub@it-sudparis.eu
@@ -24,4 +24,7 @@ Created on Feb 25, 2011
 @version: 0.1.1
 @license: LGPL - Lesser General Public License
 
+==================================
+OCNI version 0.3
+==================================
 """
